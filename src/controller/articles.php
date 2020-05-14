@@ -21,3 +21,17 @@ function displayArticles()
         require "view/articles.php";
     }
 }
+
+
+function getWines()
+{
+    require_once "model/modele_wines.php";
+    try {
+        $allWines = extractWines();
+        require 'view/shop.php';
+    } catch (Exception $e) {
+        $msgErreur = $e->getMessage();
+        require 'vueErreur.php';
+    }
+
+}

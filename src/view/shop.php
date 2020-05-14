@@ -27,6 +27,87 @@ $title = "Rent A Snow - Home";
                         </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div><?php
+                            if (isset($allwines)) {
+                                foreach ($allwines as $wines): ?>
+                                    <div class="span3" id="contact-info">
+
+                                        <h4><?= $wines["brand"] ?></h4>
+                                        <ul id="contact-info">
+                                            <li><img src="<?= $wines["photo"] ?>" alt=""></span>
+                                                <br/>
+                                            </li>
+                                            <li>
+                                                <span class="field"><?= $wines["model"] ?></span>
+                                                <br/>
+                                            </li>
+                                            <li>
+                                                <span class="field"><?= $wines["qtyAvailable"] ?></span>
+                                                <br/>
+                                            </li>
+                                            <li>
+                                                <span class="field"><?= $wines["brand"] ?></span>
+                                                <br/>
+                                            </li>
+                                        </ul>
+                                        <br>
+                                        <form method="post" action="index.php?action=wine">
+                                            <input type="hidden" name="id" value=<?= $wines["id"] ?>>
+                                            <button class="btn btn-large" type="submit"> Voir cet article</button>
+                                        </form>
+                                        <br>
+                                        <br>
+                                    </div>
+
+                                <?php endforeach;
+
+                            }
+                            ?>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="wine-actions">
 
                             <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
