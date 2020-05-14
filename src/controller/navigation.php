@@ -15,6 +15,26 @@ function home()
     require "view/home.php";
 }
 
+function about()
+{
+    require "view/about.php";
+}
+
+function wines()
+{
+    require "view/wines.php";
+}
+
+function shop()
+{
+    require "view/shop.php";
+}
+
+function contact()
+{
+    require "view/contact.php";
+}
+
 /**
  * @brief This function is designed to inform the user that the resource requested doesn't exist (i. e. if the user modify the url manually)
  */

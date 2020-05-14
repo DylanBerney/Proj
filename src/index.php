@@ -21,6 +21,23 @@ if (isset($_GET['action'])) {
         case 'home' :
             home();
             break;
+
+        case 'about' :
+            about();
+            break;
+
+        case 'wines' :
+            wines();
+            break;
+
+        case 'shop' :
+            shop();
+            break;
+
+        case 'contact' :
+            contact();
+            break;
+
         case 'login' :
             login($_POST);
             break;
