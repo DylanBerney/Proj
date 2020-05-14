@@ -25,7 +25,7 @@ function displayArticles()
 
 function getWines()
 {
-    require_once "model/modele_wines.php";
+    require_once "model/winesManager.php";
     try {
         $allWines = extractWines();
         require 'view/shop.php';

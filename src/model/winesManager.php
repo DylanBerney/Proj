@@ -12,7 +12,7 @@
  * @return array : containing all information about the articles. Array can be empty.
  * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
  */
-function getArticles()
+function extractWines()
 {
 
     $snowsQuery = 'SELECT code, brand, model, alchoholpercent, qtyAvailable, photo, active FROM wines';

@@ -15,9 +15,7 @@ require "controller/users.php";
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
-        case 'displayArticles' :
-            displayArticles();
-            break;
+
         case 'home' :
             home();
             break;
@@ -31,7 +29,7 @@ if (isset($_GET['action'])) {
             break;
 
         case 'shop' :
-            shop();
+            getWines();
             break;
 
         case 'contact' :

@@ -19,338 +19,47 @@ $title = "Rent A Snow - Home";
 
                 <div class="col-lg-4 mb-5 col-md-6">
 
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
+
+                    <div><?php
+                        if (isset($allWines)) {
+                            foreach ($allWines as $wines): ?>
+                                <div class="col-lg-4 mb-5 col-md-6">
+                                    <div class="wine_v_1 text-center pb-4">
+                                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img
+                                                    src="<?= $wines["photo"] ?>" alt="Image" class="img-fluid"></a>
+                                        <div>
+                                            <h3 class="heading mb-1"><a href="#"><?= $wines["brand"] ?></a></h3>
+                                            <h5 class="heading mb-2"><a href="#"><?= $wines["model"] ?></a></h5>
+                                            <h5 class="heading mb-3"><a href="#"><?= $wines["model"] ?></a></h5>
+                                            <span class="price">$629.00</span>
+                                        </div>
 
 
+                                        <div class="wine-actions">
 
 
+                                            <h3 class="heading-2"><a href="#"></a></h3>
+                                            <span class="price d-block"><del>$900.00</del> $629.00</span>
 
+                                            <div class="rating">
+                                                <span class="icon-star"></span>
+                                                <span class="icon-star"></span>
+                                                <span class="icon-star"></span>
+                                                <span class="icon-star"></span>
+                                                <span class="icon-star-o"></span>
+                                            </div>
 
-
-
-
-
-
-
-
-
-
-                        <div><?php
-                            if (isset($allwines)) {
-                                foreach ($allwines as $wines): ?>
-                                    <div class="span3" id="contact-info">
-
-                                        <h4><?= $wines["brand"] ?></h4>
-                                        <ul id="contact-info">
-                                            <li><img src="<?= $wines["photo"] ?>" alt=""></span>
-                                                <br/>
-                                            </li>
-                                            <li>
-                                                <span class="field"><?= $wines["model"] ?></span>
-                                                <br/>
-                                            </li>
-                                            <li>
-                                                <span class="field"><?= $wines["qtyAvailable"] ?></span>
-                                                <br/>
-                                            </li>
-                                            <li>
-                                                <span class="field"><?= $wines["brand"] ?></span>
-                                                <br/>
-                                            </li>
-                                        </ul>
-                                        <br>
-                                        <form method="post" action="index.php?action=wine">
-                                            <input type="hidden" name="id" value=<?= $wines["id"] ?>>
-                                            <button class="btn btn-large" type="submit"> Voir cet article</button>
-                                        </form>
-                                        <br>
-                                        <br>
+                                            <a href="cart.html" class="btn add"><span
+                                                        class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                                        </div>
                                     </div>
+                                </div>
 
-                                <?php endforeach;
-
-                            }
-                            ?>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block">$629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 mb-5 col-md-6">
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del> $629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
+                            <?php endforeach;
+                        }
+                        ?>
                     </div>
                 </div>
-
-                <div class="col-lg-4 mb-5 col-md-6">
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del> $629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 mb-5 col-md-6">
-
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block">$629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 mb-5 col-md-6">
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del> $629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mb-5 col-md-6">
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del> $629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 mb-5 col-md-6">
-
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block">$629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 mb-5 col-md-6">
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del> $629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mb-5 col-md-6">
-                    <div class="wine_v_1 text-center pb-4">
-                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
-                        <div>
-                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price">$629.00</span>
-                        </div>
-
-
-                        <div class="wine-actions">
-
-                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                            <span class="price d-block"><del>$900.00</del> $629.00</span>
-
-                            <div class="rating">
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star-o"></span>
-                            </div>
-
-                            <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
             </div>
         </div>
     </div>
