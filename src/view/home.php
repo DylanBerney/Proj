@@ -11,76 +11,54 @@ ob_start();
 $title = "Rent A Snow - Home";
 ?>
 
-    <div class="span12" id="divMain">
-        <h1>Nos activités</h1>
-
-        <p><strong>Rent A Snow</strong> est spécialisée dans la location de snows. Nous avons tout types de modèles :
-        <ul>
-            <li>des plus récents au plus anciens,
-            <li>pour débutants ou confirmés,
-            <li>pour de la piste ou du hors-piste
-        </ul>
-        La location peut se faire au jour, à la semaine, au mois ou à la saison.
-        </p>
-        <p>
-            Nous proposons aussi des cours privés ou en petits groupe (4 personnes maximum) pour tous les niveaux avec
-            des moniteurs certifiés par l'école suisse de snowboard au prix de 60.- /heure.
-        </p>
-
-        <br/>
-        <br/>
-
-        <div class="row-fluid">
-            <div class="span3">
-                <div class="box">
-                    <i class="icon-wrench"></i>
-                    <h4 class="title">Entretien</h4>
-                    <hr/>
-                    <p>
-                        Le matériel est toujours contrôlé avant d'être mis à disposition des clients. A chaque fois que
-                        vous louerez un snow, vous pouvez partir surfer tranquille.
-                    </p>
+    <div class="owl-carousel hero-slide owl-style">
+        <div class="intro-section container" style="background-image: url('images/hero_1.jpg');">
+            <div class="row justify-content-center text-center align-items-center">
+                <div class="col-md-8">
+                    <span class="sub-title">Royal Wine</span>
+                    <h1>Grape Wine</h1>
                 </div>
             </div>
+        </div>
 
-            <div class="span3">
-                <div class="box">
-                    <i class="icon-leaf"></i>
-                    <h4 class="title">Environnement</h4>
-                    <hr/>
-                    <p>
-                        Nous veillons à respecter l'environnement en utilisant au maximum du matériel recyclable et en
-                        prenant de consommer un minimum d'énergie lors de nos activités au magasin,
-                    </p>
-                </div>
-            </div>
-
-            <div class="span3">
-                <div class="box">
-                    <i class="icon-edit"></i>
-                    <h4 class="title">Contrat</h4>
-                    <hr/>
-                    <p>
-                        Un contrat sera signé à chaque location. D'autre part nous travaillons en étroite collaboration
-                        avec la Rega et garantissons des conditions de sauvetage optimales.
-                    </p>
-                </div>
-            </div>
-
-            <div class="span3">
-                <div class="box">
-                    <i class="icon-signal"></i>
-                    <h4 class="title">Signal</h4>
-                    <hr/>
-                    <p>
-                        Pour ceux qui aiment les sensations forte, nous louons du matériel de protection d'avalanches.
-                    </p>
+        <div class="intro-section container" style="background-image: url('images/hero_2.jpg');">
+            <div class="row justify-content-center text-center align-items-center">
+                <div class="col-md-8">
+                    <span class="sub-title">Welcome</span>
+                    <h1>Wines For Everyone</h1>
                 </div>
             </div>
         </div>
 
     </div>
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="owl-carousel owl-slide-3 owl-slide">
 
+                <blockquote class="testimony">
+                    <img src="images/person_1.jpg" alt="Image">
+                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
+                    <p class="small text-primary">&mdash; Collin Miller</p>
+                </blockquote>
+                <blockquote class="testimony">
+                    <img src="images/person_2.jpg" alt="Image">
+                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
+                    <p class="small text-primary">&mdash; Harley Perkins</p>
+                </blockquote>
+                <blockquote class="testimony">
+                    <img src="images/person_3.jpg" alt="Image">
+                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
+                    <p class="small text-primary">&mdash; Levi Morris</p>
+                </blockquote>
+                <blockquote class="testimony">
+                    <img src="images/person_1.jpg" alt="Image">
+                    <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
+                    <p class="small text-primary">&mdash; Allie Smith</p>
+                </blockquote>
+
+            </div>
+        </div>
+    </div>
 <?php
 $content = ob_get_clean();
 require "gabarit.php";

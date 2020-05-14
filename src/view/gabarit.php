@@ -1,274 +1,316 @@
-<?php
-/**
- * @file      gabarit.php
- * @brief     This view is designed to centralize all common graphical component like header and footer (will be call by all views)
- * @author    Created by Pascal.BENZONANA
- * @author    Updated by Nicolas.GLASSEY
- * @version   13-APR-2020
- */
+<!DOCTYPE html>
+<html lang="en">
 
-?>
-<!DOCTYPE HTML>
-<html>
 <head>
+    <title>Wines &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
-    <title><?= $title; ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Html5TemplatesDreamweaver.com">
-    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"> <!-- Remove this Robots Meta Tag, to allow indexing of site -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="view/content/scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="view/content/scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link href="view/content/scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet"
-          type="text/css"/>
-    <link href="view/content/scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet"
-          type="text/css"/>
-    <!--[if lt IE 8]>
-    <link href="view/content/scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen"
-          rel="stylesheet"
-          type="text/css"/>
-    <link href="view/content/scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen" rel="stylesheet"
-          type="text/css"/>
-    <![endif]-->
-    <link rel="stylesheet" href="view/content/scripts/fontawesome/css/font-awesome.min.css">
-    <!--[if IE 7]>
-    <link rel="stylesheet" href="view/content/scripts/fontawesome/css/font-awesome-ie7.min.css">
-    <![endif]-->
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link href="view/content/scripts/carousel/style.css" rel="stylesheet" type="text/css"/>
-    <link href="view/content/scripts/camera/css/camera.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-    <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
 
-    <link href="view/content/styles/custom.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+    <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+
 </head>
-<body id="pageBody">
 
-<div id="divBoxed" class="container">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-    <div class="transparent-bg"
-         style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
+<div class="site-wrap">
 
-    <div class="divPanel notop nobottom">
-        <div class="row-fluid">
-            <div class="span12">
-                <div id="divLogo" class="pull-left">
-                    <a href="index.php" id="divSiteTitle">Rent A Snow</a><br/>
-                    <a href="index.php" id="divTagLine">La glisse à moindre coût</a>
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <a href="index.html" class="site-logo">
+                        <img src="images/logo.png" alt="Image" class="img-fluid">
+                    </a>
                 </div>
-                <div id="divMenuRight" class="pull-right">
-                    <div class="navbar">
-                        <button type="button" class="btn btn-navbar-highlight btn-large btn-primary"
-                                data-toggle="collapse" data-target=".nav-collapse">
-                            NAVIGATION <span class="icon-chevron-down icon-white"></span>
-                        </button>
-                        <div class="nav-collapse collapse">
-                            <ul class="nav nav-pills ddmenu">
-                                <!-- Display the button which must be always (available for all type of users)-->
-                                <li><a href="index.php?action=home">Accueil</a></li>
-                                <li><a href="index.php?action=displayArticles">Snows</a></li>
-                                <!-- Display the button useful for login and register-->
-                                <?php if (!isset($_SESSION['userEmailAddress']) || (!isset($_GET['action'])) || ((@$_GET['action'] == "logout"))) : ?>
-                                    <li><a href="index.php?action=login">Login</a></li>
-                                    <li><a href="index.php?action=register" style="color:#FC05CB">S'inscrire</a></li>
-                                <?php else : ?>
-                                    <!-- Display the button useful for logout-->
-                                    <li><a href="index.php?action=logout">Se déconnecter</a></li>
-                                <?php endif; ?>
+                <a href="#" class="mx-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                            class="icon-menu h3"></span></a>
+            </div>
+        </div>
+
+
+
+
+        <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
+
+            <div class="container">
+                <div class="d-flex align-items-center">
+
+                    <div class="mx-auto">
+                        <nav class="site-navigation position-relative text-left" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
+                                <li class="active"><a href="index.html" class="nav-link text-left">Home</a></li>
+                                <li><a href="about.html" class="nav-link text-left">About</a></li>
+                                <li><a href="shop.html" class="nav-link text-left">Wines</a></li>
+                                <li><a href="shop.html" class="nav-link text-left">Shop</a></li>
+                                <li><a href="contact.html" class="nav-link text-left">Contact</a></li>
                             </ul>
-                            <!-- after login, we display the user name-->
-                            <?php if (isset($_SESSION['userEmailAddress'])) : ?>
-                                <h6>Vous êtes connecté : <?= $_SESSION['userEmailAddress']; ?></h6>
-                            <?php endif; ?>
+                        </nav>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="site-section mt-5">
+        <div class="container">
+
+            <div class="row mb-5">
+                <div class="col-12 section-title text-center mb-5">
+                    <h2 class="d-block">Our Products</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
+                    <p><a href="#">View All Products <span class="icon-long-arrow-right"></span></a></p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 mb-5 col-md-6">
+
+                    <div class="wine_v_1 text-center pb-4">
+                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
+                        <div>
+                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
+                            <span class="price">$629.00</span>
+                        </div>
+
+
+                        <div class="wine-actions">
+
+                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
+                            <span class="price d-block">$629.00</span>
+
+                            <div class="rating">
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star-o"></span>
+                            </div>
+
+                            <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 mb-5 col-md-6">
+                    <div class="wine_v_1 text-center pb-4">
+                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
+                        <div>
+                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
+                            <span class="price">$629.00</span>
+                        </div>
+
+
+                        <div class="wine-actions">
+
+                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
+                            <span class="price d-block"><del>$900.00</del> $629.00</span>
+
+                            <div class="rating">
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star-o"></span>
+                            </div>
+
+                            <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row-fluid">
-            <div class="span12">
-                <!-- ________ SLIDER_____________-->
-                <?php if ((@$_GET['action'] == "home") || (!isset($_GET['action']))) : ?>
-                    <div id="headerSeparator"></div>
-                    <div class="camera_full_width">
-                        <div id="camera_wrap">
-                            <div data-src="view/content/slider-images/5.jpg">
-                                <div class="camera_caption fadeFromBottom cap1">Les derniers modèles toujours à
-                                    disposition.
-                                </div>
-                            </div>
-                            <div data-src="view/content/slider-images/1.jpg">
-                                <div class="camera_caption fadeFromBottom cap2">Découvrez des paysages fabuleux avec des
-                                    sensations.
-                                </div>
-                            </div>
-                            <div data-src="view/content/slider-images/2.jpg"></div>
+                <div class="col-lg-4 mb-5 col-md-6">
+                    <div class="wine_v_1 text-center pb-4">
+                        <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
+                        <div>
+                            <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
+                            <span class="price">$629.00</span>
                         </div>
-                        <br style="clear:both"/>
-                        <div style="margin-bottom:40px"></div>
+
+
+                        <div class="wine-actions">
+
+                            <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
+                            <span class="price d-block"><del>$900.00</del> $629.00</span>
+
+                            <div class="rating">
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star"></span>
+                                <span class="icon-star-o"></span>
+                            </div>
+
+                            <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                        </div>
                     </div>
-                    <div id="headerSeparator2"></div>
-                    <!-- ________ SLIDER_____________-->
-                <?php endif; ?>
-            </div>
-        </div>
-
-        <div class="contentArea">
-
-            <div class="divPanel notop page-content">
-                <div class="row-fluid">
-
-                    <!--__________CONTENU__________-->
-
-                    <div class="span12" id="divMain">
-                        <?= $content; ?>
-                    </div>
-
-                    <!--________FIN CONTENU________-->
-
                 </div>
 
-                <div id="footerInnerSeparator"></div>
+
+
             </div>
         </div>
+    </div>
 
-        <div id="footerOuterSeparator"></div>
-
-        <div id="divFooter" class="footerArea">
-            <div class="divPanel">
-                <div class="row-fluid">
-                    <div class="span3" id="footerArea1">
-                        <h3>Notre magasin</h3>
-                        <p>Nous sommes une équipe de jeunes snowboardeurs qui souhaitons faire découvrir cette
-                            discipline à tous les publics.</p>
-                        <p>
-                            <a href="#" title="Terms of Use">Terms of Use</a><br/>
-                            <a href="#" title="Privacy Policy">Privacy Policy</a><br/>
-                            <a href="#" title="FAQ">FAQ</a><br/>
-                            <a href="#" title="Sitemap">Sitemap</a>
-                        </p>
-                    </div>
-
-                    <div class="span3" id="footerArea2">
-                        <h3>Dernière nouveautés</h3>
-                        <p>
-                            <a href="#" title="">Le Burton B221 est à disposition</a><br/>
-                            <span style="text-transform:none;">15/05/2019</span>
-                        </p>
-                        <p>
-                            <a href="#" title="">Les horaires ont été étendus</a><br/>
-                            <span style="text-transform:none;">02/01/2019</span>
-                        </p>
-                        <p>
-                            <a href="#" title="">Paul champion suisse !</a><br/>
-                            <span style="text-transform:none;">19/03/2019</span>
-                        </p>
-                        <p>
-                            <a href="#" title="">VIEW ALL POSTS</a>
-                        </p>
-                    </div>
-
-                    <div class="span3" id="footerArea3">
-                        <h3>Horaires de location</h3>
-                        <p>Les locations peuvent s'effectuer tous les jours de la semaine en haute saison de 07h à 19h
-                            et en basse saison, les jours ouvrables de 8h à 18h.<br>
-                            Vous pouvez aussi passer par le site. Pour le retrait et le dépot, vous devrez passer au
-                            guichet automatique à l'arrière du magasin</p>
-                    </div>
-
-                    <div class="span3" id="footerArea4">
-                        <h3>Contacts</h3>
-
-                        <ul id="contact-info">
-                            <li>
-                                <i class="general foundicon-phone icon"></i>
-                                <span class="field">Téléphone :</span>
-                                <br/>
-                                +41 27 890 12 34
-                            </li>
-                            <li>
-                                <i class="general foundicon-mail icon"></i>
-                                <span class="field">Email :</span>
-                                <br/>
-                                <a href="mailto:info@rentasnow.com" title="Email">info@rentasnow.com</a>
-                            </li>
-                            <li>
-                                <i class="general foundicon-home icon" style="margin-bottom:50px"></i>
-                                <span class="field">Addresse :</span>
-                                <br/>
-                                12 Rue de la Glisse<br/>
-                                2704 Sautons, Valais<br/>
-                                Suisse
-                            </li>
-                        </ul>
-                    </div>
-
+    <div class="hero-2" style="background-image: url('images/hero_2.jpg');">
+        <div class="container">
+            <div class="row justify-content-center text-center align-items-center">
+                <div class="col-md-8">
+                    <span class="sub-title">Welcome</span>
+                    <h2>Wines For Everyone</h2>
                 </div>
-                <br/><br/>
+            </div>
+        </div>
+    </div>
 
-                <div class="row-fluid">
-                    <div class="span12">
-                        <p class="copyright">Copyright © 2019 Rent A Snow. All Rights Reserved.</p>
-                        <p class="social_bookmarks">
-                            <a href="#"><i class="social foundicon-facebook"></i> Facebook</a>
-                            <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
-                            <a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
-                            <a href="#"><i class="social foundicon-rss"></i> Rss</a>
-                        </p>
+
+
+    <?= $content; ?>
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 section-title text-center mb-5">
+                    <h2 class="d-block">Wine's Blog</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
+                    <p><a href="#">View All Products <span class="icon-long-arrow-right"></span></a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0 col-md-6">
+                    <div class="post-entry-1">
+                        <a href="post-single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
+                        <h2><a href="blog-single.html">What You Need To Know About Premium Rosecco</a></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                        <div class="post-meta">
+                            <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0 col-md-6">
+                    <div class="post-entry-1">
+                        <a href="post-single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
+                        <h2><a href="blog-single.html">What You Need To Know About Premium Rosecco</a></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                        <div class="post-meta">
+                            <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0 col-md-6">
+                    <div class="post-entry-1">
+                        <a href="post-single.html"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
+                        <h2><a href="blog-single.html">What You Need To Know About Premium Rosecco</a></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                        <div class="post-meta">
+                            <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <br/><br/><br/>
-
-    <script src="view/content/scripts/jquery.min.js" type="text/javascript"></script>
-    <script src="view/content/scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="view/content/scripts/default.js" type="text/javascript"></script>
 
 
-    <script src="view/content/scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
-    <script type="text/javascript">$('#list_photos').carouFredSel({
-            responsive: true,
-            width: '100%',
-            scroll: 2,
-            items: {width: 320, visible: {min: 2, max: 6}}
-        });</script>
-    <script src="view/content/scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
-    <script src="view/content/scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
+    <div class="footer">
+        <div class="container">
 
-    <script type="text/javascript">function startCamera() {
-            $('#camera_wrap').camera({
-                fx: 'scrollLeft',
-                time: 2000,
-                loader: 'none',
-                playPause: false,
-                navigation: true,
-                height: '35%',
-                pagination: true
-            });
-        }
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="social-icons">
+                        <a href="#"><span class="icon-facebook"></span></a>
+                        <a href="#"><span class="icon-twitter"></span></a>
+                        <a href="#"><span class="icon-youtube"></span></a>
+                        <a href="#"><span class="icon-instagram"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyright">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
 
-        $(function () {
-            startCamera()
-        });</script>
 
-    <!-- scripts added to standard template-->
-    <script src="view/content/scripts/custo/userScript.js"></script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- .site-wrap -->
+
+
+<!-- loader -->
+<div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/jquery.mb.YTPlayer.min.js"></script>
+
+
+
+
+<script src="js/main.js"></script>
 
 </body>
+
 </html>
