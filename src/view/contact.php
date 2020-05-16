@@ -13,6 +13,7 @@ $title = "Rent A Snow - Home";
     <br>
     <br>
 
+
 <?php
 $content = ob_get_clean();
 require "gabarit.php";

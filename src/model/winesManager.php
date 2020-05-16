@@ -15,7 +15,7 @@
 function extractWines()
 {
 
-    $snowsQuery = 'SELECT code, brand, model, alchoholpercent, qtyAvailable, photo, active FROM wines';
+    $snowsQuery = 'SELECT code, brand, model, alchoholpercent, qtyAvailable, description, oldPrice, price, photo, active, rating FROM wines';
 
     require_once 'model/dbConnector.php';
 

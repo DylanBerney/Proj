@@ -69,7 +69,7 @@ function openDBConnexion()
     try {
         $tempDbConnexion = new PDO($dsn, $userName, $userPwd);
     } catch (PDOException $exception) {
-        throw new ModelDataBaseException();
+        throw new ModelDataBaseException('DataBase Connexion Problem !');
     }
     return $tempDbConnexion;
 }

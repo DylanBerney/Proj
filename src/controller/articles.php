@@ -30,7 +30,7 @@ function getWines()
         $allWines = extractWines();
         require 'view/shop.php';
     } catch (Exception $e) {
-        $msgErreur = $e->getMessage();
+        $msgErreur = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require 'vueErreur.php';
     }
 
