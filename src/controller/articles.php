@@ -31,7 +31,24 @@ function getWines()
         require 'view/shop.php';
     } catch (ModelDataBaseException  $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
-        require 'vueErreur.php';
+        require "vueErreur.php";
     }
 
 }
+
+
+function anArticle($details)
+{
+
+    require_once "model/winesManager.php";
+    try {
+        $aWine = extractAWine($details);
+        require 'view/wine.php';
+    } catch (ModelDataBaseException  $ex) {
+        $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
+
+        require "vueErreur.php";
+    }
+
+}
+

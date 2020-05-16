@@ -2,7 +2,14 @@
 
 <?php ob_start() ?>
     <br><br><br><br><br>
-    <p align="center">Une erreur est survenue : <?= $msgErreurForUsers ?></p>
+    <h4><p align="center">Une erreur est survenue : <?= $msgErreurForUsers ?></p></h4>
+    <br><br><br>
+    <p align="center">Signalez le au support !
+        <br>
+
+        <a href="index.php?action=contact">Contact</a>
+    </p>
+
 
 <?php
 //Something to write to txt log

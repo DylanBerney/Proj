@@ -15,14 +15,17 @@
 function extractWines()
 {
 
+    $snowsQuery = 'SELECT code, brand, model, alchoholpercent, qtyAvailable, description, oldPrice, price, photo, active, rating FROM wines';
+    require_once 'model/dbConnector.php';
 
-    try {
-        $snowsQuery = 'SELECT code, brand, model, alchoholpercent, qtyAvailable, description, oldPrice, price, photo, active, rating FROM wines';
-    } catch (Exception $SelectException) {
+    return executeQuerySelect($snowsQuery);
+}
 
-        throw new ModelDataBaseException('Msg pour devs : Un problème est surrvenu la preparation de la vue dans la BD!');
-    }
 
+function extractAWine($id)
+{
+
+    $snowsQuery = "SELECT code, brand, model, alchoholpercent, qtyAvailable, description, oldPrice, price, photo, active, rating FROM wines WHERE code ='$id'";
     require_once 'model/dbConnector.php';
 
     return executeQuerySelect($snowsQuery);

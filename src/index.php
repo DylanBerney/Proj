@@ -28,6 +28,10 @@ if (isset($_GET['action'])) {
             wines();
             break;
 
+        case 'anArticle' :
+            anArticle($_GET['id']);
+            break;
+
         case 'shop' :
             getWines();
             break;
