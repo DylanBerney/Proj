@@ -20,9 +20,14 @@ function executeQuerySelect($query)
 
     $dbConnexion = openDBConnexion();//open database connexion
     if ($dbConnexion != null) {
-        $statement = $dbConnexion->prepare($query);//prepare query
-        $statement->execute();//execute query
-        $queryResult = $statement->fetchAll();//prepare result for client
+
+            $statement = $dbConnexion->prepare($query);//prepare query
+            $statement->execute();//execute query
+            $queryResult = $statement->fetchAll();//prepare result for client
+            if ($queryResult== null){
+                throw new ModelDataBaseException('Msg pour devs : Un problème est surrvenu la preparation de la vue dans la BD!');
+            }
+
     }
     $dbConnexion = null;//close database connexion
     return $queryResult;
@@ -40,6 +45,7 @@ function executeQueryInsert($query)
 
     $dbConnexion = openDBConnexion();//open database connexion
     if ($dbConnexion != null) {
+
         $statement = $dbConnexion->prepare($query);//prepare query
         $queryResult = $statement->execute();//execute query
     }
@@ -69,7 +75,7 @@ function openDBConnexion()
     try {
         $tempDbConnexion = new PDO($dsn, $userName, $userPwd);
     } catch (PDOException $exception) {
-        throw new ModelDataBaseException('DataBase Connexion Problem !');
+        throw new ModelDataBaseException('Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !');
     }
     return $tempDbConnexion;
 }

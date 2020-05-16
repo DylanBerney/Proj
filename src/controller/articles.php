@@ -29,8 +29,8 @@ function getWines()
     try {
         $allWines = extractWines();
         require 'view/shop.php';
-    } catch (Exception $e) {
-        $msgErreur = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
+    } catch (ModelDataBaseException  $ex) {
+        $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require 'vueErreur.php';
     }
 

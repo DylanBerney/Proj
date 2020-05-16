@@ -1,17 +1,74 @@
-User: ::1 - May 16, 2020, 1:57 pm
-Attempt: Failed
-User: DataBase Connexion Problem !
+User: ::1 -
+Exception Message date: May 16, 2020, 2:20 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexin a la base de donnée !
 -------------------------
-User: ::1 - May 16, 2020, 1:58 pm
-Attempt: Failed
-User: DataBase Connexion Problem !
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:20 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexin a la base de donnée !
 -------------------------
-User: ::1 - May 16, 2020, 1:59 pm
-User: DataBase Connexion Problem !
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:20 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexin a la base de donnée !
 -------------------------
-User: ::1 - May 16, 2020, 2:02 pm
-User: DataBase Connexion Problem !
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:26 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
 -------------------------
-User: ::1 - May 16, 2020, 2:06 pm
-User: DataBase Connexion Problem !
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:26 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:27 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:27 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:32 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:32 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
+Exception Message line: 72
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:34 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
+Exception Message line: 72
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:35 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
+Exception Message line: 72
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:43 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
+Exception Message line: 72
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 4:44 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
+Exception Message line: 72
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 5:01 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu la preparation de la vue dans la BD!
+Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
+Exception Message line: 28
+-------------------------
+User: ::1 - 
+Exception Message date: May 16, 2020, 5:01 pm
+Exception Message Content: Msg pour devs : Un problème est surrvenu la preparation de la vue dans la BD!
+Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
+Exception Message line: 28
 -------------------------
