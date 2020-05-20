@@ -11,7 +11,15 @@ $title = "Rent A Snow - Home";
             <div class="row mb-5">
                 <div class="col-12 section-title text-center mb-5">
                     <h2 class="d-block">Our Products</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
+                    <?php
+                    if (isset($msgErreurForUsers)) {
+                        ?>
+                        <h5><a align="center" style="color:red"><?= $msgErreurForUsers; ?> </a></h5>
+                        <?php
+                    } else { ?>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
+                    <?php } ?>
+
                 </div>
             </div>
 
@@ -20,9 +28,7 @@ $title = "Rent A Snow - Home";
 
                 <?php
                 if (isset($allWines)) {
-                    foreach ($allWines as $wines): ?>
-
-
+                    foreach ($allWines as $wines) { ?>
                         <div class="col-lg-4 mb-5 col-md-6">
                             <div class="wine_v_1 text-center pb-4">
                                 <a href="shop-single.html" class="thumbnail d-block mb-4"><img
@@ -30,8 +36,9 @@ $title = "Rent A Snow - Home";
                                 <div>
                                     <h3 class="heading mb-1"><a href="#"><?= $wines["brand"] ?></a></h3>
                                     <h5 class="heading mb-2"><a href="#"><?= $wines["model"] ?></a></h5>
-                                    <h6 class="heading mb-6"><a href="#">Poucentage d'alcool: <?= $wines["alchoholpercent"]?> %</a></h6>
-                                    <span class="price">$<?=$wines["price"]?></span>
+                                    <h6 class="heading mb-6"><a href="#">Poucentage
+                                            d'alcool: <?= $wines["alchoholpercent"] ?> %</a></h6>
+                                    <span class="price">$<?= $wines["price"] ?></span>
                                 </div>
 
 
@@ -39,7 +46,7 @@ $title = "Rent A Snow - Home";
 
 
                                     <h3 class="heading-2"><a href="#"></a></h3>
-                                    <span class="price d-block"><del>$<?=$wines["oldPrice"]?></del> $<?=$wines["price"]?></span>
+                                    <span class="price d-block"><del>$<?= $wines["oldPrice"] ?></del> $<?= $wines["price"] ?></span>
 
                                     <div class="rating">
                                         <?php
@@ -114,11 +121,14 @@ $title = "Rent A Snow - Home";
 
                                     </div>
 
-                                    <a href="index.php?action=anArticle&id=<?=$wines['code']?>" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                                    <a href="index.php?action=anArticle&id=<?= $wines['code'] ?>"
+                                       class="btn add"><span
+                                                class="icon-shopping-bag mr-3"></span> Add to Cart</a>
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach;
+                    <?php }
+
                 }
                 ?>
             </div>

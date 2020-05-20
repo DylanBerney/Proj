@@ -86,4 +86,5 @@ function openDBConnexion()
  */
 class ModelDataBaseException extends Exception
 {
+
 }

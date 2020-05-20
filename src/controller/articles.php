@@ -28,10 +28,14 @@ function getWines()
     require_once "model/winesManager.php";
     try {
         $allWines = extractWines();
-        require 'view/shop.php';
+      //  require 'view/shop.php';
     } catch (ModelDataBaseException  $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
-        require "vueErreur.php";
+      require 'model/logError.php';
+      logError($msgErreurForUsers,$ex);
+        //  require "vueErreur.php";
+    } finally {
+        require 'view/shop.php';
     }
 
 }
@@ -46,7 +50,6 @@ function anArticle($details)
         require 'view/wine.php';
     } catch (ModelDataBaseException  $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
-
         require "vueErreur.php";
     }
 
