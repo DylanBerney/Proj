@@ -68,7 +68,7 @@ CREATE TABLE `wines` (
 --
 
 INSERT INTO `wines` (`id`, `code`, `brand`, `model`, `alchoholpercent`, `qtyAvailable`, `description`, `dailyPrice`, `photo`, `active`, `winecolor`) VALUES
-(1, 'A001', 'Notre Vin', 'Rouge', 15, 22, '- Aimable 	Agréable à boire.\r\n- Aimable 	Agréable à boire.\r\n- Bourru 	Vin à peine tiré du tonneau qui doit être bu jeune.\r\n- Canaille 	Jeune, désaltérant et frais (primeur).\r\n', 29, 'view/content/images/wine_1.png', 1, NULL),
+(1, 'A001', 'Notre Vin', 'Rouge', 20, 22, '- Aimable 	Agréable à boire.\r\n- Aimable 	Agréable à boire.\r\n- Bourru 	Vin à peine tiré du tonneau qui doit être bu jeune.\r\n- Canaille 	Jeune, désaltérant et frais (primeur).\r\n', 29, 'view/content/images/wine_1.png', 1, NULL),
 (2, 'A002', 'Notre Vin', 'Blanc', 14, 2, '- Frais 	Jeune et léger qui donne en bouche une sensation de fraicheur.\r\n- Franc 	Qui n\'a pas de faux goûts, mais ceux de son raisin et de son terroir.\r\n- Friand 	Agréable, désaltérant (primeur).', 45, 'view/content/images/wine_2.png', 1, NULL),
 (3, 'A003', 'Notre Vin', 'Rosé', 13, 6, '- Léger 	Peu alcoolisé, discret.\r\n- Moelleux 	A la douceur velouté, qui se situe dans les vins blans entre le sec et le liquoreux.\r\n- Nerveux 	Ferme, qui fouette.', 25, 'view/content/images/wine_3.png', 0, NULL),
 (4, 'A004', 'Notre Vin', 'Morgan', 15, 2, '- Noble 	De supériorité durable et indiscutable.\r\n- Oncteux 	Blanc liquoreux, fluide.\r\n- Puissant 	Très corsé, musclé.\r\n- Racé 	Typique de son terroir.\r\n- Souple 	Qui glisse harmonieusement.', 29, 'view/content/images/wine_4.png', 1, NULL);
