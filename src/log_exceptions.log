@@ -377,3 +377,10 @@ Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la 
 Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
 Exception Message line: 78
 -------------------------
+User: ::1 - 
+Exception Message date: May 26, 2020, 9:34 pm
+Exception Message Content displayed at user: Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+Exception Message file : C:\Users\louc\Documents\Dépot_GitKraken\Proj_Wine\Proj\src\model\dbConnector.php
+Exception Message line: 78
+-------------------------
