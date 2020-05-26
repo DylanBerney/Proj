@@ -50,7 +50,7 @@ CREATE TABLE `wines` (
 --
 
 INSERT INTO `wines` (`id`, `code`, `brand`, `model`, `alchoholpercent`, `qtyAvailable`, `description`, `oldPrice`, `price`, `photo`, `active`, `winecolor`, `rating`) VALUES
-(1, 'A001', 'Notre Vin', 'Chateau-la-Fuite', 15, 22, '- Aimable 	Agréable à boire.\r\n- Aimable 	Agréable à boire.\r\n- Bourru 	Vin à peine tiré du tonneau qui doit être bu jeune.\r\n- Canaille 	Jeune, désaltérant et frais (primeur).\r\n', 350, 290, 'view/content/images/products/wine_1.png', 1, 'Rouge', 3),
+(1, 'A001', 'Notre Vin', 'Chateau-la-Fuite', 20, 22, '- Aimable 	Agréable à boire.\r\n- Aimable 	Agréable à boire.\r\n- Bourru 	Vin à peine tiré du tonneau qui doit être bu jeune.\r\n- Canaille 	Jeune, désaltérant et frais (primeur).\r\n', 350, 290, 'view/content/images/products/wine_1.png', 1, 'Rouge', 3),
 (2, 'A002', 'Notre Vin', 'Sauvignion', 14, 2, '- Frais 	Jeune et léger qui donne en bouche une sensation de fraicheur.\r\n- Franc 	Qui n\'a pas de faux goûts, mais ceux de son raisin et de son terroir.\r\n- Friand 	Agréable, désaltérant (primeur).', 700, 550, 'view/content/images/products/wine_2.png', 1, 'Blanc', 4),
 (3, 'A003', 'Notre Vin', 'St-Valentin', 13, 6, '- Léger 	Peu alcoolisé, discret.\r\n- Moelleux 	A la douceur velouté, qui se situe dans les vins blans entre le sec et le liquoreux.\r\n- Nerveux 	Ferme, qui fouette.', 500, 400, 'view/content/images/products/wine_3.png', 0, 'Rosé', 4),
 (4, 'A004', 'Notre Vin', 'Morgan', 15, 2, '- Noble 	De supériorité durable et indiscutable.\r\n- Oncteux 	Blanc liquoreux, fluide.\r\n- Puissant 	Très corsé, musclé.\r\n- Racé 	Typique de son terroir.\r\n- Souple 	Qui glisse harmonieusement.', 800, 600, 'view/content/images/products/wine_4.png', 1, 'Rouge', 5);
