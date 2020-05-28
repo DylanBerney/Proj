@@ -58,7 +58,16 @@ function anArticle($details)
 function addPanier()
 {
     $id = $_POST["id"];
-    $qty = $_POST["qtySelect"];
+
+    
+    if (isset($_POST["qtySelect"]))
+    {
+        $qty = $_POST["qtySelect"];
+    }
+    else{
+        $qty=1;
+    }
+
 
 
     require_once "model/winesManager.php";
