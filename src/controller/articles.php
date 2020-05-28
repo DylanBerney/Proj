@@ -55,3 +55,96 @@ function anArticle($details)
 
 }
 
+function addPanier()
+{
+    $id = $_POST["id"];
+    $qty = $_POST["qtySelect"];
+
+
+    require_once "model/winesManager.php";
+    try {
+        $aWine = extractAWine($id);
+
+        $myIndex = 0;
+        if (isset($_SESSION['wine'])) {
+            foreach ($_SESSION['wine'] as $wesh) {
+                $myIndex++;
+            }
+        }
+
+
+
+        $_SESSION['wine'][$myIndex]['qty'] = $qty;
+        $_SESSION['wine'][$myIndex]['totalQty'] = $aWine[0]["qtyAvailable"];
+
+        $_SESSION['wine'][$myIndex]['id'] = $aWine[0]["code"];
+        $_SESSION['wine'][$myIndex]['marque'] = $aWine[0]["brand"];
+
+        $_SESSION['wine'][$myIndex]['modele'] = $aWine[0]["model"];
+      //  $_SESSION['wine'][$myIndex]['taille'] = $aWine[0]["snowLength"];
+
+        $_SESSION['wine'][$myIndex]['photo'] = $aWine[0]["photo"];
+
+
+        $marque = $_SESSION['wine'][$myIndex]['marque'];
+        $modele = $_SESSION['wine'][$myIndex]['modele'];
+     //   $taille = $_SESSION['wine'][$myIndex]['taille'];
+        $selectQty = $_SESSION['wine'][$myIndex]['marque'];
+        $photo = $_SESSION['wine'][$myIndex]['photo'];
+        $myIndex = 0;
+
+        $_SESSION['success'] = array(
+            'marque' => $marque,
+            'modele' => $modele,
+            //'taille' => $taille,
+            'qtySel' => $selectQty,
+            'success' => 'Success'
+        );
+        /*
+                $_SESSION['success']['marque'] = $marque;
+                $_SESSION['success']['modele'] = $modele;
+                $_SESSION['success']['taille'] = $taille;
+                $_SESSION['success']['qtySel'] = $selectQty;
+                $_SESSION['success']['success'] = 'Success';
+        */
+        // require 'view/snow.php';
+
+
+     //   getWines();
+        require 'view/panier.php';
+    } catch (Exception $e) {
+        $msgErreur = $e->getMessage();
+        require 'vueErreur.php';
+    }
+
+
+}
+
+
+function delPanier()
+{
+    // session_destroy();
+
+    $_GET['action'] = "home";
+
+    unset($_SESSION['snow']);
+    unset($_SESSION["success"]);
+    require 'view/home.php';
+}
+
+function command()
+{
+    /*    $id = $_POST["id"];
+        $qty = $_POST["qtySelect"];*/
+
+    require_once "model/modele_snows.php";
+    try {
+        $aSnow = updateSnow();
+        require 'view/snow.php';
+    } catch (Exception $e) {
+        $msgErreur = $e->getMessage();
+        require 'vueErreur.php';
+    }
+
+}
+

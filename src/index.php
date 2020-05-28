@@ -36,6 +36,24 @@ if (isset($_GET['action'])) {
             getWines();
             break;
 
+
+        case 'addPanier' :
+            addPanier();
+            break;
+
+        case 'goPanier' :
+            goPanier();
+            break;
+
+        case 'delPanier' :
+            delPanier();
+            break;
+
+        case 'command' :
+            command();
+            break;
+
+
         case 'contact' :
             contact();
             break;

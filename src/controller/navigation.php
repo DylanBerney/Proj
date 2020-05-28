@@ -42,3 +42,8 @@ function lost()
 {
     require "view/lost.php";
 }
+
+function goPanier()
+{
+    require 'view/panier.php';
+}

@@ -87,6 +87,9 @@
                                 <li class="active"<?php if (@$_GET['action'] == 'contact'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=contact">Contact</a></li>
 
+                                <li class="active"<?php if (@$_GET['action'] == 'panier'){ ?>class="active" <?php } ?>>
+                                    <a href="index.php?action=goPanier">Mon Panier</a>
+
 
                             </ul>
                         </nav>
