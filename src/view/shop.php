@@ -31,7 +31,8 @@ $title = "Rent A Snow - Home";
                     foreach ($allWines as $wines) { ?>
                         <div class="col-lg-4 mb-5 col-md-6">
                             <div class="wine_v_1 text-center pb-4">
-                                <a href="shop-single.html" class="thumbnail d-block mb-4"><img
+                                <a href=index.php?action=anArticle&id=<?= $wines['code'] ?>
+                                   class="btn add"" class="thumbnail d-block mb-4"><img
                                             src="<?= $wines["photo"] ?>" alt="Image" class="img-fluid"></a>
                                 <div>
                                     <h3 class="heading mb-1"><a href="#"><?= $wines["brand"] ?></a></h3>
@@ -120,10 +121,14 @@ $title = "Rent A Snow - Home";
                                         ?>
 
                                     </div>
+                                    <form method="post" action="index.php?action=addPanier">
+                                    <input type="hidden" name="id" value="<?= $wines["code"] ?>">
 
-                                    <a href="index.php?action=anArticle&id=<?= $wines['code'] ?>"
+
+                                    <button type="submit" href=""
                                        class="btn add"><span
-                                                class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                                                class="icon-shopping-bag mr-3"></span> Add to Cart</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

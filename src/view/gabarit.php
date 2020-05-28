@@ -78,18 +78,14 @@
                                 <li class="active"<?php if (@$_GET['action'] == 'about'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=about">About</a></li>
 
-                                <li class="active"<?php if (@$_GET['action'] == 'wines'){ ?>class="active" <?php } ?>>
-                                    <a href="index.php?action=wines">Wines</a></li>
-
                                 <li class="active"<?php if (@$_GET['action'] == 'shop'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=shop">Shop</a></li>
 
                                 <li class="active"<?php if (@$_GET['action'] == 'contact'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=contact">Contact</a></li>
 
-                                <li class="active"<?php if (@$_GET['action'] == 'panier'){ ?>class="active" <?php } ?>>
+                                <li <?php if (@$_GET['action'] == 'panier'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=goPanier">Mon Panier</a>
-
 
                             </ul>
                         </nav>

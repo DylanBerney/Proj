@@ -28,11 +28,11 @@ function getWines()
     require_once "model/winesManager.php";
     try {
         $allWines = extractWines();
-      //  require 'view/shop.php';
+        //  require 'view/shop.php';
     } catch (ModelDataBaseException  $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
-      require 'model/logError.php';
-      logError($msgErreurForUsers,$ex);
+        require 'model/logError.php';
+        logError($msgErreurForUsers, $ex);
         //  require "vueErreur.php";
     } finally {
         require 'view/shop.php';
@@ -58,7 +58,16 @@ function anArticle($details)
 function addPanier()
 {
     $id = $_POST["id"];
-    $qty = $_POST["qtySelect"];
+
+    
+    if (isset($_POST["qtySelect"]))
+    {
+        $qty = $_POST["qtySelect"];
+    }
+    else{
+        $qty=1;
+    }
+
 
 
     require_once "model/winesManager.php";
@@ -73,7 +82,6 @@ function addPanier()
         }
 
 
-
         $_SESSION['wine'][$myIndex]['qty'] = $qty;
         $_SESSION['wine'][$myIndex]['totalQty'] = $aWine[0]["qtyAvailable"];
 
@@ -81,14 +89,15 @@ function addPanier()
         $_SESSION['wine'][$myIndex]['marque'] = $aWine[0]["brand"];
 
         $_SESSION['wine'][$myIndex]['modele'] = $aWine[0]["model"];
-      //  $_SESSION['wine'][$myIndex]['taille'] = $aWine[0]["snowLength"];
+        //  $_SESSION['wine'][$myIndex]['taille'] = $aWine[0]["snowLength"];
 
         $_SESSION['wine'][$myIndex]['photo'] = $aWine[0]["photo"];
+        $_SESSION['wine'][$myIndex]['price'] = $aWine[0]["price"];
 
 
         $marque = $_SESSION['wine'][$myIndex]['marque'];
         $modele = $_SESSION['wine'][$myIndex]['modele'];
-     //   $taille = $_SESSION['wine'][$myIndex]['taille'];
+        //   $taille = $_SESSION['wine'][$myIndex]['taille'];
         $selectQty = $_SESSION['wine'][$myIndex]['marque'];
         $photo = $_SESSION['wine'][$myIndex]['photo'];
         $myIndex = 0;
@@ -110,7 +119,7 @@ function addPanier()
         // require 'view/snow.php';
 
 
-     //   getWines();
+        //   getWines();
         require 'view/panier.php';
     } catch (Exception $e) {
         $msgErreur = $e->getMessage();
@@ -127,7 +136,7 @@ function delPanier()
 
     $_GET['action'] = "home";
 
-    unset($_SESSION['snow']);
+    unset($_SESSION['wine']);
     unset($_SESSION["success"]);
     require 'view/home.php';
 }
