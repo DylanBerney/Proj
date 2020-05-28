@@ -27,15 +27,11 @@ $title = "Rent A Snow - Home";
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <div class="owl-carousel hero-slide owl-style">
-                                            <img src="images/wine_1.png" alt="Image" class="img-fluid">
-                                            <img src="images/wine_2.png" alt="Image" class="img-fluid">
-                                            <img src="images/wine_3.png" alt="Image" class="img-fluid">
-                                        </div>
+
                                     </div>
                                     <div class="col-lg-5 ml-auto">
                                         <h2 class="text-primary">Wine Details</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non eos inventore aspernatur voluptatibus ratione odit molestias molestiae, illum et impedit veniam modi sunt quas nam mollitia earum perferendis, dolorem. Magni.</p>
+                                        <p><?= $wines["description"] ?></p>
 
                                         <div class="mb-5">
                                             <div class="input-group mb-3" style="max-width: 200px;">
