@@ -122,8 +122,8 @@ function addPanier()
        // require 'view/.php';
     }
 
-    require "model/"
-    jsonCartMaker();
+    require "model/articlesManager.php";
+    jsonCartUpdater();
 
 
 }
