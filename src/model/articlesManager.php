@@ -22,7 +22,45 @@ function getArticles()
     return executeQuerySelect($snowsQuery);
 }
 
-function jsonCartMaker(){
-    
+
+function jsonCartUpdater()
+{
+
+    $dataDirectory = "model/data";
+    $dataFileName = 'userCart.json';
+
+
+    if (file_exists("$dataDirectory/$dataFileName")) // the file already exists -> load it
+    {
+        $data = json_decode(file_get_contents("$dataDirectory/$dataFileName"), true);
+
+        $index = 0;
+        foreach ($data as $cart) {
+            $index++;
+        }
+
+        $newData = $_SESSION;
+        file_put_contents("$dataDirectory/$dataFileName", json_encode($newData));
+
+
+    } else {
+        if (!file_exists($dataDirectory)) {
+            mkdir($dataDirectory);
+        }
+        $data = json_decode(getData(), true);
+        file_put_contents("$dataDirectory/$dataFileName", json_encode($data));
+    }
+
+
+    $test = $_SESSION;
+    $yes = $test;
+
+
+}
+
+function getData()
+{
+    $jsonCartBuilder['userCart'] = $_SESSION;
+    return json_encode($jsonCartBuilder);
 
 }

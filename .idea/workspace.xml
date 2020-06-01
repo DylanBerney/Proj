@@ -8,9 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,10 +23,10 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/template/wines/index.html" />
@@ -41,18 +39,6 @@
     <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="8080">
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -69,46 +55,50 @@
       <workItem from="1589459979812" duration="2758000" />
       <workItem from="1590004037916" duration="38000" />
       <workItem from="1590649499877" duration="4450000" />
+      <workItem from="1591015426857" duration="40000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="739" y="261" key="FileChooserDialogImpl" timestamp="1590651069873">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590651069873" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1590653953531">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1591015466716">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953531" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1590653953531">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1591015466716" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1591015466716">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953531" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1590653953531">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1591015466716" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1591015466716">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953531" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1590653953531">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1591015466716" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1591015466716">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953531" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1591015466716" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1590653953531">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
