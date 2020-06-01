@@ -51,7 +51,7 @@ ob_start();
                                     </td>
 
                                     <td colspan="5">
-                                        <img style='alignment=right;max-width: 150px src=<?= $photo ?> alt="Image" '/>
+                                        <img style='alignment=right;max-width:150px' src='<?= $photo ?>' alt="Image" />
                                     </td>
                                     <td>
                                         <h3>Prix</h3>
