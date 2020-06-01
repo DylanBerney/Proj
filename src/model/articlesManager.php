@@ -40,7 +40,10 @@ function jsonCartUpdater()
         }
 
         $newData = $_SESSION;
-        file_put_contents("$dataDirectory/$dataFileName", json_encode($newData));
+
+        mkdir($dataDirectory.'/data'.session_id(), 777);
+        $tempsDirPath=$dataDirectory.'/data'.session_id();
+        file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
 
 
     } else {
@@ -48,7 +51,9 @@ function jsonCartUpdater()
             mkdir($dataDirectory);
         }
         $data = json_decode(getData(), true);
-        file_put_contents("$dataDirectory/$dataFileName", json_encode($data));
+        mkdir($dataDirectory.'/data'.session_id());
+        $tempsDirPath=$dataDirectory.'/data'.session_id();
+        file_put_contents("$tempsDirPath/$dataFileName", json_encode($data));
     }
 
 

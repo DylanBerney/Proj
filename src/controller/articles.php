@@ -131,6 +131,20 @@ function addPanier()
 
 function delPanier()
 {
+
+    $dataDirectory = "model/data";
+
+
+    $tempsDirPath=$dataDirectory.'/data'.session_id();
+   // file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
+
+
+    $files = glob($dataDirectory.'/data'.session_id()."/userCart.json");
+    foreach($files as $file) {
+
+        unlink($_SERVER['DOCUMENT_ROOT']."/".$file);
+    }
+    rmdir($dataDirectory.'/data'.session_id());
     // session_destroy();
 
     $_GET['action'] = "home";
