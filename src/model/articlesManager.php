@@ -21,3 +21,8 @@ function getArticles()
 
     return executeQuerySelect($snowsQuery);
 }
+
+function jsonCartMaker(){
+    
+
+}

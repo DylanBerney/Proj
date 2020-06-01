@@ -59,15 +59,12 @@ function addPanier()
 {
     $id = $_POST["id"];
 
-    
-    if (isset($_POST["qtySelect"]))
-    {
-        $qty = $_POST["qtySelect"];
-    }
-    else{
-        $qty=1;
-    }
 
+    if (isset($_POST["qtySelect"])) {
+        $qty = $_POST["qtySelect"];
+    } else {
+        $qty = 1;
+    }
 
 
     require_once "model/winesManager.php";
@@ -105,7 +102,6 @@ function addPanier()
         $_SESSION['success'] = array(
             'marque' => $marque,
             'modele' => $modele,
-            //'taille' => $taille,
             'qtySel' => $selectQty,
             'success' => 'Success'
         );
@@ -123,8 +119,11 @@ function addPanier()
         require 'view/panier.php';
     } catch (Exception $e) {
         $msgErreur = $e->getMessage();
-        require 'vueErreur.php';
+       // require 'view/.php';
     }
+
+    require "model/"
+    jsonCartMaker();
 
 
 }
