@@ -218,6 +218,12 @@
 <script src="js/jquery.sticky.js"></script>
 <script src="js/jquery.mb.YTPlayer.min.js"></script>
 
+<?php
+$dataDirectory = "model/data";
+$dataFileName = 'userCart.json';
+
+$tempsDirPath = 'model/data/data'. session_id()."/userCart.json";
+?>
 <script>
 
     // img.src = obj.employees[0].photo;
@@ -227,7 +233,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 //met le contenu du ficjier json dans un objet javascript
                 var myObj = JSON.parse(this.responseText);
-
+                var path = "<?=$tempsDirPath?>"
                 for ( i = 0; i < Object.keys(myObj.wine).length; i++) {
                     document.getElementById("maListe").innerHTML += "<OPTION>" + Object(myObj.wine[i]);
                     //document.getElementById("maListe").innerHTML += "<OPTION>" + Object.keys(myObj[0].personnes).length;
@@ -235,7 +241,7 @@
             }
         };
         //chemin du fichier json
-        xmlhttp.open("GET", "model/data/userCart.json", true);
+        xmlhttp.open("GET", "<?=$tempsDirPath?>",true);
         xmlhttp.send();
     }
 
@@ -320,7 +326,7 @@ function showPersonne(){
         }
     };
     //chemin du fichier json
-    xmlhttp.open("GET", "model/data/userCart.json", true);
+    xmlhttp.open("GET",<?=$tempsDirPath?>, true);
     xmlhttp.send();
 }
 </script>

@@ -1,22 +1,48 @@
 {
-  "userCart": {
-    "msg": " to see this page ->You must log in first ",
-    "wine": [
-      {
-        "qty": "1",
-        "totalQty": "2",
-        "id": "A002",
-        "marque": "Notre Vin",
-        "modele": "Sauvignion",
-        "photo": "\/view\/content\/images\/products\/wine_2.png",
-        "price": "550"
-      }
-    ],
-    "success": {
+  "msg": " to see this page ->You must log in first ",
+  "wine": [
+    {
+      "qty": "1",
+      "totalQty": "22",
+      "id": "A001",
       "marque": "Notre Vin",
-      "modele": "Sauvignion",
-      "qtySel": "Notre Vin",
-      "success": "Success"
+      "modele": "Chateau-la-Fuite",
+      "photo": "\/view\/content\/images\/products\/wine_1.png",
+      "price": "290"
+    },
+    {
+      "qty": "1",
+      "totalQty": "22",
+      "id": "A001",
+      "marque": "Notre Vin",
+      "modele": "Chateau-la-Fuite",
+      "photo": "\/view\/content\/images\/products\/wine_1.png",
+      "price": "290"
+    },
+    {
+      "qty": "1",
+      "totalQty": "22",
+      "id": "A001",
+      "marque": "Notre Vin",
+      "modele": "Chateau-la-Fuite",
+      "photo": "\/view\/content\/images\/products\/wine_1.png",
+      "price": "290"
+    },
+    {
+      "qty": "1",
+      "totalQty": "22",
+      "id": "A001",
+      "marque": "Notre Vin",
+      "modele": "Chateau-la-Fuite",
+      "photo": "\/view\/content\/images\/products\/wine_1.png",
+      "price": "290"
     }
-  }
+  ],
+  "success": {
+    "marque": "Notre Vin",
+    "modele": "Chateau-la-Fuite",
+    "qtySel": "Notre Vin",
+    "success": "Success"
+  },
+  "nbArticle": 3
 }
