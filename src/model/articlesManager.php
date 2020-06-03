@@ -29,10 +29,10 @@ function jsonCartUpdater()
     $dataDirectory = "model/data";
     $dataFileName = 'userCart.json';
 
-
-    if (file_exists("$dataDirectory/$dataFileName")) // the file already exists -> load it
+    $tempsDirPath = $dataDirectory . '/data' . session_id();
+    if (file_exists("$tempsDirPath/$dataFileName")) // the file already exists -> load it
     {
-        $data = json_decode(file_get_contents("$dataDirectory/$dataFileName"), true);
+        $data = json_decode(file_get_contents("$tempsDirPath/$dataFileName"), true);
 
         $index = 0;
         foreach ($data as $cart) {
@@ -41,8 +41,9 @@ function jsonCartUpdater()
 
         $newData = $_SESSION;
 
-        mkdir($dataDirectory.'/data'.session_id(), 777);
-        $tempsDirPath=$dataDirectory.'/data'.session_id();
+       // mkdir($dataDirectory . '/data' . session_id(), 777);
+        $tempsDirPath = $dataDirectory . '/data' . session_id();
+        $newData['nbArticle'] = count($data['wine']);
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
 
 
@@ -51,14 +52,15 @@ function jsonCartUpdater()
             mkdir($dataDirectory);
         }
         $data = json_decode(getData(), true);
-        mkdir($dataDirectory.'/data'.session_id());
-        $tempsDirPath=$dataDirectory.'/data'.session_id();
+        mkdir($dataDirectory . '/data' . session_id());
+        $tempsDirPath = $dataDirectory . '/data' . session_id();
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($data));
     }
 
 
+
     $test = $_SESSION;
-    $yes = $test;
+
 
 
 }
