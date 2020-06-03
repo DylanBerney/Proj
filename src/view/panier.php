@@ -111,7 +111,7 @@ ob_start();
                     </form>
                 </div>
                 <div class="btn-group">
-                    <form method="post" action="index.php?action=command">
+                    <form method="post" action="index.php?action=checkout">
                         <label class="input-medium">
                             <button class="btn" type="submit">Commander</button></label>
                     </form>

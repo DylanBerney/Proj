@@ -61,9 +61,16 @@ if (isset($_GET['action'])) {
         case 'login' :
             login($_POST);
             break;
+
         case 'logout' :
             logout();
             break;
+
+        case 'checkout' :
+            checkout();
+            break;
+
+
         case 'register' :
             register($_POST);
             break;

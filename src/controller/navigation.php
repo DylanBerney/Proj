@@ -47,3 +47,8 @@ function goPanier()
 {
     require 'view/panier.php';
 }
+
+
+function checkout(){
+require "view/checkout.php";
+}

@@ -23,6 +23,48 @@ function getArticles()
 }
 
 
+
+function updateWines()
+{
+    $products = null;
+    $params = null;
+    $index = 0;
+
+    foreach ($_SESSION['wine'] as $wine) {
+        $newQty = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $params[$index] = array
+        (
+            ':id' => $_SESSION["wine"][$index]["id"],
+            ':qty' => $newQty
+        );
+        $index++;
+    }
+
+    foreach ($params as $param) {
+
+        $commandQuery = "UPDATE wines.wines SET qtyAvailable = :qty WHERE code = :id";
+
+        require_once 'model/dbConnector.php';
+        $products = executeQueryUpdate($commandQuery, $param);
+    }
+    unset($_SESSION['wine']);
+    return $products;
+}
+
+
+
+
+function insertOrder()
+{
+
+    $snowsQuery = 'SELECT code, brand, model, snowLength, dailyPrice, qtyAvailable, photo, active FROM snows';
+
+    require_once 'model/dbConnector.php';
+
+    return executeQuerySelect($snowsQuery);
+}
+
+
 function jsonCartUpdater()
 {
 

@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/Ressources/SQL/wines(1).sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Ressources/SQL/wines.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/model/winesManager.php" dialect="MySQL" />
+    <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

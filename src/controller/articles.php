@@ -144,8 +144,10 @@ function delPanier()
 
         unlink($_SERVER['DOCUMENT_ROOT']."/".$file);
     }
-    rmdir($dataDirectory.'/data'.session_id());
-    // session_destroy();
+    if(is_dir($dataDirectory.'/data'.session_id())){
+        rmdir($dataDirectory . '/data' . session_id());
+        // session_destroy();
+    }
 
     $_GET['action'] = "home";
 
@@ -154,15 +156,16 @@ function delPanier()
     require 'view/home.php';
 }
 
+
 function command()
 {
     /*    $id = $_POST["id"];
         $qty = $_POST["qtySelect"];*/
 
-    require_once "model/modele_snows.php";
+    require_once "model/articlesManager.php";
     try {
-        $aSnow = updateSnow();
-        require 'view/snow.php';
+        $aSnow = updateWines();
+        require 'view/home.php';
     } catch (Exception $e) {
         $msgErreur = $e->getMessage();
         require 'vueErreur.php';
