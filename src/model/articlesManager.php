@@ -57,11 +57,47 @@ function updateWines()
 function insertOrder()
 {
 
-    $snowsQuery = 'SELECT code, brand, model, snowLength, dailyPrice, qtyAvailable, photo, active FROM snows';
+    $products = null;
+    $params = null;
+    $index = 0;
 
-    require_once 'model/dbConnector.php';
+    foreach ($_SESSION['wine'] as $wine) {
+        $firstname = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $lastname = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $company = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_address = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_address_suite = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_country = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_zip_post = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_email = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_phone = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
+        
 
-    return executeQuerySelect($snowsQuery);
+        $params[$index] = array
+        (
+            ':id' => $_SESSION["wine"][$index]["id"],
+            ':qty' => $newQty
+        );
+        $index++;
+    }
+
+    foreach ($params as $param) {
+
+        $commandQuery = "UPDATE wines.wines SET qtyAvailable = :qty WHERE code = :id";
+
+        require_once 'model/dbConnector.php';
+        $products = executeQueryUpdate($commandQuery, $param);
+    }
+    unset($_SESSION['wine']);
+    return $products;
 }
 
 
