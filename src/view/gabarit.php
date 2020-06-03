@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
@@ -29,7 +30,6 @@
     <link rel="stylesheet" href="css/style.css">
 
 
-
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -46,7 +46,6 @@
     </div>
 
 
-
     <div class="header-top">
         <div class="container">
             <div class="row align-items-center">
@@ -61,8 +60,6 @@
         </div>
 
 
-
-
         <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
 
             <div class="container">
@@ -72,16 +69,17 @@
                         <nav class="site-navigation position-relative text-left" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
 
-                                <li class="active"<?php if (@$_GET['action'] == 'home'){ ?>class="active" <?php } ?>>
+                                <li class="active" <?php if (@$_GET['action'] == 'home'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=home">Home</a></li>
 
-                                <li class="active"<?php if (@$_GET['action'] == 'about'){ ?>class="active" <?php } ?>>
+                                <li class="active" <?php if (@$_GET['action'] == 'about'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=about">About</a></li>
 
-                                <li class="active"<?php if (@$_GET['action'] == 'shop'){ ?>class="active" <?php } ?>>
+                                <li class="active" <?php if (@$_GET['action'] == 'shop'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=shop">Shop</a></li>
 
-                                <li class="active"<?php if (@$_GET['action'] == 'contact'){ ?>class="active" <?php } ?>>
+                                <li class="active"
+                                    <?php if (@$_GET['action'] == 'contact'){ ?>class="active" <?php } ?>>
                                     <a href="index.php?action=contact">Contact</a></li>
 
                                 <li <?php if (@$_GET['action'] == 'panier'){ ?>class="active" <?php } ?>>
@@ -100,16 +98,7 @@
     </div>
 
 
-
-
-
-
-
-
-
-
     <?= $content; ?>
-
 
 
     <div class="footer">
@@ -130,10 +119,12 @@
                     <div class="copyright">
                         <p>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="icon-heart text-danger"
+                                                                                aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
-
 
 
                     </div>
@@ -143,65 +134,79 @@
     </div>
 
 
-    <div>
-        <table>
-            <tr>
-                <div class="row gtr-uniform">
-                    <div class="col-6 col-12-xsmall">
-                        <ul class="alt">
-                            <li id="personne">Personne</li>
-                            <li id="age">Age</li>
-                            <li id="addresse">Addresse</li>
-                            <li id="ville">Ville</li>
-                        </ul>
-                    </div>
-                    <div class="col-6 col-12-xsmall">
-                        <ul class="alt">
-                            <li id="abonnement">Type d'abonnement CFF</li>
-                            <li id="mail">E-mail</li>
-                            <li id="numeroId">No' d'identité</li>
-                            <li id="conditions"> Conditions lues</li>
-                        </ul>
-                    </div>
-
-            </tr>
-
-    </div>
-
-    <div class="inner">
-        <FORM class= method="get" action="details.php" class="liste" NAME="Choix">
-            <SELECT   style="margin-left:1%;width:95%; " id="maListe" NAME="Liste" onchange="showPersonne()" onload=Lien()>
-                <OPTION VALUE="null">Choisir une personne
-                    <!--
-                                                   <OPTION VALUE="1">John Doe
-                                                   <OPTION VALUE="2">Anna Smith
-                                                   <OPTION VALUE="3">Peter Jones
-                                                   <OPTION VALUE="http://www.google.com">Recherche-->
-            </SELECT>
-        </FORM>
-    </div>
-    </table>
-
-
-    </section>
-    <section>
-
-        <span class> <img class="image right" id="photoPersonne" src="Image/photos_personnes/personne0.png"></span>
-
-    </section>
 </div>
-</section>
+
 <div class="col-10">
-    <textarea name="messageUtli" id="messageUtil" placeholder="Entrer vos specification (ex: végétarien, mal de mer)" rows=2-small></textarea>
-</div>
+    <textarea name="messageUtli" id="messageUtil" placeholder="Entrer vos specification (ex: végétarien, mal de mer)"
+              rows=2-small></textarea>
 </div>
 
-</div>
 <!-- .site-wrap -->
 
+<p>Vous etes dans les liste de presence</p>
+<div class="inner">
 
-<!-- loader -->
-<div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+    <!---->
+    <div class="inner">
+        <FORM class=method="get" action="liste_de_presence.php" class="liste" NAME="Choix">
+            <!--     <div class="table-wrapper">-->
+            <table class="altenate">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Age</th>
+                    <th>Ville</th>
+                    <th>test</th>
+                    <th>Allé</th>
+                    <th>Retour</th>
+                </tr>
+                </thead>
+                <tbody id="maListe" NAME="Liste" onchange="showPersonne()">
+
+                <tr>
+                </tr>
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <!--<td colspan="0"></td>
+                    -->
+                    <td>Bon Voyage</td>
+                </tr>
+                </tfoot>
+            </table>
+        </FORM>
+
+    </div>
+</div>
+<form id="form" name="form" method="post" action="citySelect.php">
+    <select id="state" name="state" onchange="getCity()">
+        <option></option>
+        <option value="1">cali</option>
+        <option value="2">arizona</option>
+        <option value="3">texas</option>
+    </select>
+    <select id="city" name="city" style="width:100px">
+
+    </select>
+
+    <br/>
+</form>
+
+
+<p><a href="data/mydata.json" target="_blank">Jetez un coup d'oeil au -> fichier json brut</a></p>
+
+
+
+
+<div id="loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#ff5e15"/>
+    </svg>
+</div>
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -222,8 +227,9 @@
 $dataDirectory = "model/data";
 $dataFileName = 'userCart.json';
 
-$tempsDirPath = 'model/data/data'. session_id()."/userCart.json";
+$tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
 ?>
+
 <script>
 
     // img.src = obj.employees[0].photo;
@@ -233,104 +239,24 @@ $tempsDirPath = 'model/data/data'. session_id()."/userCart.json";
             if (this.readyState == 4 && this.status == 200) {
                 //met le contenu du ficjier json dans un objet javascript
                 var myObj = JSON.parse(this.responseText);
-                var path = "<?=$tempsDirPath?>"
-                for ( i = 0; i < Object.keys(myObj.wine).length; i++) {
-                    document.getElementById("maListe").innerHTML += "<OPTION>" + Object(myObj.wine[i]);
-                    //document.getElementById("maListe").innerHTML += "<OPTION>" + Object.keys(myObj[0].personnes).length;
+                for (i = 0; i < Object.keys(myObj[0].personnes).length; i++) {
+                    var checkbox = document.createElement('input');
+                    checkbox.type = "checkbox"
+
+                    document.getElementById("maListe").innerHTML += "<td>" + Object(myObj[0].personnes[i].lastname) +
+                        "<td>" + Object(myObj[0].personnes[i].firstname) +
+                        "<td>" + Object(myObj[0].personnes[i].age) +
+                        "<td>" + Object(myObj[0].personnes[i].address[1].npa + " " + myObj[0].personnes[i].address[1].city)
                 }
             }
         };
         //chemin du fichier json
-        xmlhttp.open("GET", "<?=$tempsDirPath?>",true);
+        xmlhttp.open("GET", "data/mydata.json", true);
         xmlhttp.send();
     }
 
-
-
-    /*
-            switch (i) {
-                case 0 : img8.style.display = "none";
-                    break;
-                case 1:
-                    //va chercher dans le fichier json le nom, prenom,age de la personne
-              /!*      document.getElementById("personne").innerHTML =
-                        `${obj.employees[0].firstName} ${obj.employees[0].lastName} ${obj.employees[0].age} ans ` ;
-
-            document.getElementById("typeAbonnement").innerHTML =
-                `${obj.employees[0].typeAbonnement[0].type1}`;
-
-            //va chercher dans la BD json le chemin de la photo de la persone a afficher
-            document.getElementById("photoPersonne").src = obj.employees[0].photo;*!/
-
-
-                    //requette xml pour extraire le contenu du fichier json
-
-                    break;
-                case 2:
-                    document.getElementById("personne").innerHTML =
-                        obj.employees[1].firstName + " " + obj.employees[1].lastName;
-                    document.getElementById("typeAbonnement").innerHTML =
-                        `${obj.employees[0].typeAbonnement[1].type2}`;
-                    //va chercher dans la BD json le chemin de la photo de la persone a afficher
-                    document.getElementById("photoPersonne").src = obj.employees[1].photo;
-                    break;
-                case 3:
-                    document.getElementById("personne").innerHTML =
-                        obj.employees[2].firstName + " " + obj.employees[2].lastName;
-                    //va chercher dans la BD json le chemin de la photo de la persone a afficher
-                    document.getElementById("photoPersonne").src = obj.employees[2].photo;
-                    break;
-                case 4:
-                    url = document.Choix.Liste.options[i].value;
-                    window.open("https://www.qwant.com");
-                    break;
-            }*/
-
-
-
-
-    //  document.getElementById("personne").innerHTML =
-    //      obj.employees[1].firstName + " " + obj.employees[1].lastName;
-
-
-
-
-
-
-
-
-
-    window.onload = Lien ;
+    window.onload = Lien;
 </script>
-
-<script>
-function showPersonne(){
-    i = document.Choix.Liste.selectedIndex-1;
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            //met le contenu du ficjier json dans un objet javascript
-            var myObj = JSON.parse(this.responseText);
-            document.getElementById("personne").innerHTML = myObj[0].personnes[i].firstname+" " + myObj[0].personnes[i].lastname;
-            document.getElementById("age").innerHTML = myObj[0].personnes[i].age+" "+"ans";
-            // va chercher dans la BD json le chemin de la photo de la persone a afficher
-            document.getElementById("photoPersonne").src = myObj[0].personnes[i].photo;
-
-            document.getElementById("addresse").innerHTML= myObj[0].personnes[i].address[0].rue + " " + myObj[0].personnes[i].address[0].numero ;
-            document.getElementById("ville").innerHTML= myObj[0].personnes[i].address[1].npa + " " + myObj[0].personnes[i].address[1].city ;
-            document.getElementById("numeroId").innerHTML= "No' identité :    "+myObj[0].personnes[i].noIdentite;
-            document.getElementById("mail").innerHTML= myObj[0].personnes[i].mail;
-            document.getElementById("abonnement").innerHTML= myObj[0].personnes[i].typeAbonnement;
-            document.getElementById("conditions").innerHTML= myObj[0].personnes[i].conditions
-            document.getElementById("messageUtil").innerHTML= myObj[0].personnes[i].messagePerso;
-        }
-    };
-    //chemin du fichier json
-    xmlhttp.open("GET",<?=$tempsDirPath?>, true);
-    xmlhttp.send();
-}
-</script>
-
 
 <script src="js/main.js"></script>
 

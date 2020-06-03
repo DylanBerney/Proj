@@ -53,6 +53,30 @@ function executeQueryInsert($query)
     return $queryResult;
 }
 
+
+
+function executeQueryUpdate($query, $param)
+{
+    {
+        $queryResult = null;
+
+        $dbConnexion = openDBConnexion();//open database connexion
+        if ($dbConnexion != null) {
+
+            $stmt = $dbConnexion->prepare($query);
+            foreach ($param as $key => &$val) {
+
+                $stmt->bindValue($key, $val);
+            }
+
+            $stmt->execute();
+
+        }
+        $dbConnexion = null;//close database connexion
+//    return $queryResult;
+        return $queryResult;
+    }
+}
 /**
  * @brief This function is designed to manage the database connexion. Closing will be not proceeded there. The client is responsible of this.
  * @return PDO|null
