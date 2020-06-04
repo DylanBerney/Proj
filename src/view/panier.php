@@ -35,7 +35,7 @@ ob_start();
                             $price = $_SESSION['wine'][$myIndex]['price'];
                             $photo = $_SESSION['wine'][$myIndex]['photo'];
                             $id = $_SESSION['wine'][$myIndex]['id'];
-                            $totalPrice = $totalPrice + $_SESSION['wine'][$myIndex]['price'];
+                            $totalPrice = $_SESSION['cart']['total'];
 
                             if (isset($_SESSION['wine'][$myIndex])) { ?>
 
@@ -129,9 +129,13 @@ ob_start();
 
         <script>
             function showStuff(id, text, btn) {
-                if (    document.getElementById(text1).style.display === 'none';) {
+                if (document.getElementById(text1).style.display === 'none';
+            )
+                {
                     document.getElementById(id).style.display = 'block';
-                } else {
+                }
+            else
+                {
                     document.getElementById(text1).style.display = 'none';
                 }
 
@@ -153,7 +157,7 @@ ob_start();
 <textarea rows="10" cols="115"></textarea>
 </span>
 
-            <button  onclick="myFunction('answer1', 'text1', this); return false;">Try it</button>
+            <button onclick="myFunction('answer1', 'text1', this); return false;">Try it</button>
 
             <span id="text1">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</span>
         </td>

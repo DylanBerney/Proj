@@ -73,11 +73,36 @@ function addPanier()
 
         $myIndex = 0;
         if (isset($_SESSION['wine'])) {
-            foreach ($_SESSION['wine'] as $wesh) {
-                $myIndex++;
-            }
-        }
+            foreach ($_SESSION['wine'] as $thisWine) {
 
+
+                if ($_SESSION['wine'][$myIndex]['id'] == $aWine[0]["code"]) {
+
+                    $_SESSION['wine'][$myIndex]['qty'] = $_SESSION['wine'][$myIndex]['qty'] + $qty;
+                    $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + ($_SESSION['wine'][$myIndex]['price'] * $_SESSION['wine'][$myIndex]['qty'] = $qty);
+                } else {
+
+                    $myIndex++;
+
+                    $_SESSION['wine'][$myIndex]['qty'] = $qty;
+                    $_SESSION['wine'][$myIndex]['totalQty'] = $aWine[0]["qtyAvailable"];
+
+                    $_SESSION['wine'][$myIndex]['id'] = $aWine[0]["code"];
+                    $_SESSION['wine'][$myIndex]['marque'] = $aWine[0]["brand"];
+
+                    $_SESSION['wine'][$myIndex]['modele'] = $aWine[0]["model"];
+                    //  $_SESSION['wine'][$myIndex]['taille'] = $aWine[0]["snowLength"];
+
+                    $_SESSION['wine'][$myIndex]['photo'] = $aWine[0]["photo"];
+                    $_SESSION['wine'][$myIndex]['price'] = $aWine[0]["price"];
+                    $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + ($_SESSION['wine'][$myIndex]['price'] * $_SESSION['wine'][$myIndex]['qty'] = $qty);
+
+                }
+
+
+            }
+
+        }
 
         $_SESSION['wine'][$myIndex]['qty'] = $qty;
         $_SESSION['wine'][$myIndex]['totalQty'] = $aWine[0]["qtyAvailable"];
@@ -90,13 +115,16 @@ function addPanier()
 
         $_SESSION['wine'][$myIndex]['photo'] = $aWine[0]["photo"];
         $_SESSION['wine'][$myIndex]['price'] = $aWine[0]["price"];
+        // $_SESSION['cart']['total'] = $_SESSION['wine'][$myIndex]['price']+($_SESSION['wine'][$myIndex]['price'] * $_SESSION['wine'][$myIndex]['qty'] = $qty);
+        $_SESSION['cart']['total'] = $qty * $_SESSION['wine'][$myIndex]['price'] = $aWine[0]["price"];
 
 
-        $marque = $_SESSION['wine'][$myIndex]['marque'];
-        $modele = $_SESSION['wine'][$myIndex]['modele'];
-        //   $taille = $_SESSION['wine'][$myIndex]['taille'];
-        $selectQty = $_SESSION['wine'][$myIndex]['marque'];
-        $photo = $_SESSION['wine'][$myIndex]['photo'];
+        /*
+                    $marque = $_SESSION['wine'][$myIndex]['marque'];
+                    $modele = $_SESSION['wine'][$myIndex]['modele'];
+                    //   $taille = $_SESSION['wine'][$myIndex]['taille'];
+                    $selectQty = $_SESSION['wine'][$myIndex]['marque'];
+                    $photo = $_SESSION['wine'][$myIndex]['photo'];*/
         $myIndex = 0;
 
         /*
@@ -113,7 +141,7 @@ function addPanier()
         require 'view/panier.php';
     } catch (Exception $e) {
         $msgErreur = $e->getMessage();
-       // require 'view/.php';
+        // require 'view/.php';
     }
 
     require "model/articlesManager.php";
@@ -129,16 +157,16 @@ function delPanier()
     $dataDirectory = "model/data";
 
 
-    $tempsDirPath=$dataDirectory.'/data'.session_id();
-   // file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
+    $tempsDirPath = $dataDirectory . '/data' . session_id();
+    // file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
 
 
-    $files = glob($dataDirectory.'/data'.session_id()."/userCart.json");
-    foreach($files as $file) {
+    $files = glob($dataDirectory . '/data' . session_id() . "/userCart.json");
+    foreach ($files as $file) {
 
-        unlink($_SERVER['DOCUMENT_ROOT']."/".$file);
+        unlink($_SERVER['DOCUMENT_ROOT'] . "/" . $file);
     }
-    if(is_dir($dataDirectory.'/data'.session_id())){
+    if (is_dir($dataDirectory . '/data' . session_id())) {
         rmdir($dataDirectory . '/data' . session_id());
         // session_destroy();
     }
@@ -146,6 +174,8 @@ function delPanier()
     $_GET['action'] = "home";
 
     unset($_SESSION['wine']);
+    unset($_SESSION['total']);
+    unset($_SESSION["cart"]["total"]);
     unset($_SESSION["success"]);
     require 'view/home.php';
 }
