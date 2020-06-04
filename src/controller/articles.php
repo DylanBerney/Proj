@@ -52,13 +52,11 @@ function anArticle($details)
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require "vueErreur.php";
     }
-
 }
 
 function addPanier()
 {
     $id = $_POST["id"];
-
 
     if (isset($_POST["qtySelect"])) {
         $qty = $_POST["qtySelect"];
@@ -69,77 +67,91 @@ function addPanier()
 
     require_once "model/winesManager.php";
     try {
+
         $aWine = extractAWine($id);
 
-        $myIndex = 0;
+        $index = 0;
         if (isset($_SESSION['wine'])) {
-            foreach ($_SESSION['wine'] as $thisWine) {
 
+            $existIncart = false;
 
-                if ($_SESSION['wine'][$myIndex]['id'] == $aWine[0]["code"]) {
+            foreach ($_SESSION['wine'] as $session) {
 
-                    $_SESSION['wine'][$myIndex]['qty'] = $_SESSION['wine'][$myIndex]['qty'] + $qty;
-                    $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + ($_SESSION['wine'][$myIndex]['price'] * $_SESSION['wine'][$myIndex]['qty'] = $qty);
+                if ($_SESSION['wine'][$index]['id'] == $id) {
+
+                    $existIncart = true;
+                    break;
                 } else {
 
-                    $myIndex++;
-
-                    $_SESSION['wine'][$myIndex]['qty'] = $qty;
-                    $_SESSION['wine'][$myIndex]['totalQty'] = $aWine[0]["qtyAvailable"];
-
-                    $_SESSION['wine'][$myIndex]['id'] = $aWine[0]["code"];
-                    $_SESSION['wine'][$myIndex]['marque'] = $aWine[0]["brand"];
-
-                    $_SESSION['wine'][$myIndex]['modele'] = $aWine[0]["model"];
-                    //  $_SESSION['wine'][$myIndex]['taille'] = $aWine[0]["snowLength"];
-
-                    $_SESSION['wine'][$myIndex]['photo'] = $aWine[0]["photo"];
-                    $_SESSION['wine'][$myIndex]['price'] = $aWine[0]["price"];
-                    $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + ($_SESSION['wine'][$myIndex]['price'] * $_SESSION['wine'][$myIndex]['qty'] = $qty);
+                    $existIncart = false;
 
                 }
+                $index++;
+            }
 
+            if ($existIncart == false) {
+
+
+                $arrayPos = count($_SESSION['wine']);
+
+                $_SESSION['wine'][$arrayPos]['qty'] = null;
+                $_SESSION['wine'][$arrayPos]['qty'] = $_SESSION['wine'][$arrayPos]['qty'] + $qty;
+                $_SESSION['wine'][$arrayPos]['totalQty'] = $aWine[0]["qtyAvailable"];
+                $_SESSION['wine'][$arrayPos]['id'] = $aWine[0]["code"];
+                $_SESSION['wine'][$arrayPos]['marque'] = $aWine[0]["brand"];
+                $_SESSION['wine'][$arrayPos]['modele'] = $aWine[0]["model"];
+                $_SESSION['wine'][$arrayPos]['photo'] = $aWine[0]["photo"];
+                $_SESSION['wine'][$arrayPos]['price'] = $aWine[0]["price"];
+                $_SESSION['wine'][$arrayPos]['totalWinePrice'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
 
             }
 
+            if ($existIncart == true) {
+                $index = 0;
+                foreach ($_SESSION['wine'] as $item) {
+
+                    if ($_SESSION['wine'][$index]['id'] == $id) {
+
+                        $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
+                        $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+
+                    }
+                }
+                $index++;
+                $existIncart=false;
+            }
+        } else {
+
+            $_SESSION['wine'][0]['qty'] = $qty;
+            $_SESSION['wine'][0]['totalQty'] = $aWine[0]["qtyAvailable"];
+            $_SESSION['wine'][0]['id'] = $aWine[0]["code"];
+            $_SESSION['wine'][0]['marque'] = $aWine[0]["brand"];
+            $_SESSION['wine'][0]['modele'] = $aWine[0]["model"];
+            $_SESSION['wine'][0]['photo'] = $aWine[0]["photo"];
+            $_SESSION['wine'][0]['price'] = $aWine[0]["price"];
+            $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+
         }
 
-        $_SESSION['wine'][$myIndex]['qty'] = $qty;
-        $_SESSION['wine'][$myIndex]['totalQty'] = $aWine[0]["qtyAvailable"];
 
-        $_SESSION['wine'][$myIndex]['id'] = $aWine[0]["code"];
-        $_SESSION['wine'][$myIndex]['marque'] = $aWine[0]["brand"];
-
-        $_SESSION['wine'][$myIndex]['modele'] = $aWine[0]["model"];
-        //  $_SESSION['wine'][$myIndex]['taille'] = $aWine[0]["snowLength"];
-
-        $_SESSION['wine'][$myIndex]['photo'] = $aWine[0]["photo"];
-        $_SESSION['wine'][$myIndex]['price'] = $aWine[0]["price"];
-        // $_SESSION['cart']['total'] = $_SESSION['wine'][$myIndex]['price']+($_SESSION['wine'][$myIndex]['price'] * $_SESSION['wine'][$myIndex]['qty'] = $qty);
-        $_SESSION['cart']['total'] = $qty * $_SESSION['wine'][$myIndex]['price'] = $aWine[0]["price"];
+        /*   $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
+           $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];*/
 
 
-        /*
-                    $marque = $_SESSION['wine'][$myIndex]['marque'];
-                    $modele = $_SESSION['wine'][$myIndex]['modele'];
-                    //   $taille = $_SESSION['wine'][$myIndex]['taille'];
-                    $selectQty = $_SESSION['wine'][$myIndex]['marque'];
-                    $photo = $_SESSION['wine'][$myIndex]['photo'];*/
-        $myIndex = 0;
+        $_SESSION['cart']['total'] = 0;
+        $index = 0;
+        foreach ($_SESSION['wine'] as $total) {
 
-        /*
-                $_SESSION['success']['marque'] = $marque;
-                $_SESSION['success']['modele'] = $modele;
-                $_SESSION['success']['taille'] = $taille;
-                $_SESSION['success']['qtySel'] = $selectQty;
-                $_SESSION['success']['success'] = 'Success';
-        */
-        // require 'view/snow.php';
+            $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
+
+            $index++;
+
+        }
 
 
-        //   getWines();
         require 'view/panier.php';
-    } catch (Exception $e) {
+    } catch
+    (Exception $e) {
         $msgErreur = $e->getMessage();
         // require 'view/.php';
     }

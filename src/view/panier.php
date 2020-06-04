@@ -27,7 +27,6 @@ ob_start();
                             $totalPrice = 0;
                             foreach ($_SESSION['wine'] as $wesh) {
 
-
                             $qtySel = $_SESSION['wine'][$myIndex]['qty'];
                             $totalQty = $_SESSION['wine'][$myIndex]['totalQty'];
                             $marque = $_SESSION['wine'][$myIndex]['marque'];
