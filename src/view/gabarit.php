@@ -142,62 +142,34 @@
 </div>
 
 <!-- .site-wrap -->
+<div>
+    <FORM method="#" action="#" name="Choix">
+        <table>
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Code</th>
+            </tr>
+            </thead>
+            <tbody id="maListe" NAME="Liste" onchange="showPersonne()"></tbody>
+            <tfoot>
+            <tr><td></td></tr>
+            </tfoot>
+        </table>
+    </FORM>
 
-<p>Vous etes dans les liste de presence</p>
-<div class="inner">
-
-    <!---->
-    <div class="inner">
-        <FORM class=method="get" action="liste_de_presence.php" class="liste" NAME="Choix">
-            <!--     <div class="table-wrapper">-->
-            <table class="altenate">
-                <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Age</th>
-                    <th>Ville</th>
-                    <th>test</th>
-                    <th>Allé</th>
-                    <th>Retour</th>
-                </tr>
-                </thead>
-                <tbody id="maListe" NAME="Liste" onchange="showPersonne()">
-
-                <tr>
-                </tr>
-
-                </tbody>
-                <tfoot>
-                <tr>
-                    <!--<td colspan="0"></td>
-                    -->
-                    <td>Bon Voyage</td>
-                </tr>
-                </tfoot>
-            </table>
-        </FORM>
-
-    </div>
 </div>
-<form id="form" name="form" method="post" action="citySelect.php">
-    <select id="state" name="state" onchange="getCity()">
-        <option></option>
-        <option value="1">cali</option>
-        <option value="2">arizona</option>
-        <option value="3">texas</option>
-    </select>
-    <select id="city" name="city" style="width:100px">
 
-    </select>
+<?php
+$dataDirectory = "model/data";
+$dataFileName = 'userCart.json';
 
-    <br/>
-</form>
+$tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
+?>
 
-
-<p><a href="data/mydata.json" target="_blank">Jetez un coup d'oeil au -> fichier json brut</a></p>
-
-
+<p><a href="<?=$tempsDirPath?>" target="_blank">Jetez un coup d'oeil au -> fichier json brut</a></p>
 
 
 <div id="loader" class="show fullscreen">
@@ -223,12 +195,6 @@
 <script src="js/jquery.sticky.js"></script>
 <script src="js/jquery.mb.YTPlayer.min.js"></script>
 
-<?php
-$dataDirectory = "model/data";
-$dataFileName = 'userCart.json';
-
-$tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
-?>
 
 <script>
 
@@ -239,19 +205,18 @@ $tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
             if (this.readyState == 4 && this.status == 200) {
                 //met le contenu du ficjier json dans un objet javascript
                 var myObj = JSON.parse(this.responseText);
-                for (i = 0; i < Object.keys(myObj[0].personnes).length; i++) {
-                    var checkbox = document.createElement('input');
-                    checkbox.type = "checkbox"
+                for (i = -1; i < Object.keys(myObj.wine).length; i++) {
 
-                    document.getElementById("maListe").innerHTML += "<td>" + Object(myObj[0].personnes[i].lastname) +
-                        "<td>" + Object(myObj[0].personnes[i].firstname) +
-                        "<td>" + Object(myObj[0].personnes[i].age) +
-                        "<td>" + Object(myObj[0].personnes[i].address[1].npa + " " + myObj[0].personnes[i].address[1].city)
+                    document.getElementById("maListe").innerHTML +=
+                        "<td>" + Object(myObj.wine[i].marque) + "</td>" +
+                        "<td>" + Object(myObj.wine[i].price) + "</td>" +
+                        "<td>" + Object(myObj.nbArticle) + "</td>" +
+                        "<td>" + Object(myObj.wine[i].id) + "</td>"
                 }
             }
         };
         //chemin du fichier json
-        xmlhttp.open("GET", "data/mydata.json", true);
+        xmlhttp.open("GET", "<?=$tempsDirPath ?>", true);
         xmlhttp.send();
     }
 

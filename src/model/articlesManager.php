@@ -23,7 +23,6 @@ function getArticles()
 }
 
 
-
 function updateWines()
 {
     $products = null;
@@ -52,8 +51,6 @@ function updateWines()
 }
 
 
-
-
 function insertOrder()
 {
 
@@ -79,7 +76,7 @@ function insertOrder()
         $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
         $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
         $client_account = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
-        
+
 
         $params[$index] = array
         (
@@ -119,9 +116,11 @@ function jsonCartUpdater()
 
         $newData = $_SESSION;
 
-       // mkdir($dataDirectory . '/data' . session_id(), 777);
+        // mkdir($dataDirectory . '/data' . session_id(), 777);
         $tempsDirPath = $dataDirectory . '/data' . session_id();
-        $newData['nbArticle'] = count($data['wine']);
+        if (isset($data['wine'])) {
+            $newData['nbArticle'] = count($data['wine']);
+        }
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
 
 
@@ -136,9 +135,7 @@ function jsonCartUpdater()
     }
 
 
-
     $test = $_SESSION;
-
 
 
 }

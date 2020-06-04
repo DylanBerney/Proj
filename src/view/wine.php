@@ -122,12 +122,31 @@ ob_start();
                                 <?php // TODO: detail article ?>
                                 <div class="col-lg-5 ml-auto">
                                     <h2 class="text-primary">Wine Details</h2>
-                                    <p><?= $wines["description"] ?></p>
+
                                     <div class="mb-5">
                                         <div class="input-group mb-3" style="max-width: 200px;">
                                             <div class="input-group-prepend">
                                                 <form method="post" action="index.php?action=addPanier">
                                                     <input type="hidden" name="id" value="<?= $wines["code"] ?>">
+                                                    <div class="form-group">
+                                                        <label for="c_ship_different_address" class="text-black"
+                                                               data-toggle="collapse" href="#ship_different_address"
+                                                               role="button" aria-expanded="false"
+                                                               aria-controls="ship_different_address">
+                                                            <button class="btn btn-primary btn-sm rounded px-4"
+                                                                    type="button" id="c_ship_different_address">show description
+                                                            </button>
+                                                        </label>
+
+
+                                                        <div class="collapse" id="ship_different_address">
+                                                            <div>
+
+                                                                <p><?= $wines["description"] ?></p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
                                                     <label class="input-medium">
                                                         <input class="form-control text-center border mr-0"
                                                                type="number" min="1"
@@ -147,7 +166,7 @@ ob_start();
                         </div>
                     </div>
                 <?php endforeach;
-            }?>
+            } ?>
         </div>
     </div>
 
