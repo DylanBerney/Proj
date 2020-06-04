@@ -51,7 +51,7 @@ ob_start();
                                     </td>
 
                                     <td colspan="5">
-                                        <img style='alignment=right;max-width:150px' src='<?= $photo ?>' alt="Image" />
+                                        <img style='alignment=right;max-width:150px' src='<?= $photo ?>' alt="Image"/>
                                     </td>
                                     <td>
                                         <h3>Prix</h3>
@@ -113,7 +113,8 @@ ob_start();
                 <div class="btn-group">
                     <form method="post" action="index.php?action=checkout">
                         <label class="input-medium">
-                            <button class="btn" type="submit">Commander</button></label>
+                            <button class="btn" type="submit">Commander</button>
+                        </label>
                     </form>
                 </div>
             <?php endif; ?>
@@ -122,6 +123,56 @@ ob_start();
     </div>
 
 
+    <br>
+    <section class="inner">
+
+
+        <script>
+            function showStuff(id, text, btn) {
+                if (    document.getElementById(text1).style.display === 'none';) {
+                    document.getElementById(id).style.display = 'block';
+                } else {
+                    document.getElementById(text1).style.display = 'none';
+                }
+
+// hide the lorem ipsum text
+
+// hide the link
+                btn.style.display = 'none';
+            }
+        </script>
+
+
+        <td class="post">
+            <button onclick="showStuff('answer1', 'text1', this); return false;"
+                    class="btn btn-primary btn-sm rounded px-4"
+                    type="button">Apply
+            </button>
+
+            <span id="answer1">
+<textarea rows="10" cols="115"></textarea>
+</span>
+
+            <button  onclick="myFunction('answer1', 'text1', this); return false;">Try it</button>
+
+            <span id="text1">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</span>
+        </td>
+
+
+        <div id="myDIV" style="display: none">
+            This is my DIV element.
+        </div>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
 <?php
 $content = ob_get_clean();
 require "gabarit.php";

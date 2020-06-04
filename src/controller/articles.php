@@ -99,12 +99,6 @@ function addPanier()
         $photo = $_SESSION['wine'][$myIndex]['photo'];
         $myIndex = 0;
 
-        $_SESSION['success'] = array(
-            'marque' => $marque,
-            'modele' => $modele,
-            'qtySel' => $selectQty,
-            'success' => 'Success'
-        );
         /*
                 $_SESSION['success']['marque'] = $marque;
                 $_SESSION['success']['modele'] = $modele;
