@@ -137,16 +137,13 @@ ob_start();
                                                                     type="button" id="c_ship_different_address">show description
                                                             </button>
                                                         </label>
-
-
                                                         <div class="collapse" id="ship_different_address">
                                                             <div>
-
                                                                 <p><?= $wines["description"] ?></p>
                                                             </div>
-
                                                         </div>
                                                     </div>
+
                                                     <label class="input-medium">
                                                         <input class="form-control text-center border mr-0"
                                                                type="number" min="1"
