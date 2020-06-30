@@ -134,10 +134,6 @@ function addPanier()
         }
 
 
-        /*   $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
-           $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];*/
-
-
         $_SESSION['cart']['total'] = 0;
         $index = 0;
         foreach ($_SESSION['wine'] as $total) {
