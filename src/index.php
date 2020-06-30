@@ -20,8 +20,14 @@ if (isset($_GET['action'])) {
             home();
             break;
 
+
         case 'about' :
             about();
+            break;
+
+
+        case 'cartItem' :
+            cartAddItem();
             break;
 
         case 'wines' :
