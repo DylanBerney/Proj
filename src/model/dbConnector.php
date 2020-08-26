@@ -49,7 +49,7 @@ function executeQueryInsert($query)
         $statement = $dbConnexion->prepare($query);//prepare query
         $queryResult = $statement->execute();//execute query
     }
-    $dbConnexion = null;//close database connexion
+   // $dbConnexion = null;//close database connexion
     return $queryResult;
 }
 
@@ -57,7 +57,7 @@ function executeQueryInsert($query)
 
 function executeQueryUpdate($query, $param)
 {
-    {
+    
         $queryResult = null;
 
         $dbConnexion = openDBConnexion();//open database connexion
@@ -72,11 +72,11 @@ function executeQueryUpdate($query, $param)
             $stmt->execute();
 
         }
-        $dbConnexion = null;//close database connexion
+       // $dbConnexion = null;//close database connexion
 //    return $queryResult;
-        return $queryResult;
-    }
+        return $queryResult;    
 }
+
 /**
  * @brief This function is designed to manage the database connexion. Closing will be not proceeded there. The client is responsible of this.
  * @return PDO|null
@@ -85,7 +85,7 @@ function executeQueryUpdate($query, $param)
  */
 function openDBConnexion()
 {
-    $tempDbConnexion = null;
+   // $tempDbConnexion = null;
 
     $sqlDriver = 'mysql';
     $hostname = 'localhost';
@@ -109,6 +109,10 @@ function openDBConnexion()
  * @brief This class is designed to manage specific model exception
  */
 class ModelDataBaseException extends Exception
+
+
+
+
 {
 
 }
