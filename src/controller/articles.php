@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file      articles.php
  * @brief     this controller is designed to manage articles actions
@@ -10,8 +11,7 @@
 /**
  * @brief This function is designed to display Articles
  */
-function displayArticles()
-{
+function displayArticles() {
     require_once "model/articlesManager.php";
     try {
         $snowsResults = getArticles();
@@ -22,14 +22,12 @@ function displayArticles()
     }
 }
 
-
-function getWines()
-{
+function getWines() {
     require_once "model/winesManager.php";
     try {
         $allWines = extractWines();
         //  require 'view/shop.php';
-    } catch (ModelDataBaseException  $ex) {
+    } catch (ModelDataBaseException $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require 'model/logError.php';
         logError($msgErreurForUsers, $ex);
@@ -37,25 +35,21 @@ function getWines()
     } finally {
         require 'view/shop.php';
     }
-
 }
 
-
-function anArticle($details)
-{
+function anArticle($details) {
 
     require_once "model/winesManager.php";
     try {
         $aWine = extractAWine($details);
         require 'view/wine.php';
-    } catch (ModelDataBaseException  $ex) {
+    } catch (ModelDataBaseException $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require "vueErreur.php";
     }
 }
 
-function addPanier()
-{
+function addPanier() {
     $id = $_POST["id"];
 
     if (isset($_POST["qtySelect"])) {
@@ -84,7 +78,6 @@ function addPanier()
                 } else {
 
                     $existIncart = false;
-
                 }
                 $index++;
             }
@@ -103,7 +96,6 @@ function addPanier()
                 $_SESSION['wine'][$arrayPos]['photo'] = $aWine[0]["photo"];
                 $_SESSION['wine'][$arrayPos]['price'] = $aWine[0]["price"];
                 $_SESSION['wine'][$arrayPos]['totalWinePrice'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
-
             }
 
             if ($existIncart == true) {
@@ -114,14 +106,12 @@ function addPanier()
 
                         $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
                         $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
-
                     }
                 }
                 $index++;
-                $existIncart=false;
+                $existIncart = false;
             }
         } else {
-
             $_SESSION['wine'][0]['qty'] = $qty;
             $_SESSION['wine'][0]['totalQty'] = $aWine[0]["qtyAvailable"];
             $_SESSION['wine'][0]['id'] = $aWine[0]["code"];
@@ -130,20 +120,13 @@ function addPanier()
             $_SESSION['wine'][0]['photo'] = $aWine[0]["photo"];
             $_SESSION['wine'][0]['price'] = $aWine[0]["price"];
             $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
-
         }
-
-
         $_SESSION['cart']['total'] = 0;
         $index = 0;
         foreach ($_SESSION['wine'] as $total) {
-
             $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
-
             $index++;
-
         }
-
 
         require 'view/panier.php';
     } catch
@@ -154,13 +137,9 @@ function addPanier()
 
     require "model/articlesManager.php";
     jsonCartUpdater();
-
-
 }
 
-
-function delPanier()
-{
+function delPanier() {
 
     $dataDirectory = "model/data";
 
@@ -188,11 +167,9 @@ function delPanier()
     require 'view/home.php';
 }
 
-
-function command()
-{
+function command() {
     /*    $id = $_POST["id"];
-        $qty = $_POST["qtySelect"];*/
+      $qty = $_POST["qtySelect"]; */
 
     require_once "model/articlesManager.php";
     try {
@@ -202,6 +179,4 @@ function command()
         $msgErreur = $e->getMessage();
         require 'vueErreur.php';
     }
-
 }
-
