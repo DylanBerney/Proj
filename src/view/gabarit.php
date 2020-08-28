@@ -44,6 +44,9 @@
                 top: 8px;
                 right: 16px;
                 font-size: 18px;
+
+                border: 2px solid black ;
+                border-radius: 8px;
             }
 
 
@@ -60,12 +63,10 @@
         $tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
         ?>
 
-        <?php 
-      
-        if ($_GET['action'] != 'goPanier' && $_GET['action'] != 'addPanier'  ) { ?>
+        <?php if ($_GET['action'] != 'goPanier' && $_GET['action'] != 'addPanier') { ?>
             <div class="topright"><?php include 'json/jsonCart.php'; ?></div>
         <?php } ?>
-            
+
     </div>
 
     <div class="site-wrap">
@@ -113,7 +114,7 @@
                                         <a href="index.php?action=shop">Shop</a></li>
 
                                     <li class="active"
-                                        <?php if (@$_GET['action'] == 'contact') { ?>class="active" <?php } ?>>
+<?php if (@$_GET['action'] == 'contact') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=contact">Contact</a></li>
 
                                     <li <?php if (@$_GET['action'] == 'panier') { ?>class="active" <?php } ?>>
@@ -127,7 +128,7 @@
                 </div>
             </div>
         </div>
-        <?= $content; ?>
+<?= $content; ?>
         <div class="footer">
             <div class="container">
 
@@ -207,5 +208,4 @@
 </body>
 
 </html>
-<?php
-?>
+<?php ?>

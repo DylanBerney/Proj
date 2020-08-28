@@ -85,15 +85,15 @@ function executeQueryUpdate($query, $param)
  */
 function openDBConnexion()
 {
-    $tempDbConnexion = null;
+   // $tempDbConnexion = null;
 
     $sqlDriver = 'mysql';
     $hostname = 'localhost';
     $port = 3306;
     $charset = 'utf8';
     $dbName = 'wines';
-    $userName = 'admin';
-    $userPwd = '123qweasD!';
+    $userName = 'root';
+    $userPwd = '';
     $dsn = $sqlDriver . ':host=' . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
 
     try {

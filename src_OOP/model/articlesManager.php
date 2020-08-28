@@ -107,19 +107,19 @@ function jsonCartUpdater()
     $tempsDirPath = $dataDirectory . '/data' . session_id();
     if (file_exists("$tempsDirPath/$dataFileName")) // the file already exists -> load it
     {
-        $data = json_decode(file_get_contents("$tempsDirPath/$dataFileName"), true);
+        $data[0] = json_decode(file_get_contents("$tempsDirPath/$dataFileName"), true);
 
         $index = 0;
         foreach ($data as $cart) {
             $index++;
         }
 
-        $newData = $_SESSION;
+        $newData[0] = $_SESSION;
 
         // mkdir($dataDirectory . '/data' . session_id(), 777);
         $tempsDirPath = $dataDirectory . '/data' . session_id();
         if (isset($data['wine'])) {
-            $newData['nbArticle'] = count($data['wine']);
+            $newData[0]['nbArticle'] = count($data['wine']);
         }
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
 
@@ -128,7 +128,7 @@ function jsonCartUpdater()
         if (!file_exists($dataDirectory)) {
             mkdir($dataDirectory);
         }
-        $data = json_decode(getData(), true);
+        $data[0] = json_decode(getData(), true);
         mkdir($dataDirectory . '/data' . session_id());
         $tempsDirPath = $dataDirectory . '/data' . session_id();
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($data));
@@ -142,7 +142,7 @@ function jsonCartUpdater()
 
 function getData()
 {
-    $jsonCartBuilder['userCart'] = $_SESSION;
+    $jsonCartBuilder = $_SESSION;
     return json_encode($jsonCartBuilder);
 
 }

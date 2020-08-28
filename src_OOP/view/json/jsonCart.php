@@ -1,3 +1,8 @@
+<?php
+  $dataDirectory = "model/data";
+  $dataFileName = 'userCart.json';
+  $tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
+?>
 <div id="myData"></div>
 
 <script>
