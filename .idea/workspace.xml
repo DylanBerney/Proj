@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:hotfix" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f48ec2f-c3c6-4fe4-a5f0-c7d09db06797" name="Default Changelist" comment="" />
+    <list default="true" id="5f48ec2f-c3c6-4fe4-a5f0-c7d09db06797" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/view/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/log_exceptions.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/log_exceptions.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/gabarit.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,25 +108,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590651069873" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1591015466716">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="283" key="GridCell.Tab.0.bottom" timestamp="1598964101473">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953531" />
+    <state width="1877" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598964101473" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1591015466716" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1591015466716">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="283" key="GridCell.Tab.0.center" timestamp="1598964101472">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953531" />
+    <state width="1877" height="283" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598964101472" />
     <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1591015466716" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1591015466716">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="283" key="GridCell.Tab.0.left" timestamp="1598964101472">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953531" />
+    <state width="1877" height="283" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598964101472" />
     <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1591015466716" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1591015466716">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="283" key="GridCell.Tab.0.right" timestamp="1598964101473">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953531" />
+    <state width="1877" height="283" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598964101473" />
     <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1591015466716" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1590653953531">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -131,14 +164,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590653953532" />
-    <state x="461" y="161" key="SettingsEditor" timestamp="1589460008525">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1598963974042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="161" key="SettingsEditor/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1589460008525" />
-    <state x="656" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1590004041597">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1680.34.1680.1010@0.0.1920.1040" timestamp="1590004041597" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598963974042" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

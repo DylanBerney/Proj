@@ -112,6 +112,9 @@
                                     <li class="active" <?php if (@$_GET['action'] == 'shop') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=shop">Shop</a></li>
 
+                                    <li class="active" <?php if (@$_GET['action'] == 'login') { ?>class="active" <?php } ?>>
+                                        <a href="index.php?action=login">Login</a></li>
+
                                     <li class="active"
                                         <?php if (@$_GET['action'] == 'contact') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=contact">Contact</a></li>
