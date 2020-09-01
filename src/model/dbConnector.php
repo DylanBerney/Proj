@@ -93,7 +93,7 @@ function openDBConnexion()
     $charset = 'utf8';
     $dbName = 'wines';
     $userName = 'root';
-    $userPwd = 'bitelongue';
+    $userPwd = '';
     $dsn = $sqlDriver . ':host=' . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
 
     try {
