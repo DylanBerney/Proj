@@ -51,7 +51,7 @@ if (isset($_SESSION['wine'])) {
                                             <td class="product-name">
                                                 <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
                                             </td>
-                                            <td>$55.00</td>
+                                            <td><?= $price?> .-</td>
                                             <td>
                                                 <div class="input-group mb-3" style="max-width: 120px;">
                                                     <div class="input-group-prepend">
