@@ -15,6 +15,7 @@ ob_start();
         <br>
         <input type="submit" value="login"> <input type="button" value="Reset"> Forgot <a href="">password</a> ?
     </form>
+    <span class="psw"><a href="index.php?action=register">Register</a></span>
 
 
 
