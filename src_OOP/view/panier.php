@@ -108,9 +108,9 @@ ob_start();
     ?>
 </div>
 <script>
-    
-    
-    
+
+
+
 
 </script>
 <div class="bodyBackground">
@@ -137,13 +137,98 @@ ob_start();
 </div>
 <br>
 </span>
-<?php $yes=json_encode($_SESSION['wine']);?>
+<?php $yes = json_encode($_SESSION['wine']); ?>
+
+
+
+
+
+
+
+
+
+
+
+<?php
+if (isset($_SESSION['wine'])) {
+    $myIndex = 0;
+    $totalPrice = 0;
+    foreach ($_SESSION['wine'] as $wesh) {
+        $qtySel = $_SESSION['wine'][$myIndex]['qty'];
+        $totalQty = $_SESSION['wine'][$myIndex]['totalQty'];
+        $marque = $_SESSION['wine'][$myIndex]['marque'];
+        $modele = $_SESSION['wine'][$myIndex]['modele'];
+        $price = $_SESSION['wine'][$myIndex]['price'];
+        $aWineSubTotal = $_SESSION['wine'][$myIndex]['aWineSubTotal'];
+        $photo = $_SESSION['wine'][$myIndex]['photo'];
+        $id = $_SESSION['wine'][$myIndex]['id'];
+        $totalPrice = $_SESSION['cart']['total'];
+
+        if (isset($_SESSION['wine'][$myIndex])) {
+            ?>
+            <?= $photo ?>
+            <?= $marque ?>
+            <?= $modele ?>
+            <?= $price ?>
+            <?= $qtySel ?>
+
+
+
+
+            <div id="updateForm">
+
+                <div id="answer<?=$myIndex?>"></div>
+                <br />
+               -- maybe it should be input type=button ?!?  -->
+            </div>
+
+
+
+
+
+            <?php
+        }
+        $myIndex++;
+    }
+}
+?>
+ <button onClick="callAjaxJson()">json</button> <!
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+        function callAjaxJson() {
+            arguments0 = {
+                <?php
+          foreach ($_SESSION['wine'] as $wesh) {
+              echo ' arg'.$myIndex.': $("#updateForm input[name="arg'.$myIndex.'"]").val() ';
+          }?>
+            };
+            $.ajax({
+                type: "POST",
+                url: "view/ajaxJsonProcess.php",
+                data: {arguments: arguments0},
+                success: function (data) {
+                    $("#answer2").html(data);
+
+                }
+            });
+            return false;
+        }
+</script>
+
+
+
+
+
+
+
+
 
 
 
 
 <div id="exampleForm2">
-    <input name="arg" value='<?php echo $yes;?>' type="hidden"/> + <input name="arg2"> = <div id="answer2"></div>
+    <input name="arg" value='<?php echo $yes; ?>' type=""/> + <input name="arg2"> = <div id="answer2"></div>
     <br />
     <button onClick="callAjaxJson()">json</button> <!-- maybe it should be input type=button ?!?  -->
 </div>
@@ -151,9 +236,10 @@ ob_start();
 <script type="text/javascript">
         function callAjaxJson() {
             arguments0 = {
-             arg1: $("#exampleForm2 input[name='arg']").val()
- 
-        };
+                arg1: $("#exampleForm2 input[name='arg']").val(),
+                arg2: $("#exampleForm2 input[name='arg']").val()
+
+            };
             $.ajax({
                 type: "POST",
                 url: "view/ajaxJsonProcess.php",
