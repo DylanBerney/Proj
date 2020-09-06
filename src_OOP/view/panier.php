@@ -222,7 +222,7 @@ if (isset($_SESSION['wine'])) {
 
 
 
-
+<?php include 'view/ajaxJsonProcess.php';?>
 
 
 <div id="exampleForm2">
