@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file      articles.php
  * @brief     this controller is designed to manage articles actions
@@ -10,8 +11,7 @@
 /**
  * @brief This function is designed to display Articles
  */
-function displayArticles()
-{
+function displayArticles() {
     require_once "model/articlesManager.php";
     try {
         $snowsResults = getArticles();
@@ -22,14 +22,12 @@ function displayArticles()
     }
 }
 
-
-function getWines()
-{
+function getWines() {
     require_once "model/winesManager.php";
     try {
         $allWines = extractWines();
         //  require 'view/shop.php';
-    } catch (ModelDataBaseException  $ex) {
+    } catch (ModelDataBaseException $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require 'model/logError.php';
         logError($msgErreurForUsers, $ex);
@@ -37,29 +35,23 @@ function getWines()
     } finally {
         require 'view/shop.php';
     }
-
 }
 
-
-function anArticle($details)
-{
+function anArticle($details) {
 
     require_once "model/winesManager.php";
     try {
         $aWine = extractAWine($details);
         require 'view/wine.php';
-    } catch (ModelDataBaseException  $ex) {
+    } catch (ModelDataBaseException $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require "vueErreur.php";
     }
 }
 
-function addPanier()
-{
+function addPanier() {
 
-    function chargerClasse($classe)
-
-    {
+    function chargerClasse($classe) {
 
         require "model/" . $classe . '.php'; // On inclut la classe correspondante au paramètre passé.
     }
@@ -67,18 +59,23 @@ function addPanier()
     spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelée dès qu'on instanciera une classe non déclarée.
 
 
-    if (isset($_POST["qtySelect"])) {
-        $qty = $_POST["qtySelect"];
-    } else {
+
+
+
+    $qty = filter_input(INPUT_POST, 'qtySelect', FILTER_SANITIZE_SPECIAL_CHARS);
+    if (!isset($qty)) {
         $qty = 1;
     }
 
-    $id = 1;
-    $test= new CartItem($id,$qty);
+
+    $id = filter_input(INPUT_POST, 'id',FILTER_SANITIZE_SPECIAL_CHARS);
+    if (!isset($id)) {
+        $id = 1;
+    }
+    $test = new CartItem($id, $qty);
     $cart = new Cart();
 
 
-    $id = $_POST["id"];
     $test = $cart;
     require_once "model/winesManager.php";
     try {
@@ -99,13 +96,11 @@ function addPanier()
                 } else {
 
                     $existIncart = false;
-
                 }
                 $index++;
             }
 
             if ($existIncart == false) {
-
 
                 $arrayPos = count($_SESSION['wine']);
 
@@ -117,8 +112,9 @@ function addPanier()
                 $_SESSION['wine'][$arrayPos]['modele'] = $aWine[0]["model"];
                 $_SESSION['wine'][$arrayPos]['photo'] = $aWine[0]["photo"];
                 $_SESSION['wine'][$arrayPos]['price'] = $aWine[0]["price"];
-                $_SESSION['wine'][$arrayPos]['totalWinePrice'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
+                $_SESSION['wine'][$arrayPos]['aWineSubTotal'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
 
+                $_SESSION['wine'][$arrayPos]['totalWinePrice'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
             }
 
             if ($existIncart == true) {
@@ -126,10 +122,9 @@ function addPanier()
                 foreach ($_SESSION['wine'] as $item) {
 
                     if ($_SESSION['wine'][$index]['id'] == $id) {
-
+                        $_SESSION['wine'][$index]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
                         $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
                         $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
-
                     }
                     $index++;
                 }
@@ -145,8 +140,9 @@ function addPanier()
             $_SESSION['wine'][0]['modele'] = $aWine[0]["model"];
             $_SESSION['wine'][0]['photo'] = $aWine[0]["photo"];
             $_SESSION['wine'][0]['price'] = $aWine[0]["price"];
-            $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
 
+            $_SESSION['wine'][0]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+            $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
         }
 
 
@@ -157,7 +153,6 @@ function addPanier()
             $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
 
             $index++;
-
         }
 
 
@@ -170,28 +165,24 @@ function addPanier()
 
     require "model/articlesManager.php";
     jsonCartUpdater();
-
-
 }
 
+function delPanier() {
 
-function delPanier()
-{
+    $dataDirectory = "view/public/data";
+    $dataFileName = 'userCart.json';
 
-    $dataDirectory = "model/data";
-
-
-    $tempsDirPath = $dataDirectory . '/data' . session_id();
+    $tempsDirPath = $dataDirectory . session_id();
     // file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
 
 
-    $files = glob($dataDirectory . '/data' . session_id() . "/userCart.json");
+    $files = glob($dataDirectory . '/data_' . session_id() . "/userCart.json");
     foreach ($files as $file) {
 
         unlink($_SERVER['DOCUMENT_ROOT'] . "/" . $file);
     }
-    if (is_dir($dataDirectory . '/data' . session_id())) {
-        rmdir($dataDirectory . '/data' . session_id());
+    if (is_dir($dataDirectory . '/data_' . session_id())) {
+        rmdir($dataDirectory . '/data_' . session_id());
         // session_destroy();
     }
 
@@ -204,11 +195,9 @@ function delPanier()
     require 'view/home.php';
 }
 
-
-function command()
-{
+function command() {
     /*    $id = $_POST["id"];
-        $qty = $_POST["qtySelect"];*/
+      $qty = $_POST["qtySelect"]; */
 
     require_once "model/articlesManager.php";
     try {
@@ -218,6 +207,4 @@ function command()
         $msgErreur = $e->getMessage();
         require 'vueErreur.php';
     }
-
 }
-

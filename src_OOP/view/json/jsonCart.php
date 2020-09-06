@@ -1,7 +1,7 @@
 <?php
   $dataDirectory = "model/data";
   $dataFileName = 'userCart.json';
-  $tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
+  $tempsDirPath = 'view/public/data/data_' . session_id() . "/userCart.json";
 ?>
 <div id="myData"></div>
 
@@ -19,7 +19,7 @@
     function appendData(data) {
         var mainContainer = document.getElementById("myData");
         var div = document.createElement("div");
-        div.innerHTML = '<h4> Totale de du Panier:</h4>' + data[0].cart.total;
+        div.innerHTML = '<h4> Totale de du Panier </h4>' + data[0].cart.total;
         mainContainer.appendChild(div);
     }
 </script>

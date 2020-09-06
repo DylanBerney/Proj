@@ -12,7 +12,7 @@ ob_start();
             </div>
         </div>
         <div class="row mb-5">
-            <form class="col-md-12" method="post">
+            <form class="col-md-12" >
                 <div class="site-blocks-table">
                     <table class="table table-bordered">
                         <thead>
@@ -37,6 +37,7 @@ ob_start();
                                     $marque = $_SESSION['wine'][$myIndex]['marque'];
                                     $modele = $_SESSION['wine'][$myIndex]['modele'];
                                     $price = $_SESSION['wine'][$myIndex]['price'];
+                                    $aWineSubTotal = $_SESSION['wine'][$myIndex]['aWineSubTotal'];
                                     $photo = $_SESSION['wine'][$myIndex]['photo'];
                                     $id = $_SESSION['wine'][$myIndex]['id'];
                                     $totalPrice = $_SESSION['cart']['total'];
@@ -51,7 +52,7 @@ ob_start();
                                             <td class="product-name">
                                                 <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
                                             </td>
-                                            <td>$55.00</td>
+                                            <td>CHF <?= $price ?></td>
                                             <td>
                                                 <div class="input-group mb-3" style="max-width: 120px;">
                                                     <div class="input-group-prepend">
@@ -65,8 +66,10 @@ ob_start();
                                                 </div>
 
                                             </td>
-                                            <td><?= $price ?></td>
-                                            <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+                                            <td><?= $aWineSubTotal ?></td>
+                                    <form method="post" action=" index.php?action=userDelwine">
+                                        <input type="hidden" name="id" value="<?= $id ?>">
+                                        <td><button type="submit" class="btn btn-primary height-auto btn-sm">X</a></td>
                                         </tr>
 
 
@@ -82,10 +85,9 @@ ob_start();
 
 
                             </tr>
-                        </tbody>
-                        <form method="post" action=" index.php?action=userDelwine">
-                            <input type="hidden" name="id" value="<?= $id ?>">
-                            <button class="btn btn-medium" type="submit" style="color: red">Supprimer
+                            </tbody>
+
+
                             </button>
                         </form>
                     </table>
@@ -105,6 +107,12 @@ ob_start();
     endif;
     ?>
 </div>
+<script>
+    
+    
+    
+
+</script>
 <div class="bodyBackground">
     <div style="text-align: center">
         <?php if (isset($_SESSION["wine"])): ?>
@@ -129,33 +137,34 @@ ob_start();
 </div>
 <br>
 </span>
+<?php $yes=json_encode($_SESSION['wine']);?>
 
 
 
 
-><div id="exampleForm">
-    <input name="arg1" /> + <input name="arg2"> = <div id="answer"></div>
+<div id="exampleForm2">
+    <input name="arg" value='<?php echo $yes;?>' type="hidden"/> + <input name="arg2"> = <div id="answer2"></div>
     <br />
-    <button onClick="callAjaxAddition()">Click Me to Add</button> <!-- maybe it should be input type=button ?!?  -->
+    <button onClick="callAjaxJson()">json</button> <!-- maybe it should be input type=button ?!?  -->
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
-            function callAjaxAddition() {
-                arguments0 = {
-                    arg1: $("#exampleForm input[name='arg1']").val(),
-                    arg2: $("#exampleForm input[name='arg2']").val()
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "view/processAjax.php",
-                    data: {arguments: arguments0},
-                    success: function (data) {
-                        $("#answer").html('<ul><li>' + data + '</li></ul>');
+        function callAjaxJson() {
+            arguments0 = {
+             arg1: $("#exampleForm2 input[name='arg']").val()
+ 
+        };
+            $.ajax({
+                type: "POST",
+                url: "view/ajaxJsonProcess.php",
+                data: {arguments: arguments0},
+                success: function (data) {
+                    $("#answer2").html(data);
 
-                    }
-                });
-                return false;
-            }
+                }
+            });
+            return false;
+        }
 </script>
 <?php
 $content = ob_get_clean();
