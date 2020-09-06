@@ -149,6 +149,9 @@ ob_start();
 
 
 
+<form id="contactForm1" action="view/ajaxJsonProcess" method="post">
+
+
 <?php
 if (isset($_SESSION['wine'])) {
     $myIndex = 0;
@@ -166,21 +169,17 @@ if (isset($_SESSION['wine'])) {
 
         if (isset($_SESSION['wine'][$myIndex])) {
             ?>
-            <?= $photo ?>
-            <?= $marque ?>
-            <?= $modele ?>
-            <?= $price ?>
+        
+            
             <?= $qtySel ?>
 
 
+   <label for="price">Price:</label><br>
+    <input type="text" id="price" name="price" value="<?= $price ?>"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
 
-
-            <div id="updateForm">
-
-                <div id="answer<?=$myIndex?>"></div>
-                <br />
-               -- maybe it should be input type=button ?!?  -->
-            </div>
+     
 
 
 
@@ -192,35 +191,34 @@ if (isset($_SESSION['wine'])) {
     }
 }
 ?>
- <button onClick="callAjaxJson()">json</button> <!
+ 
+</form>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
-        function callAjaxJson() {
-            arguments0 = {
-                <?php
-          foreach ($_SESSION['wine'] as $wesh) {
-              echo ' arg'.$myIndex.': $("#updateForm input[name="arg'.$myIndex.'"]").val() ';
-          }?>
-            };
-            $.ajax({
-                type: "POST",
-                url: "view/ajaxJsonProcess.php",
-                data: {arguments: arguments0},
-                success: function (data) {
-                    $("#answer2").html(data);
+    var frm = $('#contactForm1');
 
-                }
-            });
-            return false;
-        }
+    frm.submit(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                $("#answer2").html(data);
+
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
 </script>
 
 
-
-
-
-
+</form>
 
 
 
@@ -234,12 +232,16 @@ if (isset($_SESSION['wine'])) {
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
+    
         function callAjaxJson() {
-            arguments0 = {
-                arg1: $("#exampleForm2 input[name='arg']").val(),
-                arg2: $("#exampleForm2 input[name='arg']").val()
-
-            };
+            
+          var lenght = '<?=$myIndex?>';
+            for(i=0;i<lenght;i++){
+            
+        arguments0 = {
+            var  : $("#exampleForm2 input[name='arg']").val(),
+        }    
+        };  
             $.ajax({
                 type: "POST",
                 url: "view/ajaxJsonProcess.php",

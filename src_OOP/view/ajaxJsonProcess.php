@@ -18,5 +18,12 @@ foreach ($allCart as $anArticle) {
 
 
 
-    echo $a['arg1'];
+    echo "wwwwwwwwwwwwwwwwwwwwwwwwwwhhhhhhhhhhhhhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
 ?>
+
+
+<form> 
+    <input type="text" value="<?=$builder?>"> 
+    <input type="submit" value="monForm" name="form" />
+</form>
+    
