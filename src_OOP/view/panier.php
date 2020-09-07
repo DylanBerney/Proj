@@ -98,6 +98,80 @@ ob_start();
     </div>
 </div>
 
+
+
+
+
+
+<!-- index.php -->
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+    <form id="myForm">
+        <input type="text" name="fname" id="fname"/>
+        <input type="submit" name="click" value="button" />
+    </form>
+    <script>
+    $(document).ready(function(){
+
+         $(function(){
+            $("#myForm").submit(function(event){
+                event.preventDefault();
+                $.ajax({
+                    method: 'POST',
+                    url: 'submit.php',
+                  
+                  
+                    data : $('#myForm').serialize(),
+                    success: function(data){
+                        alert(data);
+                    },
+                    error: function(xhr, desc, err){
+                        console.log(err);
+                    }
+                });
+            });
+        });
+    });
+    </script>
+    </body>
+    </html>
+    <?php include 'submit.php';?>
+
+    <?php
+  $dataDirectory = "model/data";
+  $dataFileName = 'userCart.json';
+  $tempsDirPath = 'view/public/data/data_' . session_id() . "/userCart.json";
+?>
+<div id="myData"></div>
+
+<script>
+    fetch("<?= $tempsDirPath ?>")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+    function appendData(data) {
+        var mainContainer = document.getElementById("myData");
+        var div = document.createElement("div");
+         data[0].cart.total= data[0].cart.total + data[0].cart.total;
+        div.innerHTML = '<h4> Totale de du Panier </h4>' + data[0].cart.total;
+        mainContainer.appendChild(div);
+    }
+</script>
+
+    
+    
+    
+    
 </div>
 <div>
     <?php if (isset($totalPrice)): ?>
@@ -144,114 +218,6 @@ ob_start();
 
 
 
-
-
-
-
-
-<form id="contactForm1" action="view/ajaxJsonProcess.php" method="post">
-
-
-<?php
-if (isset($_SESSION['wine'])) {
-    $myIndex = 0;
-    $totalPrice = 0;
-    foreach ($_SESSION['wine'] as $wesh) {
-        $qtySel = $_SESSION['wine'][$myIndex]['qty'];
-        $totalQty = $_SESSION['wine'][$myIndex]['totalQty'];
-        $marque = $_SESSION['wine'][$myIndex]['marque'];
-        $modele = $_SESSION['wine'][$myIndex]['modele'];
-        $price = $_SESSION['wine'][$myIndex]['price'];
-        $aWineSubTotal = $_SESSION['wine'][$myIndex]['aWineSubTotal'];
-        $photo = $_SESSION['wine'][$myIndex]['photo'];
-        $id = $_SESSION['wine'][$myIndex]['id'];
-        $totalPrice = $_SESSION['cart']['total'];
-
-        if (isset($_SESSION['wine'][$myIndex])) {
-            ?>
-        
-            
-            <?= $qtySel ?>
-
-
-   <label for="price">Price:</label><br>
-    <input type="text" id="price" name="price" value="<?= $price ?>"><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname" value="Doe"><br><br>
-    <input type="submit">
-     
-
-
-
-
-
-            <?php
-        }
-        $myIndex++;
-    }
-}
-?>
- 
-</form>
-
-<script type="text/javascript">
-    var frm = $('#contactForm1');
-
-    frm.submit(function (e) {
-
-        e.preventDefault();
-
-        $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: frm.serialize(),
-            success: function (data) {
-                $("#answer2").html(data);
-
-            },
-            error: function (data) {
-                console.log('An error occurred.');
-                console.log(data);
-            },
-        });
-    });
-</script>
-
-
-</form>
-
-
-
-<?php include 'view/ajaxJsonProcess.php';?>
-
-
-<div id="exampleForm2">
-    <input name="arg" value='<?php echo $yes; ?>' type=""/> + <input name="arg2"> = <div id="answer2"></div>
-    <br />
-    <button onClick="callAjaxJson()">json</button> <!-- maybe it should be input type=button ?!?  -->
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript">
-    
-        function callAjaxJson() {
-            
-       
-        arguments0 = {
-            var  : $("#exampleForm2 input[name='arg']").val(),
-        }    
-        };  
-            $.ajax({
-                type: "POST",
-                url: "view/ajaxJsonProcess.php",
-                data: {arguments: arguments0},
-                success: function (data) {
-                    $("#answer2").html(data);
-
-                }
-            });
-            return false;
-        }
-</script>
 <?php
 $content = ob_get_clean();
 require 'gabarit.php';
