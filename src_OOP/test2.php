@@ -1,4 +1,3 @@
-
 <!-- index.php -->
     <!DOCTYPE html>
     <html>
@@ -7,9 +6,11 @@
     </head>
     <body>
     <form id="myForm">
-        <input type="text" name="fname" id="fname"/>
+        <input type="text" name="fname" id="fname" value"<?php if(isset($_POST['yes'])){echo $_POST['yes'];}?>">
         <input type="submit" name="click" value="button" />
     </form>
+        
+        <?php include 'view/ajaxJsonProcess.php';?>
     <script>
     $(document).ready(function(){
 
@@ -18,9 +19,9 @@
                 event.preventDefault();
                 $.ajax({
                     method: 'POST',
-                    url: 'submit.php',
+                    url: 'view/ajaxJsonProcess.php',
                   
-                  
+                
                     data : $('#myForm').serialize(),
                     success: function(data){
                         alert(data);
@@ -33,6 +34,20 @@
         });
     });
     </script>
+    
     </body>
     </html>
-    <?php include 'submit.php';?>
+    
+    <input type="text" value="" name="options[22]" id="price" class="input-text" />
+<input type="button" value="Refresh" onclick="reloadPrice();" />
+   <script>
+ 
+function reloadPrice() {
+    var price = "0.00"; // set your price here
+
+    // get a ref to your element and assign value
+    var elem = document.getElementById("price");
+    elem.value = price;
+}
+   </script>
+ 

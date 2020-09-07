@@ -3,18 +3,7 @@
 
 
 $a = $_POST['arguments'];
-
-$jsonCart = json_decode($a['arg1']);
-
-$allCart = $_SESSION['wine'];
-
-foreach ($allCart as $anArticle) {
-    foreach ($anArticle as $builder) { 
-
-            $test = $builder;
-               
-        }
-    }
+$_POST['yes']='tarace';
 
 
 
@@ -22,8 +11,4 @@ foreach ($allCart as $anArticle) {
 ?>
 
 
-<form> 
-    <input type="text" value="<?=$builder?>"> 
-    <input type="submit" value="monForm" name="form" />
-</form>
     

@@ -149,7 +149,7 @@ ob_start();
 
 
 
-<form id="contactForm1" action="view/ajaxJsonProcess" method="post">
+<form id="contactForm1" action="view/ajaxJsonProcess.php" method="post">
 
 
 <?php
@@ -178,7 +178,7 @@ if (isset($_SESSION['wine'])) {
     <input type="text" id="price" name="price" value="<?= $price ?>"><br>
     <label for="lname">Last name:</label><br>
     <input type="text" id="lname" name="lname" value="Doe"><br><br>
-
+    <input type="submit">
      
 
 
@@ -235,9 +235,7 @@ if (isset($_SESSION['wine'])) {
     
         function callAjaxJson() {
             
-          var lenght = '<?=$myIndex?>';
-            for(i=0;i<lenght;i++){
-            
+       
         arguments0 = {
             var  : $("#exampleForm2 input[name='arg']").val(),
         }    
