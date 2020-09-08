@@ -118,6 +118,7 @@ function addPanier()
                 $_SESSION['wine'][$arrayPos]['photo'] = $aWine[0]["photo"];
                 $_SESSION['wine'][$arrayPos]['price'] = $aWine[0]["price"];
                 $_SESSION['wine'][$arrayPos]['totalWinePrice'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
+                $_SESSION['wine'][$arrayPos]['aWineSubTotal'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
 
             }
 
@@ -126,6 +127,7 @@ function addPanier()
                 foreach ($_SESSION['wine'] as $item) {
 
                     if ($_SESSION['wine'][$index]['id'] == $id) {
+                        $_SESSION['wine'][$index]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
 
                         $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
                         $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
@@ -146,6 +148,7 @@ function addPanier()
             $_SESSION['wine'][0]['photo'] = $aWine[0]["photo"];
             $_SESSION['wine'][0]['price'] = $aWine[0]["price"];
             $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+            $_SESSION['wine'][0]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
 
         }
 
