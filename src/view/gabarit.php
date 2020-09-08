@@ -112,9 +112,13 @@
                                     <li class="active" <?php if (@$_GET['action'] == 'shop') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=shop">Shop</a></li>
 
-                                    <li class="active" <?php if (@$_GET['action'] == 'login') { ?>class="active" <?php } ?>>
-                                        <a href="index.php?action=login">Login</a></li>
-
+                                    <?php if (isset($_SESSION['userEmailAddress'])) :?>
+                                    <li class="active" <?php if (@$_GET['action'] == 'logout') { ?>class="active" <?php } ?>>
+                                        <a href="index.php?action=logout">Logout</a></li>
+                                    <?php else:?>
+                                        <li class="active" <?php if (@$_GET['action'] == 'login') { ?>class="active" <?php } ?>>
+                                            <a href="index.php?action=login">Login</a></li>
+                                    <?php endif;?>
                                     <li class="active"
                                         <?php if (@$_GET['action'] == 'contact') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=contact">Contact</a></li>
