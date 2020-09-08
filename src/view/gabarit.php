@@ -102,7 +102,6 @@
                         <div class="mx-auto">
                             <nav class="site-navigation position-relative text-left" role="navigation">
                                 <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-
                                     <li class="active" <?php if (@$_GET['action'] == 'home') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=home">Home</a></li>
 
@@ -113,6 +112,7 @@
                                         <a href="index.php?action=shop">Shop</a></li>
 
                                     <?php if (isset($_SESSION['userEmailAddress'])) :?>
+                                        <a>Connecté en tant que :</a> <?php echo $_SESSION['userEmailAddress']?>
                                     <li class="active" <?php if (@$_GET['action'] == 'logout') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=logout">Logout</a></li>
                                     <?php else:?>
