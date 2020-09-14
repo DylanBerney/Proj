@@ -12,7 +12,7 @@ ob_start();
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="eaddress">Email Address</label>
-                            <input type="text" id="eaddress" class="form-control form-control-lg">
+                            <input type="email"  name="inputUserEmailAddress" id="eaddress" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">
