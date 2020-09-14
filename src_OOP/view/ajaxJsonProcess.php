@@ -3,7 +3,7 @@
 
 
 $a = $_POST['arguments'];
-$_POST['yes']='tarace';
+$_POST['yes']='';
 
 
 

@@ -49,8 +49,18 @@ function anArticle($details) {
     }
 }
 
-function addPanier() {
-    $id = $_POST["id"];
+function addPanier()
+{
+
+    function chargerClasse($classe)
+
+    {
+
+        require "model/" . $classe . '.php'; // On inclut la classe correspondante au paramètre passé.
+    }
+
+    spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelée dès qu'on instanciera une classe non déclarée.
+
 
     if (isset($_POST["qtySelect"])) {
         $qty = $_POST["qtySelect"];
@@ -58,7 +68,13 @@ function addPanier() {
         $qty = 1;
     }
 
+    $id = 1;
+    $test= new CartItem($id,$qty);
+    $cart = new Cart();
 
+
+    $id = $_POST["id"];
+    $test = $cart;
     require_once "model/winesManager.php";
     try {
 
@@ -78,6 +94,7 @@ function addPanier() {
                 } else {
 
                     $existIncart = false;
+
                 }
                 $index++;
             }
@@ -96,6 +113,8 @@ function addPanier() {
                 $_SESSION['wine'][$arrayPos]['photo'] = $aWine[0]["photo"];
                 $_SESSION['wine'][$arrayPos]['price'] = $aWine[0]["price"];
                 $_SESSION['wine'][$arrayPos]['totalWinePrice'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
+                $_SESSION['wine'][$arrayPos]['aWineSubTotal'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
+
             }
 
             if ($existIncart == true) {
@@ -103,15 +122,19 @@ function addPanier() {
                 foreach ($_SESSION['wine'] as $item) {
 
                     if ($_SESSION['wine'][$index]['id'] == $id) {
+                        $_SESSION['wine'][$index]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
 
                         $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
                         $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+
                     }
+                    $index++;
                 }
-                $index++;
+
                 $existIncart = false;
             }
         } else {
+
             $_SESSION['wine'][0]['qty'] = $qty;
             $_SESSION['wine'][0]['totalQty'] = $aWine[0]["qtyAvailable"];
             $_SESSION['wine'][0]['id'] = $aWine[0]["code"];
@@ -120,13 +143,21 @@ function addPanier() {
             $_SESSION['wine'][0]['photo'] = $aWine[0]["photo"];
             $_SESSION['wine'][0]['price'] = $aWine[0]["price"];
             $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+            $_SESSION['wine'][0]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+
         }
+
+
         $_SESSION['cart']['total'] = 0;
         $index = 0;
         foreach ($_SESSION['wine'] as $total) {
+
             $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
+
             $index++;
+
         }
+
 
         require 'view/panier.php';
     } catch
@@ -137,7 +168,10 @@ function addPanier() {
 
     require "model/articlesManager.php";
     jsonCartUpdater();
+
+
 }
+
 
 function delPanier() {
 
