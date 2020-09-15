@@ -30,74 +30,63 @@ ob_start();
                             <?php
                             $myIndex = 0;
                             if (isset($_SESSION['wine'])) {
-                            $totalPrice = 0;
-                            foreach ($_SESSION['wine'] as $wesh) {
-                            $qtySel = $_SESSION['wine'][$myIndex]['qty'];
-                            $totalQty = $_SESSION['wine'][$myIndex]['totalQty'];
-                            $marque = $_SESSION['wine'][$myIndex]['marque'];
-                            $modele = $_SESSION['wine'][$myIndex]['modele'];
-                            $price = $_SESSION['wine'][$myIndex]['price'];
-                            $photo = $_SESSION['wine'][$myIndex]['photo'];
-                            $id = $_SESSION['wine'][$myIndex]['id'];
-                            $aWineSubTotal = $_SESSION['wine'][$myIndex]['aWineSubTotal'];
-                            $totalPrice = $_SESSION['cart']['total'];
+                                $totalPrice = 0;
+                                foreach ($_SESSION['wine'] as $wesh) {
+                                    $qtySel = $_SESSION['wine'][$myIndex]['qty'];
+                                    $totalQty = $_SESSION['wine'][$myIndex]['totalQty'];
+                                    $marque = $_SESSION['wine'][$myIndex]['marque'];
+                                    $modele = $_SESSION['wine'][$myIndex]['modele'];
+                                    $price = $_SESSION['wine'][$myIndex]['price'];
+                                    $photo = $_SESSION['wine'][$myIndex]['photo'];
+                                    $id = $_SESSION['wine'][$myIndex]['id'];
+                                    $aWineSubTotal = $_SESSION['wine'][$myIndex]['aWineSubTotal'];
+                                    $totalPrice = $_SESSION['cart']['total'];
 
-                            if (isset($_SESSION['wine'][$myIndex])) {
-                            ?>
+                                    if (isset($_SESSION['wine'][$myIndex])) {
+                                        ?>
 
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <img src="<?= $photo ?>" alt="Image" class="img-fluid">
-                                </td>
-                                <td class="product-name">
-                                    <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
-                                </td>
-                                <td><?= $price ?> .-</td>
-                                <td>
-                                    <div class="input-group mb-3" style="max-width: 120px;">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                                        </div>
-                                        <input type="text" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
-                                               aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                                        </div>
-                                    </div>
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <img src="<?= $photo ?>" alt="Image" class="img-fluid">
+                                            </td>
+                                            <td class="product-name">
+                                                <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
+                                            </td>
+                                            <td><?= $price ?> .-</td>
+                                            <td>
+                                                <div class="input-group mb-3" style="max-width: 120px;">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                                    </div>
+                                                    <input type="text" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
+                                                           aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                                    </div>
+                                                </div>
 
-                                </td>
-                                <td><?= $aWineSubTotal ?></td>
-                                <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
-                            </tr>
-                            <?php
-                            }
-                            $myIndex++;
-                            }
+                                            </td>
+                                            <td><?= $aWineSubTotal ?></td>
+                                            <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    $myIndex++;
+                                }
                             }
                             ?>
                             <tr>
                             </tr>
                         </tbody>
                         <form method="post" action=" index.php?action=userDelwine">
-                           
-                          
-                            </button>
                         </form>
                     </table>
                 </div>
             </form>
         </div>
-
     </div>
 </div>
-
-</div>
 <div>
-
-    
-
-
-
     <div class="site-section pt-5 bg-light">
         <div class="container">
             <div class="row">
@@ -152,54 +141,22 @@ ob_start();
             </div>
         </div>
     </div>
-
-
-<?php if (isset($_SESSION["wine"])): ?>
-
-<div class="bodyBackground">
-    <div style="text-align: center">
-        <div class="btn-group">
-            <form method="post" action="index.php?action=delPanier">
-                <button class="btn" type="submit" style="color: red">Vider le Panier</button>
-                <!--         <input type="hidden" name="id" value="<? /*= $id */ ?>">-->
-                <label class="input-medium">
-                </label>
-            </form>
-        </div>
-    </div>
-           <?php endif; ?>
-
-
-
-
-
-    <div id="exampleForm">
-        <input name="arg1" /> + <input name="arg2"> = <div id="answer"></div>
-        <br />
-        <button onClick="callAjaxAddition()">Click Me to Add</button> <!-- maybe it should be input type=button ?!?  -->
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript">
-            function callAjaxAddition() {
-                arguments0 = {
-                    arg1: $("#exampleForm input[name='arg1']").val(),
-                    arg2: $("#exampleForm input[name='arg2']").val()
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "view/processAjax.php",
-                    data: {arguments: arguments0},
-                    success: function (data) {
-                        $("#answer").html('<ul><li>' + data + '</li></ul>');
-
-                    }
-                });
-                return false;
-            }
-    </script>
-    <?php
-    $content = ob_get_clean();
-    require 'gabarit.php';
-    ?>
+    <?php if (isset($_SESSION["wine"])): ?>
+        <div class="bodyBackground">
+            <div style="text-align: center">
+                <div class="btn-group">
+                    <form method="post" action="index.php?action=delPanier">
+                        <button class="btn" type="submit" style="color: red">Vider le Panier</button>
+                        <!--         <input type="hidden" name="id" value="<? /*= $id */ ?>">-->
+                        <label class="input-medium">
+                        </label>
+                    </form>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php
+        $content = ob_get_clean();
+        require 'gabarit.php';
+        ?>
 
 

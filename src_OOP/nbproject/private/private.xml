@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src_OOP/view/gabarit.php</file>
-            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src_OOP/controller/articles.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/model/winesManager.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/controller/navigation.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/view/phpProcess.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/controller/articles.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/view/home.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/view/processAjax.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/index.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/view/json/jsonCart.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/view/public/data/data_rhp1031to01618bs5paltop470/userCart.json</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/model/articlesManager.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/model/dbConnector.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/view/panier.php</file>
+            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src_OOP/view/ajaxJsonProcess.php</file>
         </group>
     </open-files>
 </project-private>

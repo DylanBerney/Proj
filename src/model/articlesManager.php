@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file      articlesManager.php
  * @brief     This model is designed to implement the articles business logic
@@ -12,8 +13,7 @@
  * @return array : containing all information about the articles. Array can be empty.
  * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
  */
-function getArticles()
-{
+function getArticles() {
 
     $snowsQuery = 'SELECT code, brand, model, snowLength, dailyPrice, qtyAvailable, photo, active FROM snows';
 
@@ -22,9 +22,7 @@ function getArticles()
     return executeQuerySelect($snowsQuery);
 }
 
-
-function updateWines()
-{
+function updateWines() {
     $products = null;
     $params = null;
     $index = 0;
@@ -32,7 +30,7 @@ function updateWines()
     foreach ($_SESSION['wine'] as $wine) {
         $newQty = $_SESSION['wine'][$index]['totalQty'] - $_SESSION["wine"][$index]["qty"];
         $params[$index] = array
-        (
+            (
             ':id' => $_SESSION["wine"][$index]["id"],
             ':qty' => $newQty
         );
@@ -50,9 +48,7 @@ function updateWines()
     return $products;
 }
 
-
-function insertOrder()
-{
+function insertOrder() {
 
     $products = null;
     $params = null;
@@ -79,7 +75,7 @@ function insertOrder()
 
 
         $params[$index] = array
-        (
+            (
             ':id' => $_SESSION["wine"][$index]["id"],
             ':qty' => $newQty
         );
@@ -97,15 +93,12 @@ function insertOrder()
     return $products;
 }
 
-
-function jsonCartUpdater()
-{
+function jsonCartUpdater() {
     $dataDirectory = "model/data";
     $dataFileName = 'userCart.json';
 
     $tempsDirPath = $dataDirectory . '/data' . session_id();
-    if (file_exists("$tempsDirPath/$dataFileName")) // the file already exists -> load it
-    {
+    if (file_exists("$tempsDirPath/$dataFileName")) { // the file already exists -> load it
         $data[0] = json_decode(file_get_contents("$tempsDirPath/$dataFileName"), true);
 
         $index = 0;
@@ -118,7 +111,8 @@ function jsonCartUpdater()
         if (isset($data['wine'])) {
             $newData[0]['nbArticle'] = count($data['wine']);
         }
-        file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData),true);
+        $jsonCartBuilder['userCart'] = $newData;
+        file_put_contents("$tempsDirPath/$dataFileName", json_encode($jsonCartBuilder), true);
     } else {
         if (!file_exists($dataDirectory)) {
             mkdir($dataDirectory);
@@ -128,12 +122,10 @@ function jsonCartUpdater()
         $tempsDirPath = $dataDirectory . '/data' . session_id();
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($data));
     }
-  //  $test = $_SESSION;
+    //  $test = $_SESSION;
 }
 
-function getData()
-{
+function getData() {
     $jsonCartBuilder['userCart'] = $_SESSION;
     return json_encode($jsonCartBuilder);
-
 }

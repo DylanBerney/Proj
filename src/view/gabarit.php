@@ -33,7 +33,7 @@
     </head>
 
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-        <img src="img_5terre_wide.jpg" alt="Cinque Terre" width="1000" height="300">
+
         <style>
             .container {
                 position: relative;
@@ -54,21 +54,20 @@
 
     <div class="container">
         <?php
-        $dataDirectory = "model/data";
-        $dataFileName = 'userCart.json';
 
-        $tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
         ?>
 
-        <?php 
-      
-        if(isset($_GET['action'])){
-        if ($_GET['action'] != 'goPanier' && $_GET['action'] != 'addPanier'  ) { ?>
-            <div class="topright"><?php include 'json/jsonCart.php'; ?></div>
-        <?php }} ?>
-            
-    </div>
+        <?php
+        if (isset($_GET['action'])) {
+            if ($_GET['action'] != 'goPanier' && $_GET['action'] != 'addPanier') {
+                ?>
 
+                <div class="topright"><?php include 'json/jsonCart.php'; ?></div>
+                <?php
+            }
+        }
+        ?>
+    </div>
     <div class="site-wrap">
 
         <div class="site-mobile-menu site-navbar-target">
@@ -79,8 +78,6 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
-
-
         <div class="header-top">
             <div class="container">
                 <div class="row align-items-center">
@@ -93,42 +90,49 @@
                             class="icon-menu h3"></span></a>
                 </div>
             </div>
-
-
             <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
-
                 <div class="container">
                     <div class="d-flex align-items-center">
-
                         <div class="mx-auto">
                             <nav class="site-navigation position-relative text-left" role="navigation">
                                 <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
                                     <li class="active" <?php if (@$_GET['action'] == 'home') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=home">Home</a></li>
-
                                     <li class="active" <?php if (@$_GET['action'] == 'about') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=about">About</a></li>
-
                                     <li class="active" <?php if (@$_GET['action'] == 'shop') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=shop">Shop</a></li>
-
-                                    <?php if (isset($_SESSION['userEmailAddress'])) :?>
-                                        <a>Connecté en tant que :</a> <?php echo $_SESSION['userEmailAddress']?>
-                                    <li class="active" <?php if (@$_GET['action'] == 'logout') { ?>class="active" <?php } ?>>
-                                        <a href="index.php?action=logout">Logout</a></li>
-                                    <?php else:?>
+                                    <?php if (isset($_SESSION['userEmailAddress'])) : ?>
+                                        <li class="active" <?php if (@$_GET['action'] == 'logout') { ?>class="active" <?php } ?>>
+                                            <a href="index.php?action=logout">Logout</a></li>
+                                    <?php else: ?>
                                         <li class="active" <?php if (@$_GET['action'] == 'login') { ?>class="active" <?php } ?>>
                                             <a href="index.php?action=login">Login</a></li>
-                                    <?php endif;?>
+                                        <li class="active" <?php if (@$_GET['action'] == 'register') { ?>class="active" <?php } ?>>
+                                            <a href="index.php?action=register">Register</a></li>
+                                    <?php endif; ?>
                                     <li class="active"
                                         <?php if (@$_GET['action'] == 'contact') { ?>class="active" <?php } ?>>
                                         <a href="index.php?action=contact">Contact</a></li>
 
                                     <li <?php if (@$_GET['action'] == 'panier') { ?>class="active" <?php } ?>>
-                                        <a href="index.php?action=goPanier">Mon Panier</a>
+                                        <a href="index.php?action=goPanier">My Cart</a>
 
                                         </td>
                                 </ul>
+                                <div class="header-top">
+                                    <div class="container">
+                                        <div class="row align-items-center">
+                                            <div class="col-12 text-center">
+                                                <a href="index.php?action=home" class="site-logo">
+                                                    <?php if (isset($_SESSION['userEmailAddress'])) { ?>
+                                                        <a>Connecté en tant que :</a> <?php echo $_SESSION['userEmailAddress'] ?>
+                                                    <?php } ?>
+                                                </a>
+                                            </div>
+                                            </span></a>
+                                        </div>
+                                    </div>
                             </nav> 
                         </div>
                     </div>
@@ -167,13 +171,6 @@
                 </div>
             </div>
         </div>
-
-
-    </div>
-
-    <div class="col-10">
-        <textarea name="messageUtli" id="messageUtil" placeholder="Entrer vos specification (ex: végétarien, mal de mer)"
-                  rows=2-small></textarea>
     </div>
 
 
@@ -191,8 +188,6 @@
                 stroke="#ff5e15"/>
         </svg>
     </div>
-    <p><a href="<?= $tempsDirPath ?>" target="_blank">Jetez un coup d'oeil au -> fichier json brut</a></p>
-
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -215,5 +210,4 @@
 </body>
 
 </html>
-<?php
-?>
+<?php ?>
