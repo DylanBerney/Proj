@@ -6,15 +6,13 @@
  * @author    Created by Pascal.BENZONANA
  * @author    Updated by Nicolas.GLASSEY
  * @version   13-APR-2020
-*/
-
+ */
 
 /**
  * @brief This function is designed to create a new user session
  * @param $userEmailAddress : user unique id, must be meet RFC 5321/5322
  */
-function createSession($userEmailAddress)
-{
+function createSession($userEmailAddress) {
     $_SESSION['userEmailAddress'] = $userEmailAddress;
 }
 
@@ -22,8 +20,7 @@ function createSession($userEmailAddress)
  * @brief This function is designed to manage login request
  * @param $loginRequest containing login fields required to authenticate the user
  */
-function login($loginRequest)
-{
+function login($loginRequest) {
     //if login request was submitted
     try {
         if (isset($loginRequest['inputUserEmailAddress']) && isset($loginRequest['inputUserPsw'])) {
@@ -54,8 +51,7 @@ function login($loginRequest)
  * @brief This function is designed to manage logout request
  * @remark In case of login, the user session will be destroyed.
  */
-function logout()
-{
+function logout() {
     $_SESSION = array();
     session_destroy();
     require "view/home.php";
@@ -65,8 +61,7 @@ function logout()
  * @brief This function is designed manage the register request
  * @param $registerRequest : contains all fields mandatory and optional to register a new user (coming from a form)
  */
-function register($registerRequest)
-{
+function register($registerRequest) {
     try {
         //variable set
         if (isset($registerRequest['inputUserEmailAddress']) && isset($registerRequest['inputUserPsw']) && isset($registerRequest['inputUserPswRepeat'])) {
@@ -75,6 +70,10 @@ function register($registerRequest)
             $userEmailAddress = $registerRequest['inputUserEmailAddress'];
             $userPsw = $registerRequest['inputUserPsw'];
             $userPswRepeat = $registerRequest['inputUserPswRepeat'];
+            require_once "model/usersManager.php";
+            if (checkIfExistInDB($userEmailAddress) == true) {
+                echo 'yes';
+            }
 
             if ($userPsw == $userPswRepeat) {
                 require_once "model/usersManager.php";

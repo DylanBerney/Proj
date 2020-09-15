@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file      usersManager.php
  * @brief     This model is designed to implements users business logic
@@ -14,8 +15,22 @@
  * @return bool : "true" only if the user and psw match the database. In all other cases will be "false".
  * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
  */
-function isLoginCorrect($userEmailAddress, $userPsw)
-{
+function checkIfExistInDB($userEmailAddress) {
+
+    $result = false;
+
+    $strSeparator = '\'';
+    $loginQuery = 'SELECT userEmailAddress FROM users WHERE userEmailAddress = ' . $strSeparator . $userEmailAddress . $strSeparator;
+
+    require_once 'model/dbConnector.php';
+    $queryResult = executeQuerySelect($loginQuery);
+}
+
+
+
+
+
+function isLoginCorrect($userEmailAddress, $userPsw) {
     $result = false;
 
     $strSeparator = '\'';
@@ -38,8 +53,7 @@ function isLoginCorrect($userEmailAddress, $userPsw)
  * @return bool : "true" only if the user doesn't already exist. In all other cases will be "false".
  * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
  */
-function registerNewAccount($userEmailAddress, $userPsw)
-{
+function registerNewAccount($userEmailAddress, $userPsw) {
     $result = false;
 
     $strSeparator = '\'';
