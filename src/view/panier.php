@@ -79,8 +79,8 @@ ob_start();
                             </tr>
                         </tbody>
                         <form method="post" action=" index.php?action=userDelwine">
-                            <input type="hidden" name="id" value="<?= $id ?>">
-                            <button class="btn btn-medium" type="submit" style="color: red">Supprimer
+                           
+                          
                             </button>
                         </form>
                     </table>
@@ -93,27 +93,7 @@ ob_start();
 
 </div>
 <div>
-    <?php if (isset($totalPrice)): ?>
-    <h5 align="center">Total Price</h5>
-    <h3 align="center"><?= $totalPrice ?> .-</h3>
-    <?php
-    endif;
-    ?>
-</div>
-<?php if (isset($_SESSION["wine"])): ?>
 
-<div class="bodyBackground">
-    <div style="text-align: center">
-        <div class="btn-group">
-            <form method="post" action="index.php?action=delPanier">
-                <button class="btn" type="submit" style="color: red">Vider le Panier</button>
-                <!--         <input type="hidden" name="id" value="<? /*= $id */ ?>">-->
-                <label class="input-medium">
-                </label>
-            </form>
-        </div>
-    </div>
-           <?php endif; ?>
     
 
 
@@ -174,30 +154,26 @@ ob_start();
     </div>
 
 
+<?php if (isset($_SESSION["wine"])): ?>
 
-
-
-
-
-
-
-
-    <div class="form-group">
-        <label for="c_create_account" class="text-black" data-toggle="collapse" href="#create_an_account"
-               role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1"
-                                                                                     id="c_create_account"> Create an account?</label>
-
+<div class="bodyBackground">
+    <div style="text-align: center">
+        <div class="btn-group">
+            <form method="post" action="index.php?action=delPanier">
+                <button class="btn" type="submit" style="color: red">Vider le Panier</button>
+                <!--         <input type="hidden" name="id" value="<? /*= $id */ ?>">-->
+                <label class="input-medium">
+                </label>
+            </form>
+        </div>
     </div>
+           <?php endif; ?>
 
 
-    <div class="collapse" id="create_an_account">
 
-        <p class="mb-3">Create an account by entering the information below. If you are a returning customer
-            please login at the top of the page.</p>
 
-    </div>
 
-    ><div id="exampleForm">
+    <div id="exampleForm">
         <input name="arg1" /> + <input name="arg2"> = <div id="answer"></div>
         <br />
         <button onClick="callAjaxAddition()">Click Me to Add</button> <!-- maybe it should be input type=button ?!?  -->
