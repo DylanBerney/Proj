@@ -6,8 +6,11 @@ ob_start();
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title mb-5">
-                    <h2>Contact Us</h2>
+                    <h2>Register</h2>
                 </div>
+                
+                <?php if(isset($registerErrorMessage))
+                    echo $registerErrorMessage;?>
                 <form method="post" action="index.php?action=register">
                     <div class="row">
                         <div class="col-md-6 form-group">

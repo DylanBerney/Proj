@@ -6,8 +6,10 @@ ob_start();
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title mb-5">
-                    <h2>Contact Us</h2>
+                    <h2>Login</h2>
                 </div>
+                  <?php if(isset($loginErrorMessage))
+                    echo $loginErrorMessage;?>
                 <form method="post" action="index.php?action=login">
                     <div class="row">
                         <div class="col-md-6 form-group">
@@ -31,7 +33,7 @@ ob_start();
             </div>
         </div>
         <br><br><br>
-        <div data-aos="fade-up" data-aos-delay="200">
+    
            
          
             <div class="text">
