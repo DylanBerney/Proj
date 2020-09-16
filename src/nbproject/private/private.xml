@@ -3,23 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/controller/articles.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/model/articlesManager.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/view/gabarit.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/view/lost.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/model/winesManager.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/view/panier.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/controller/users.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/Ressources/wines/wines/cart.html</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/model/CartItem.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/view/login.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/model/usersManager.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/view/json/jsonCart.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/index.php</file>
-=======
-            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/controller/articles.php</file>
-            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/index.php</file>
             <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/view/panier.php</file>
             <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/model/dbConnector.php</file>
             <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/Ressources/SQL/wines.sql</file>
@@ -27,7 +10,6 @@
             <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/controller/navigation.php</file>
             <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/model/usersManager.php</file>
             <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/controller/users.php</file>
->>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

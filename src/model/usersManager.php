@@ -23,12 +23,13 @@ function checkIfExistInDB($userEmailAddress) {
     $loginQuery = 'SELECT userEmailAddress FROM users WHERE userEmailAddress = ' . $strSeparator . $userEmailAddress . $strSeparator;
 
     require_once 'model/dbConnector.php';
-    $queryResult = executeQuerySelect($loginQuery);
+    $queryResult = executeQueryCheck($loginQuery);
+    if ($queryResult != null) {
+        $result = true;
+    }
+
+    return $result;
 }
-
-
-
-
 
 function isLoginCorrect($userEmailAddress, $userPsw) {
     $result = false;
