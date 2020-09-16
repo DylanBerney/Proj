@@ -31,7 +31,7 @@ ob_start();
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
                         </div>
                     </div>
                 </form>
