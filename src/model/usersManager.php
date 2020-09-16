@@ -17,7 +17,7 @@
  */
 function checkIfExistInDB($userEmailAddress) {
 
-    $result = false;
+    $result = true;
 
     $strSeparator = '\'';
     $loginQuery = 'SELECT userEmailAddress FROM users WHERE userEmailAddress = ' . $strSeparator . $userEmailAddress . $strSeparator;
@@ -25,7 +25,7 @@ function checkIfExistInDB($userEmailAddress) {
     require_once 'model/dbConnector.php';
     $queryResult = executeQueryCheck($loginQuery);
     if ($queryResult != null) {
-        $result = true;
+        $result = false;
     }
 
     return $result;

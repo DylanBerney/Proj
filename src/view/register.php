@@ -15,7 +15,7 @@ ob_start();
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="eaddress">Email Address</label>
-                            <input type="text"  name="inputUserEmailAddress" id="eaddress" class="form-control form-control-lg">
+                            <input type="email"  name="inputUserEmailAddress" id="eaddress" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">
@@ -31,7 +31,7 @@ ob_start();
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
                         </div>
                     </div>
                 </form>

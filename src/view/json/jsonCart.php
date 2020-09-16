@@ -1,21 +1,22 @@
 <?php
-
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-        $dataDirectory = "model/data";
-        $dataFileName = 'userCart.json';
+$dataDirectory = "model/data";
+$dataFileName = 'userCart.json';
 
-        $tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
+$tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
 ?>
 
 <div id="myData"></div>
-   
-    <script>
-        fetch("<?=$tempsDirPath?>")
+<a  href="index.php?action=register" Go to Cart >
+
+</a>
+<script>
+    fetch("<?= $tempsDirPath ?>")
             .then(function (response) {
                 return response.json();
             })
@@ -25,22 +26,13 @@
             .catch(function (err) {
                 console.log('error: ' + err);
             });
-        function appendData(data) {
-            var mainContainer = document.getElementById("myData");
-               var div = document.createElement("div");
-                div.innerHTML = '<h4> Totale de du Panier:</h4>'+ data.userCart[0].cart.total;
-                  mainContainer.appendChild(div);
-        }
-    </script>
-    
-    
-    <?php
-  
-   //             for (var i = 0; i < data[0].wine.length; i++) {
-   //             var div = document.createElement("div");
-   //             div.innerHTML = '<h4> Totale de du Panier:</h4>'+ data[0].cart.total;
-   //             mainContainer.appendChild(div);
-   //         }
-            
-    ?>
+    function appendData(data) {
+        var mainContainer = document.getElementById("myData");
+        var div = document.createElement("div");
+        div.innerHTML = '<h4 class="d-block"> Totale de du Panier: ' + data.userCart[0].cart.total +' $ </h4>';
+
+
+        mainContainer.appendChild(div);
+    }
+</script>
    
