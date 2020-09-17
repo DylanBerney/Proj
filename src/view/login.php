@@ -21,7 +21,7 @@ ob_start();
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="tel">Password</label>
-                            <input type="password" id="password"name="inputUserPsw" class="form-control form-control-lg">
+                            <input type="password" id="password"name="inputUserPsw" required="6" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">
