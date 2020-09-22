@@ -6,6 +6,7 @@ ob_start();
 ?>
 <?php if (isset($_SESSION['wine'])) { ?>
     <div class="site-section  pb-0">
+
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-7 section-title text-center mb-5">
@@ -13,8 +14,9 @@ ob_start();
                 </div>
             </div>
             <div class="row mb-5">
-                <form class="col-md-12" method="post">
+                <form class="col-md-12" method="post" action="index.php?action=updateCart">
                     <div class="site-blocks-table">
+
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -59,7 +61,7 @@ ob_start();
                                                         <div class="input-group-prepend">
                                                             <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                                         </div>
-                                                        <input type="text" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
+                                                        <input  name="wineNewQtySel_<?= $qtySel ?>" value="<?= $qtySel ?>"  type="text" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
                                                                aria-label="Example text with button addon" aria-describedby="button-addon1">
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
@@ -70,20 +72,22 @@ ob_start();
                                                 <td><?= $aWineSubTotal ?></td>
                                                 <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
                                             </tr>
-                                            <?php
-                                        }
-                                        $myIndex++;
+
+                                        <input type="hidden" name="wineId_<?= $id ?>" value="<?= $id ?>">
+                                 
+                                        <?php
                                     }
+                                    $myIndex++;
                                 }
-                                ?>
-                                <tr>
-                                </tr>
+                            }
+                            ?>
+                            <tr>
+                            </tr>
                             </tbody>
-                            <form method="post" action=" index.php?action=userDelwine">
-                            </form>
+
                         </table>
                     </div>
-                </form>
+
             </div>
         </div>
     </div>
@@ -94,7 +98,7 @@ ob_start();
                     <div class="col-md-6">
                         <div class="row mb-5">
                             <div class="col-md-6 mb-3 mb-md-0">
-                                <button class="btn btn-primary btn-md btn-block">Update Cart</button>
+                                <button type="submit" class="btn btn-primary btn-md btn-block">Update Cart</button>
                             </div>
                             <div class="col-md-6">
                                 <button class="btn btn-outline-primary btn-md btn-block">Continue Shopping</button>
@@ -142,7 +146,9 @@ ob_start();
                 </div>
             </div>
         </div>
-    </div
+    </div>
+
+    </form>
     <?php if (isset($_SESSION["wine"])): ?>
         <div class="bodyBackground">
             <div style="text-align: center">
@@ -161,7 +167,7 @@ ob_start();
     } else {
         echo 'yes';
         ?>
-            <br><br><br><br><br>
+        <br><br><br><br><br>
         <div class="site-section  pb-0">
             <div class="container">
                 <div class="row mb-5 justify-content-center">
