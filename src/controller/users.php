@@ -30,12 +30,17 @@ function login($loginRequest) {
 
             //try to check if user/psw are matching with the database
             require_once "model/usersManager.php";
-            if (checkIfExistInDB($userEmailAddress) == false) {
-                if (isLoginCorrect($userEmailAddress, $userPsw)) {
+            if (checkIfExistInDB($userEmailAddress) == true) { 
+                $loginErrorMessage = "L'adresse email et/ou le mot de passe ne correspondent pas !";
+                require "view/login.php";
+                
+            }
+                
+                elseif (isLoginCorrect($userEmailAddress, $userPsw)) {
                     $loginErrorMessage = null;
                     createSession($userEmailAddress);
                     require "view/home.php";
-                }
+                
             } else { //if the user/psw does not match, login form appears again with an error message
                 $loginErrorMessage = "L'adresse email et/ou le mot de passe ne correspondent pas !";
                 require "view/login.php";
