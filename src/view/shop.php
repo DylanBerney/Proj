@@ -32,12 +32,12 @@ $title = "Rent A Snow - Home";
                     <div class="col-lg-4 mb-5 col-md-6">
                         <div class="wine_v_1 text-center pb-4">
                             <a href=index.php?action=anArticle&id=<?= $wines['code'] ?>
-                               class="btn add"" class="thumbnail d-block mb-4">
+                               class="btn add" class="thumbnail d-block mb-4">
                                    <?php if ($wines["photo"] != null) { ?>
                                     <img src="<?= $wines["photo"] ?>" alt="Image" class="img-fluid">
                                                       
                             <?php } else { ?>
-                                <img src="images/image-unavailable.jpg" alt="Image" class="img-fluid">
+                                <img src="images/image-unavailable.jpg"  alt="Image" class="img-fluid">
                             <?php } ?>
   </a>
                             <div>
