@@ -50,7 +50,16 @@ ob_start();
 
                                             <tr>
                                                 <td class="product-thumbnail">
-                                                    <img src="<?= $photo ?>" alt="Image" class="img-fluid">
+
+                                                    <a href="<?= $photo ?>" class="thumbnail d-block mb-4">
+                                                        <?php if ($photo != null) { ?>
+                                                            <img src="<?= $photo ?>" href="images/<?= $photo ?>" alt="Image" class="img-fluid">
+                                                        </a>
+                                                    <?php } else { ?>
+                                                        <a href="images/image-unavailable.jpg">
+                                                            <img src="images/image-unavailable.jpg" href="images/image-unavailable.jpg" alt="Image" class="img-fluid">
+                                                        </a>                                               
+                                                    <?php } ?>
                                                 </td>
                                                 <td class="product-name">
                                                     <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
@@ -61,8 +70,8 @@ ob_start();
                                                         <div class="input-group-prepend">
                                                             <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                                         </div>
-                                                        <input  name="wineNewQtySel_<?= $qtySel ?>" value="<?= $qtySel ?>"  type="text" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
-                                                               aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                        <input  name="wineNewQtySel_<?= $id?>" value="<?= $qtySel ?>"  type="text" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
+                                                                aria-label="Example text with button addon" aria-describedby="button-addon1">
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                                                         </div>
@@ -74,7 +83,7 @@ ob_start();
                                             </tr>
 
                                         <input type="hidden" name="wineId_<?= $id ?>" value="<?= $id ?>">
-                                 
+
                                         <?php
                                     }
                                     $myIndex++;

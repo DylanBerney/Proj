@@ -25,13 +25,15 @@ ob_start();
                                 <div class="col-lg-6">
                                     <div>
                                         <div class="wine_v_1 text-center pb-4">
-                                            <a href="shop-single.html" class="thumbnail d-block mb-4"><img
-                                                                              <?php if ($wines["photo"] != null) { ?>
-                                    <img src="<?= $wines["photo"] ?>" alt="Image" class="img-fluid">
-                                                      
-                            <?php } else { ?>
-                                <img src="images/image-unavailable.jpg" alt="Image" class="img-fluid">
-                            <?php } ?>
+                                            <a href="<?= $wines["photo"] ?>" class="thumbnail d-block mb-4">
+                                                <?php if ($wines["photo"] != null) { ?>
+                                                    <img src="<?= $wines["photo"] ?>" href="images/<?= $wines["photo"] ?>" alt="Image" class="img-fluid">
+                                                </a>
+                                            <?php } else { ?>
+                                            <a href="images/image-unavailable.jpg">
+                                                    <img src="images/image-unavailable.jpg" href="images/image-unavailable.jpg" alt="Image" class="img-fluid">
+                                                </a>                                               
+                                            <?php } ?>
                                             <div>
                                                 <h3 class="heading mb-1"><a href="#"><?= $wines["brand"] ?></a></h3>
                                                 <h5 class="heading mb-2"><a href="#"><?= $wines["model"] ?></a></h5>
@@ -158,7 +160,7 @@ ob_start();
                             </div>
                         </div>
                     </div>
-                <?php
+                    <?php
                 endforeach;
             }
             ?>

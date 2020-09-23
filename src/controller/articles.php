@@ -170,15 +170,14 @@ function updateCart($data) {
 
         if (stristr($key, 'wineId_') == true) {
             $id = $value;
-        }
-        if (stristr($key, 'wineNewQtySel_') == true) {
-            $newQty = $value;
-        }
-        if (isset($id) && isset($newQty)) {
+            $newQty = $_POST["wineNewQtySel_" . $id];
+
+
+
             $index = 0;
             foreach ($_SESSION['wine'] as $item) {
                 if ($_SESSION['wine'][$index]['id'] == $id) {
-                    //  $subTotalInCart = $_SESSION['wine'][$index]['aWineSubTotal'];
+                    $subTotalInCart = $_SESSION['wine'][$index]['aWineSubTotal'];
                     $newSubTotalInCart = $_SESSION['wine'][$index]['price'] * $newQty;
                     $_SESSION['wine'][$index]['aWineSubTotal'] = $newSubTotalInCart;
                     $_SESSION['wine'][$index]['qty'] = $newQty;
@@ -186,6 +185,10 @@ function updateCart($data) {
                 }
                 $index++;
             }
+        }
+
+        if (isset($id) && isset($newQty)) {
+            
         }
     }
 
