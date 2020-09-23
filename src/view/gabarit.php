@@ -61,7 +61,6 @@
         if (isset($_GET['action'])) {
             if ($_GET['action'] != 'goPanier' && $_GET['action'] != 'addPanier') {
                 ?>
-
                 <div class="topright"><?php include 'json/jsonCart.php'; ?></div>
                 <?php
             }

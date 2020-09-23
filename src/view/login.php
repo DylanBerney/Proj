@@ -8,8 +8,9 @@ ob_start();
                 <div class="section-title mb-5">
                     <h2>Login</h2>
                 </div>
-                  <?php if(isset($loginErrorMessage))
-                    echo $loginErrorMessage;?>
+                <?php if (isset($loginErrorMessage))
+                    echo $loginErrorMessage;
+                ?>
                 <form method="post" action="index.php?action=login">
                     <div class="row">
                         <div class="col-md-6 form-group">
@@ -20,7 +21,7 @@ ob_start();
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="tel">Password</label>
-                            <input type="password" id="password"name="inputUserPsw" class="form-control form-control-lg">
+                            <input type="password" id="password"name="inputUserPsw" required="6" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">
@@ -33,13 +34,13 @@ ob_start();
             </div>
         </div>
         <br><br><br>
-    
-           
-         
-            <div class="text">
-                <h5 class="font-heading-serif"> <a href="index.php?action=register">Not a Member </a>  <i class="icon-help text-primary"></i></h5>
-       <div class="icon mr-4 align-self-start">
-               
+
+
+
+        <div class="text">
+            <h5 class="font-heading-serif"> <a href="index.php?action=register">Not a Member </a>  <i class="icon-help text-primary"></i></h5>
+            <div class="icon mr-4 align-self-start">
+
             </div>
         </div>
     </div>

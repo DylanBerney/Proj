@@ -49,12 +49,9 @@ function anArticle($details) {
     }
 }
 
-function addPanier()
-{
+function addPanier() {
 
-    function chargerClasse($classe)
-
-    {
+    function chargerClasse($classe) {
 
         require "model/" . $classe . '.php'; // On inclut la classe correspondante au paramètre passé.
     }
@@ -68,13 +65,13 @@ function addPanier()
         $qty = 1;
     }
 
-    $id = 1;
-    $test= new CartItem($id,$qty);
-    $cart = new Cart();
+//    $id = 1;
+//    $test = new CartItem($id, $qty);
+//    $cart = new Cart();
 
 
     $id = $_POST["id"];
-    $test = $cart;
+//    $test = $cart;
     require_once "model/winesManager.php";
     try {
 
@@ -94,7 +91,6 @@ function addPanier()
                 } else {
 
                     $existIncart = false;
-
                 }
                 $index++;
             }
@@ -114,7 +110,6 @@ function addPanier()
                 $_SESSION['wine'][$arrayPos]['price'] = $aWine[0]["price"];
                 $_SESSION['wine'][$arrayPos]['totalWinePrice'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
                 $_SESSION['wine'][$arrayPos]['aWineSubTotal'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
-
             }
 
             if ($existIncart == true) {
@@ -122,11 +117,11 @@ function addPanier()
                 foreach ($_SESSION['wine'] as $item) {
 
                     if ($_SESSION['wine'][$index]['id'] == $id) {
-                        $_SESSION['wine'][$index]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
-
+                        $subTotalInCart = $_SESSION['wine'][$index]['aWineSubTotal'];
+                        $newSubTotalInCart = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+                        $_SESSION['wine'][$index]['aWineSubTotal'] = $newSubTotalInCart + $subTotalInCart;
                         $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
                         $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
-
                     }
                     $index++;
                 }
@@ -144,18 +139,17 @@ function addPanier()
             $_SESSION['wine'][0]['price'] = $aWine[0]["price"];
             $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
             $_SESSION['wine'][0]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
-
         }
 
 
         $_SESSION['cart']['total'] = 0;
         $index = 0;
         foreach ($_SESSION['wine'] as $total) {
+            $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
 
             $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
 
             $index++;
-
         }
 
 
@@ -168,10 +162,43 @@ function addPanier()
 
     require "model/articlesManager.php";
     jsonCartUpdater();
-
-
 }
 
+function updateCart($data) {
+
+    foreach ($_POST as $key => &$value) {
+
+        if (stristr($key, 'wineId_') == true) {
+            $id = $value;
+        }
+        if (stristr($key, 'wineNewQtySel_') == true) {
+            $newQty = $value;
+        }
+        if (isset($id) && isset($newQty)) {
+            $index = 0;
+            foreach ($_SESSION['wine'] as $item) {
+                if ($_SESSION['wine'][$index]['id'] == $id) {
+                    //  $subTotalInCart = $_SESSION['wine'][$index]['aWineSubTotal'];
+                    $newSubTotalInCart = $_SESSION['wine'][$index]['price'] * $newQty;
+                    $_SESSION['wine'][$index]['aWineSubTotal'] = $newSubTotalInCart;
+                    $_SESSION['wine'][$index]['qty'] = $newQty;
+                    $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $newQty;
+                }
+                $index++;
+            }
+        }
+    }
+
+
+    $_SESSION['cart']['total'] = 0;
+    $index = 0;
+    foreach ($_SESSION['wine'] as $total) {
+        $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+        $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
+        $index++;
+    }
+    require 'view/panier.php';
+}
 
 function delPanier() {
 

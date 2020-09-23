@@ -118,9 +118,10 @@ function jsonCartUpdater() {
             mkdir($dataDirectory);
         }
         $data[0] = json_decode(getData(), true);
+        $jsonCartBuilder['userCart'] = array($data[0]['userCart']);
         mkdir($dataDirectory . '/data' . session_id());
         $tempsDirPath = $dataDirectory . '/data' . session_id();
-        file_put_contents("$tempsDirPath/$dataFileName", json_encode($data));
+        file_put_contents("$tempsDirPath/$dataFileName", json_encode($jsonCartBuilder),true);
     }
     //  $test = $_SESSION;
 }

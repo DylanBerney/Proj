@@ -50,6 +50,10 @@ if (isset($_GET['action'])) {
         case 'goPanier' :
             goPanier();
             break;
+        
+        case 'updateCart' :
+            updateCart($_POST);
+            break;
 
         case 'delPanier' :
             delPanier();

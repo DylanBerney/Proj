@@ -30,10 +30,17 @@ function login($loginRequest) {
 
             //try to check if user/psw are matching with the database
             require_once "model/usersManager.php";
-            if (isLoginCorrect($userEmailAddress, $userPsw)) {
-                $loginErrorMessage = null;
-                createSession($userEmailAddress);
-                require "view/home.php";
+            if (checkIfExistInDB($userEmailAddress) == true) { 
+                $loginErrorMessage = "L'adresse email et/ou le mot de passe ne correspondent pas !";
+                require "view/login.php";
+                
+            }
+                
+                elseif (isLoginCorrect($userEmailAddress, $userPsw)) {
+                    $loginErrorMessage = null;
+                    createSession($userEmailAddress);
+                    require "view/home.php";
+                
             } else { //if the user/psw does not match, login form appears again with an error message
                 $loginErrorMessage = "L'adresse email et/ou le mot de passe ne correspondent pas !";
                 require "view/login.php";
@@ -70,19 +77,21 @@ function register($registerRequest) {
             $userEmailAddress = $registerRequest['inputUserEmailAddress'];
             $userPsw = $registerRequest['inputUserPsw'];
             $userPswRepeat = $registerRequest['inputUserPswRepeat'];
-            require_once "model/usersManager.php";
-            if (checkIfExistInDB($userEmailAddress) == true) {
-                echo 'yes';
-            }
 
+            require_once "model/usersManager.php";
             if ($userPsw == $userPswRepeat) {
-                require_once "model/usersManager.php";
-                if (registerNewAccount($userEmailAddress, $userPsw)) {
-                    createSession($userEmailAddress);
-                    $registerErrorMessage = null;
-                    require "view/home.php";
+                if (checkIfExistInDB($userEmailAddress) == true) {
+                    require_once "model/usersManager.php";
+                    if (registerNewAccount($userEmailAddress, $userPsw)) {
+                        createSession($userEmailAddress);
+                        $registerErrorMessage = null;
+                        require "view/home.php";
+                    } else {
+                        $registerErrorMessage = "L'inscription n'est pas possible avec les valeurs saisies !";
+                        require "view/register.php";
+                    }
                 } else {
-                    $registerErrorMessage = "L'inscription n'est pas possible avec les valeurs saisies !";
+                    $registerErrorMessage = "Impossible de creer un compte avce cette adresse !";
                     require "view/register.php";
                 }
             } else {

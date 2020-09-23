@@ -14,6 +14,26 @@
  * @remark : http://php.net/manual/en/pdo.prepare.php
  * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
  */
+
+
+function executeQueryCheck($query)
+{
+    $queryResult = null;
+
+    $dbConnexion = openDBConnexion();//open database connexion
+    if ($dbConnexion != null) {
+
+            $statement = $dbConnexion->prepare($query);//prepare query
+            $statement->execute();//execute query
+            $queryResult = $statement->fetchAll();//prepare result for client
+           
+
+    }
+    $dbConnexion = null;//close database connexion
+    return $queryResult;
+}
+
+
 function executeQuerySelect($query)
 {
     $queryResult = null;

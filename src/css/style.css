@@ -73,8 +73,9 @@ h1, h2, h3, h4, h5,
   background: #000; }
 
 .site-section {
+  margin-left: 10%;
   padding: 2.5em 0; }
-  @media (min-width: 768px) {
+  @media (min-width: 768px){
     .site-section {
       padding: 7em 0; } }
   .site-section.site-section-sm {
@@ -1289,7 +1290,9 @@ h1, h2, h3, h4, h5,
 
 .wine_v_1, .wine_h_1 {
   position: relative;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  margin-left:50px;
+}
   .wine_v_1:before, .wine_h_1:before {
     content: "";
     background: #f3f4f5;
