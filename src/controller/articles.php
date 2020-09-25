@@ -26,12 +26,12 @@ function getWines() {
     require_once "model/winesManager.php";
     try {
         $allWines = extractWines();
-        //  require 'view/shop.php';
+//  require 'view/shop.php';
     } catch (ModelDataBaseException $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require 'model/logError.php';
         logError($msgErreurForUsers, $ex);
-        //  require "vueErreur.php";
+//  require "vueErreur.php";
     } finally {
         require 'view/shop.php';
     }
@@ -157,7 +157,7 @@ function addPanier() {
     } catch
     (Exception $e) {
         $msgErreur = $e->getMessage();
-        // require 'view/.php';
+// require 'view/.php';
     }
 
     require "model/articlesManager.php";
@@ -166,29 +166,14 @@ function addPanier() {
 
 function updateCart($data) {
 
-    foreach ($_POST as $key => &$value) {
+    foreach ($data as $key => &$value) {
 
         if (stristr($key, 'wineId_') == true) {
             $id = $value;
-            $newQty = $_POST["wineNewQtySel_" . $id];
-
-
-
-            $index = 0;
-            foreach ($_SESSION['wine'] as $item) {
-                if ($_SESSION['wine'][$index]['id'] == $id) {
-                    $subTotalInCart = $_SESSION['wine'][$index]['aWineSubTotal'];
-                    $newSubTotalInCart = $_SESSION['wine'][$index]['price'] * $newQty;
-                    $_SESSION['wine'][$index]['aWineSubTotal'] = $newSubTotalInCart;
-                    $_SESSION['wine'][$index]['qty'] = $newQty;
-                    $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $newQty;
-                }
-                $index++;
-            }
+            $newQty = $data["wineNewQtySel_" . $id];
         }
-
         if (isset($id) && isset($newQty)) {
-            
+            updateCartSession($id,$newQty);
         }
     }
 
@@ -203,13 +188,28 @@ function updateCart($data) {
     require 'view/panier.php';
 }
 
+function updateCartSession($id,$newQty) {
+
+    $index = 0;
+    foreach ($_SESSION['wine'] as $item) {
+        if ($_SESSION['wine'][$index]['id'] == $id) {
+            $subTotalInCart = $_SESSION['wine'][$index]['aWineSubTotal'];
+            $newSubTotalInCart = $_SESSION['wine'][$index]['price'] * $newQty;
+            $_SESSION['wine'][$index]['aWineSubTotal'] = $newSubTotalInCart;
+            $_SESSION['wine'][$index]['qty'] = $newQty;
+            $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $newQty;
+        }
+        $index++;
+    }
+}
+
 function delPanier() {
 
     $dataDirectory = "model/data";
 
 
     $tempsDirPath = $dataDirectory . '/data' . session_id();
-    // file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
+// file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
 
 
     $files = glob($dataDirectory . '/data' . session_id() . "/userCart.json");
@@ -219,7 +219,7 @@ function delPanier() {
     }
     if (is_dir($dataDirectory . '/data' . session_id())) {
         rmdir($dataDirectory . '/data' . session_id());
-        // session_destroy();
+// session_destroy();
     }
 
     $_GET['action'] = "home";

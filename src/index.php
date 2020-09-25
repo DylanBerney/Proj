@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file      index.php
  * @brief     This file is the rooter managing the link with controllers.
@@ -6,7 +7,6 @@
  * @author    Updated by Nicolas.GLASSEY
  * @version   13-APR-2020
  */
-
 session_start();
 require "controller/articles.php";
 require "controller/navigation.php";
@@ -20,11 +20,9 @@ if (isset($_GET['action'])) {
             home();
             break;
 
-
         case 'about' :
             about();
             break;
-
 
         case 'cartItem' :
             cartAddItem();
@@ -42,7 +40,6 @@ if (isset($_GET['action'])) {
             getWines();
             break;
 
-
         case 'addPanier' :
             addPanier();
             break;
@@ -50,7 +47,7 @@ if (isset($_GET['action'])) {
         case 'goPanier' :
             goPanier();
             break;
-        
+
         case 'updateCart' :
             updateCart($_POST);
             break;
@@ -62,7 +59,6 @@ if (isset($_GET['action'])) {
         case 'command' :
             command();
             break;
-
 
         case 'contact' :
             contact();
@@ -80,10 +76,10 @@ if (isset($_GET['action'])) {
             checkout();
             break;
 
-
         case 'register' :
             register($_POST);
             break;
+
         default :
             lost();
     }

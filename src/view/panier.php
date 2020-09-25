@@ -66,11 +66,11 @@ ob_start();
                                                 </td>
                                                 <td><?= $price ?> .-</td>
                                                 <td>
-                                                    <div class="input-group mb-3" style="max-width: 120px;">
+                                                    <div class="input-group mb-3" style="max-width: 150px;">
                                                         <div class="input-group-prepend">
                                                             <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                                         </div>
-                                                        <input  name="wineNewQtySel_<?= $id?>" value="<?= $qtySel ?>"  type="text" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
+                                                        <input  name="wineNewQtySel_<?= $id?>" value="<?= $qtySel ?>"  type="number" min="1" max="<?=$totalQty?>" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
                                                                 aria-label="Example text with button addon" aria-describedby="button-addon1">
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
