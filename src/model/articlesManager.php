@@ -115,11 +115,11 @@ function jsonCartUpdater() {
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($jsonCartBuilder), true);
     } else {
         if (!file_exists($dataDirectory)) {
-            mkdir($dataDirectory);
+            mkdir($dataDirectory,777);
         }
         $data[0] = json_decode(getData(), true);
         $jsonCartBuilder['userCart'] = array($data[0]['userCart']);
-        mkdir($dataDirectory . '/data' . session_id());
+        mkdir($dataDirectory . '/data' . session_id(), 777);
         $tempsDirPath = $dataDirectory . '/data' . session_id();
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($jsonCartBuilder),true);
     }
