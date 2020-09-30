@@ -9,7 +9,7 @@ ob_start();
                     <h2>Login</h2>
                 </div>
                 <?php if (isset($loginErrorMessage))
-                    echo $loginErrorMessage;
+                    echo ("<h6 style='color:red;'>". $loginErrorMessage ."</h6>")
                 ?>
                 <form method="post" action="index.php?action=login">
                     <div class="row">

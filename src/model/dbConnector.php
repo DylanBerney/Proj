@@ -112,8 +112,8 @@ function openDBConnexion()
     $port = 3306;
     $charset = 'utf8';
     $dbName = 'wines';
-    $userName = 'root';
-    $userPwd = 'root';
+    $userName = 'admin';
+    $userPwd = '123qweasD!';
     $dsn = $sqlDriver . ':host=' . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
 
     try {
