@@ -32,8 +32,8 @@ function shop()
 
 function contact()
 {
-            require 'view/wines.php';       
-    //require "view/contact.php";
+
+   require "view/contact.php";
 }
 
 /**
