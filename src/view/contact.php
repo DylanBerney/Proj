@@ -3,12 +3,6 @@
 ob_start();
 $title = "Rent A Snow - Home";
 ?>
-
-
-
-
-
-
     <div class="site-section bg-light">
         <div class="container">
             <div class="row">

@@ -31,14 +31,10 @@ function shop()
 }
 
 function contact()
-{
-            require 'view/wines.php';       
-    //require "view/contact.php";
+{     
+    require "view/contact.php";
 }
 
-/**
- * @brief This function is designed to inform the user that the resource requested doesn't exist (i. e. if the user modify the url manually)
- */
 function lost()
 {
     require "view/lost.php";

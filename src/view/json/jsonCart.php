@@ -12,7 +12,7 @@ $tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
 ?>
 
 <div id="myData"></div>
-<a  href="index.php?action=register" Go to Cart >
+
 
 </a>
 <script>
@@ -29,7 +29,7 @@ $tempsDirPath = 'model/data/data' . session_id() . "/userCart.json";
     function appendData(data) {
         var mainContainer = document.getElementById("myData");
         var div = document.createElement("div");
-        div.innerHTML = '<h4 class="d-block"> Totale de du Panier: ' + data.userCart[0].cart.total +' $ </h4>';
+        div.innerHTML = '<h4 class="d-block"> Totale de du Panier: ' + data.userCart[0].cart.total +' $ </h4><br><a  href="index.php?action=register" Go to Cart >';
 
 
         mainContainer.appendChild(div);

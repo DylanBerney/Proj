@@ -164,7 +164,25 @@ function addPanier() {
     jsonCartUpdater();
 }
 
+
+function updateCartRequest($data){
+    
+    
+    if(isset($data['updateCartSubmitButton'])&&$data['updateCartSubmitButton']==true){
+        updateCart($data);
+            require 'view/panier.php';
+    }
+     if(isset($data['checkoutSubmitButton'])&&$data['checkoutSubmitButton']==true){
+        updateCart($data);
+    }
+    require 'view/checkout.php';
+    
+    
+    
+    
+}
 function updateCart($data) {
+    
 
     foreach ($data as $key => &$value) {
 
@@ -176,8 +194,7 @@ function updateCart($data) {
             updateCartSession($id,$newQty);
         }
     }
-
-
+    
     $_SESSION['cart']['total'] = 0;
     $index = 0;
     foreach ($_SESSION['wine'] as $total) {
@@ -185,7 +202,7 @@ function updateCart($data) {
         $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
         $index++;
     }
-    require 'view/panier.php';
+
 }
 
 function updateCartSession($id,$newQty) {

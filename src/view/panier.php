@@ -5,7 +5,7 @@
 ob_start();
 ?>
 <?php if (isset($_SESSION['wine'])) { ?>
-    <div class="site-section  pb-0">
+    <div class="site-section pb-0">
 
         <div class="container">
             <div class="row mb-5 justify-content-center">
@@ -14,7 +14,7 @@ ob_start();
                 </div>
             </div>
             <div class="row mb-5">
-                <form class="col-md-12" method="post" action="index.php?action=updateCart">
+                <form class="col-md-12" method="post" action="index.php?action=updateCartRequest">
                     <div class="site-blocks-table">
 
                         <table class="table table-bordered">
@@ -70,7 +70,7 @@ ob_start();
                                                         <div class="input-group-prepend">
                                                             <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                                         </div>
-                                                        <input  name="wineNewQtySel_<?= $id?>" value="<?= $qtySel ?>"  type="number" min="1" max="<?=$totalQty?>" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
+                                                        <input  name="wineNewQtySel_<?= $id ?>" value="<?= $qtySel ?>"  type="number" min="1" max="<?= $totalQty ?>" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
                                                                 aria-label="Example text with button addon" aria-describedby="button-addon1">
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
@@ -106,8 +106,8 @@ ob_start();
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row mb-5">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <button type="submit" class="btn btn-primary btn-md btn-block">Update Cart</button>
+                            <div class="col-md-6 mb-3 mb-md-0"> 
+                                <button type="submit" name="updateCartSubmitButton" value="true" class="btn btn-primary btn-md btn-block">Update Cart</button>                               
                             </div>
                             <div class="col-md-6">
                                 <button class="btn btn-outline-primary btn-md btn-block">Continue Shopping</button>
@@ -142,11 +142,9 @@ ob_start();
                                         <strong class="text-black">$<?= $totalPrice ?></strong>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button class="btn btn-primary btn-lg btn-block" onclick="window.location = 'checkout.html'">Proceed To
-                                            Checkout</button>
+                                            <button name="checkoutSubmitButton" class="btn btn-primary btn-lg btn-block" value="true" >Proceed To Checkout</button>
                                     </div>
                                 </div>
                             </div>

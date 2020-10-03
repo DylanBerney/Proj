@@ -48,8 +48,8 @@ if (isset($_GET['action'])) {
             goPanier();
             break;
 
-        case 'updateCart' :
-            updateCart($_POST);
+        case 'updateCartRequest' :
+            updateCartRequest($_POST);
             break;
 
         case 'delPanier' :

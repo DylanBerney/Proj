@@ -1,0 +1,12 @@
+{
+    "name": "src/wines",
+    "authors": [
+        {
+            "name": "Luca Bassi",
+            "email": "l.bassi@hotmail.fr"
+        }
+    ],
+    "require": {
+        "paypal/rest-api-sdk-php": "^1.14"
+    }
+}
