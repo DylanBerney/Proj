@@ -14,7 +14,7 @@ ob_start();
                 </div>
             </div>
             <div class="row mb-5">
-                <form class="col-md-12" method="post" action="index.php?action=updateCart">
+                <form class="col-md-12" method="post" action="index.php?action=cartAction">
                     <div class="site-blocks-table">
 
                         <table class="table table-bordered">
@@ -70,7 +70,7 @@ ob_start();
                                                         <div class="input-group-prepend">
                                                             <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                                         </div>
-                                                        <input  name="wineNewQtySel_<?= $id?>" value="<?= $qtySel ?>"  type="number" min="1" max="<?=$totalQty?>" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
+                                                        <input  name="wineNewQtySel_<?= $id ?>" value="<?= $qtySel ?>"  type="number" min="1" max="<?= $totalQty ?>" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
                                                                 aria-label="Example text with button addon" aria-describedby="button-addon1">
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
@@ -78,8 +78,16 @@ ob_start();
                                                     </div>
 
                                                 </td>
-                                                <td><?= $aWineSubTotal ?></td>
-                                                <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+                                                <td>
+                                                    <?= $aWineSubTotal ?>
+                                                </td>   
+                                                <td>
+
+                                                   
+                                                    <button  class="btn btn-primary height-auto btn-sm" type='submit' name='delete' value='<?= $id ?>'>Delete</button>
+
+                                                </td>
+
                                             </tr>
 
                                         <input type="hidden" name="wineId_<?= $id ?>" value="<?= $id ?>">
@@ -107,7 +115,7 @@ ob_start();
                     <div class="col-md-6">
                         <div class="row mb-5">
                             <div class="col-md-6 mb-3 mb-md-0">
-                                <button type="submit" class="btn btn-primary btn-md btn-block">Update Cart</button>
+                                <button type="submit" name="updateCart" class="btn btn-primary btn-md btn-block">Update Cart</button>
                             </div>
                             <div class="col-md-6">
                                 <button class="btn btn-outline-primary btn-md btn-block">Continue Shopping</button>

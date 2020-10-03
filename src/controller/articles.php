@@ -97,7 +97,6 @@ function addPanier() {
 
             if ($existIncart == false) {
 
-
                 $arrayPos = count($_SESSION['wine']);
 
                 $_SESSION['wine'][$arrayPos]['qty'] = null;
@@ -164,6 +163,19 @@ function addPanier() {
     jsonCartUpdater();
 }
 
+function cartAction($data) {
+
+    if (isset($data['delete'])) {
+        $id = $data['delete'];
+        unset($data['delete']);
+        delAwine($id);
+    }
+    if (isset($data['updateCart'])) {
+        unset($data['updateCart']);
+        updateCart($data);
+    }
+}
+
 function updateCart($data) {
 
     foreach ($data as $key => &$value) {
@@ -173,7 +185,7 @@ function updateCart($data) {
             $newQty = $data["wineNewQtySel_" . $id];
         }
         if (isset($id) && isset($newQty)) {
-            updateCartSession($id,$newQty);
+            updateCartSession($id, $newQty);
         }
     }
 
@@ -188,7 +200,32 @@ function updateCart($data) {
     require 'view/panier.php';
 }
 
-function updateCartSession($id,$newQty) {
+function delAwine($id) {
+    $index = 0;
+    if (isset($_SESSION['wine'])) {
+        foreach ($_SESSION['wine'] as $key => &$item) {
+            if ($item['id'] == $id) {
+                unset($_SESSION['wine'][$key]);
+            }
+
+            $index++;
+        }
+        //  updateCartSession($id, 0);
+        $_SESSION['wine'] = array_values($_SESSION['wine']);
+        
+        if (count($_SESSION['wine']) == 0) {
+
+            //updateCartSession($id, 0);
+            delPanier();
+
+            // require 'view/panier.php';
+        }
+    }
+    //header('view/panier.php');
+    require 'view/panier.php';
+}
+
+function updateCartSession($id, $newQty) {
 
     $index = 0;
     foreach ($_SESSION['wine'] as $item) {
@@ -228,7 +265,8 @@ function delPanier() {
     unset($_SESSION['total']);
     unset($_SESSION["cart"]["total"]);
     unset($_SESSION["success"]);
-    require 'view/home.php';
+    //header('view/home.php');
+    //require 'view/home.php';
 }
 
 function command() {
