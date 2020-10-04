@@ -144,35 +144,40 @@ function addPanier() {
         $_SESSION['cart']['total'] = 0;
         $index = 0;
         foreach ($_SESSION['wine'] as $total) {
-            $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
-
+            $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
             $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
 
             $index++;
         }
 
-
+        require "model/articlesManager.php";
+        jsonCartUpdater();
         require 'view/panier.php';
     } catch
     (Exception $e) {
         $msgErreur = $e->getMessage();
-// require 'view/.php';
     }
-
-    require "model/articlesManager.php";
-    jsonCartUpdater();
 }
 
 function cartAction($data) {
 
-    if (isset($data['delete'])) {
-        $id = $data['delete'];
-        unset($data['delete']);
-        delAwine($id);
-    }
-    if (isset($data['updateCart'])) {
-        unset($data['updateCart']);
-        updateCart($data);
+    if (isset($data['continueShopping'])) {
+        getWines();
+    } else {
+        if (isset($data['delete'])) {
+            $id = $data['delete'];
+            unset($data['delete']);
+            delAwine($id);
+        }
+        if (isset($data['updateCart'])) {
+            unset($data['updateCart']);
+            updateCart($data);
+            setCartTotal();
+        }
+
+        require "model/articlesManager.php";
+        jsonCartUpdater();
+        require 'view/panier.php';
     }
 }
 
@@ -188,16 +193,16 @@ function updateCart($data) {
             updateCartSession($id, $newQty);
         }
     }
+}
 
-
+function setCartTotal() {
     $_SESSION['cart']['total'] = 0;
     $index = 0;
     foreach ($_SESSION['wine'] as $total) {
-        $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
+        $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
         $_SESSION['cart']['total'] = $_SESSION['cart']['total'] + $_SESSION['wine'][$index]['totalWinePrice'];
         $index++;
     }
-    require 'view/panier.php';
 }
 
 function delAwine($id) {
@@ -212,17 +217,14 @@ function delAwine($id) {
         }
         //  updateCartSession($id, 0);
         $_SESSION['wine'] = array_values($_SESSION['wine']);
-        
+
+
         if (count($_SESSION['wine']) == 0) {
-
-            //updateCartSession($id, 0);
             delPanier();
-
-            // require 'view/panier.php';
+        } else {
+            setCartTotal();
         }
     }
-    //header('view/panier.php');
-    require 'view/panier.php';
 }
 
 function updateCartSession($id, $newQty) {
@@ -246,7 +248,6 @@ function delPanier() {
 
 
     $tempsDirPath = $dataDirectory . '/data' . session_id();
-// file_put_contents("$tempsDirPath/$dataFileName", json_encode($newData));
 
 
     $files = glob($dataDirectory . '/data' . session_id() . "/userCart.json");
@@ -256,7 +257,6 @@ function delPanier() {
     }
     if (is_dir($dataDirectory . '/data' . session_id())) {
         rmdir($dataDirectory . '/data' . session_id());
-// session_destroy();
     }
 
     $_GET['action'] = "home";
@@ -265,13 +265,9 @@ function delPanier() {
     unset($_SESSION['total']);
     unset($_SESSION["cart"]["total"]);
     unset($_SESSION["success"]);
-    //header('view/home.php');
-    //require 'view/home.php';
 }
 
 function command() {
-    /*    $id = $_POST["id"];
-      $qty = $_POST["qtySelect"]; */
 
     require_once "model/articlesManager.php";
     try {

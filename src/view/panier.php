@@ -76,22 +76,15 @@ ob_start();
                                                             <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                                                         </div>
                                                     </div>
-
                                                 </td>
                                                 <td>
                                                     <?= $aWineSubTotal ?>
                                                 </td>   
                                                 <td>
-
-                                                   
                                                     <button  class="btn btn-primary height-auto btn-sm" type='submit' name='delete' value='<?= $id ?>'>Delete</button>
-
                                                 </td>
-
                                             </tr>
-
                                         <input type="hidden" name="wineId_<?= $id ?>" value="<?= $id ?>">
-
                                         <?php
                                     }
                                     $myIndex++;
@@ -101,10 +94,9 @@ ob_start();
                             <tr>
                             </tr>
                             </tbody>
-
                         </table>
                     </div>
-
+                    
             </div>
         </div>
     </div>
@@ -118,7 +110,9 @@ ob_start();
                                 <button type="submit" name="updateCart" class="btn btn-primary btn-md btn-block">Update Cart</button>
                             </div>
                             <div class="col-md-6">
-                                <button class="btn btn-outline-primary btn-md btn-block">Continue Shopping</button>
+                                <a>
+                                    <button class="btn btn-outline-primary btn-md btn-block" type=button" name="continueShopping" >Continue Shopping</button>
+                                </a>
                             </div>
                         </div>
                         <div class="row">
@@ -166,7 +160,7 @@ ob_start();
     </div>
 
     </form>
-    <?php if (isset($_SESSION["wine"])): ?>
+    <?php if (isset($_SESSION["wine"])) { ?>
         <div class="bodyBackground">
             <div style="text-align: center">
                 <div class="btn-group">
@@ -178,26 +172,23 @@ ob_start();
                     </form>
                 </div>
             </div>
-        <?php endif; ?>
-
-        <?php
-    } else {
-        echo 'yes';
-        ?>
-        <br><br><br><br><br>
-        <div class="site-section  pb-0">
-            <div class="container">
-                <div class="row mb-5 justify-content-center">
-                    <div class="col-7 section-title text-center mb-5">
-                        <h2 class="d-block"> Your Cart is empty  </h2>
-                    </div>
+        </div>
+    <?php } ?>
+<?php } else { ?>
+    <br><br><br><br><br>
+    <div class="site-section  pb-0">
+        <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-7 section-title text-center mb-5">
+                    <h2 class="d-block"> Your Cart is empty  </h2>
                 </div>
             </div>
         </div>
-    <?php } ?>
-    <?php
-    $content = ob_get_clean();
-    require 'gabarit.php';
-    ?>
+    </div>
+<?php } ?>
+<?php
+$content = ob_get_clean();
+require 'gabarit.php';
+?>
 
 
