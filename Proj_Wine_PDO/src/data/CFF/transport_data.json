@@ -1,0 +1,16 @@
+{
+  "transports": [
+    {
+      "cff_aller": "data/CFF/CFF_aller.png",
+      "cff_retour": "data/CFF/CFF_retour.png"
+    },
+    {
+      "avion_aller": "",
+      "avion_retour": ""
+    },
+    {}
+  ],
+  "temp": [
+    {}
+  ]
+}
