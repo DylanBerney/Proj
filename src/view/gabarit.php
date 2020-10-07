@@ -81,7 +81,74 @@
                                             <a href="index.php?action=contact">Contact</a></li>
 
                                         <li <?php if (@$_GET['action'] == 'panier') { ?>class="active" <?php } ?>>
-                                            <a href="index.php?action=goPanier">My Cart</a>
+                                            <a href="index.php?action=goPanier">My Cart</a></li>
+
+                                        <li> | </li>
+
+                                        <div class="panierdropdown">
+                                            <li <?php if (@$_GET['action'] == 'panier') { ?>class="active" <?php } ?>>
+                                                <img src="images/cart.png" height="15"></li>
+                                            <div class="listdropdown container">
+                                                <?php
+                                                $myIndex = 0;
+                                                if (isset($_SESSION['wine'])) {
+                                                    $totalPrice = 0;
+                                                    foreach ($_SESSION['wine'] as $wesh) {
+                                                        $qtySel = $_SESSION['wine'][$myIndex]['qty'];
+                                                        $totalQty = $_SESSION['wine'][$myIndex]['totalQty'];
+                                                        $marque = $_SESSION['wine'][$myIndex]['marque'];
+                                                        $modele = $_SESSION['wine'][$myIndex]['modele'];
+                                                        $price = $_SESSION['wine'][$myIndex]['price'];
+                                                        $photo = $_SESSION['wine'][$myIndex]['photo'];
+                                                        $id = $_SESSION['wine'][$myIndex]['id'];
+                                                        $aWineSubTotal = $_SESSION['wine'][$myIndex]['aWineSubTotal'];
+                                                        $totalPrice = $_SESSION['cart']['total'];
+
+                                                        if (isset($_SESSION['wine'][$myIndex])) {
+                                                            ?>
+                                                            <div class="row align-items-center">
+                                                                <div class="col smallcartelement">
+                                                                    <h3><?= $qtySel ?> x<h3>
+                                                                </div>
+                                                                <div class="col smallcartelement">
+                                                                    <a href="<?= $photo ?>" class="thumbnail d-block mb-4">
+                                                                        <?php if ($photo != null) { ?>
+                                                                        <img src="<?= $photo ?>" href="images/<?= $photo ?>" alt="Image" height="100">
+                                                                    </a>
+                                                                    <?php } else { ?>
+                                                                        <a href="images/image-unavailable.jpg">
+                                                                            <img src="images/image-unavailable.jpg" href="images/image-unavailable.jpg" alt="Image" class="img-fluid" height="100">
+                                                                        </a>
+                                                                    <?php } ?>
+                                                                </div>
+                                                                <div class="col smallcartelement">
+                                                                    <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
+                                                                </div>
+                                                                <div class="col smallcartelement">
+                                                                    <h3><?= $aWineSubTotal ?> .-<h3>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <?php
+                                                        }
+                                                        $myIndex++;
+                                                    }
+                                                    echo("<div class='row align-items-center text-center' style='padding-bottom:1%;'>");
+                                                    echo("<div class='col'>");
+                                                    echo("<a href='index.php?action=goPanier'>");
+                                                    echo("<button class='btn btn-primary'>VOIR LE PANIER</button>");
+                                                    echo("</a>");
+                                                    echo("</div>");
+                                                    echo("<div class='col'>");
+                                                    echo("<a href='index.php?action=checkout'>");
+                                                    echo("<button class='btn btn-primary'>COMMANDER</button>");
+                                                    echo("</a>");
+                                                    echo("</div>");
+                                                    echo("</div>");
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
 
                                             </td>
                                     </ul>  
