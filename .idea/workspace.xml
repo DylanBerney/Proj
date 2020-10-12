@@ -27,7 +27,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5f48ec2f-c3c6-4fe4-a5f0-c7d09db06797" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/view/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/contact.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/log_exceptions.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/log_exceptions.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dbConnector.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dbConnector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/gabarit.php" afterDir="false" />
+>>>>>>> master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,8 +97,15 @@
       <workItem from="1599033883480" duration="1890000" />
       <workItem from="1599565400609" duration="2143000" />
       <workItem from="1601449519592" duration="143000" />
+<<<<<<< HEAD
       <workItem from="1601449783333" duration="1952000" />
       <workItem from="1601985004348" duration="1315000" />
+=======
+      <workItem from="1601449783333" duration="983000" />
+      <workItem from="1601984841653" duration="2000" />
+      <workItem from="1601984849313" duration="1237000" />
+      <workItem from="1602050960765" duration="6384000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
