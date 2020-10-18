@@ -15,13 +15,13 @@ ob_start();
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="eaddress">Email Address</label>
-                            <input type="email"  name="inputUserEmailAddress" id="eaddress" class="form-control form-control-lg">
+                            <input type="email"  name="user" id="eaddress" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="tel">Password</label>
-                            <input type="password" id="password"name="inputUserPsw" required="6" class="form-control form-control-lg">
+                            <input type="password" id="password"name="password" required="6" class="form-control form-control-lg">
                         </div>
                     </div>
                     <div class="row">

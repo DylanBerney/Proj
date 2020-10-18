@@ -20,31 +20,32 @@ function createSession($userEmailAddress) {
  * @brief This function is designed to manage login request
  * @param $loginRequest containing login fields required to authenticate the user
  */
-
-class checkIntrance
-{
-    
+class checkIntrance {
     
 }
+
 
 
 function login($loginRequest) {
     //if login request was submitted
     try {
-        if (isset($loginRequest['inputUserEmailAddress']) && isset($loginRequest['inputUserPsw'])) {
+
+        if (isset($loginRequest['user']) && isset($loginRequest['password'])) {
             //extract login parameters
-            $userEmailAddress = $loginRequest['inputUserEmailAddress'];
-            $userPsw = $loginRequest['inputUserPsw'];
+            $userEmailAddress = $loginRequest['user'];
+            $userPsw = $loginRequest['password'];
 
             //try to check if user/psw are matching with the database
             require_once "model/usersManager.php";
-            if (checkIfExistInDB($userEmailAddress) == true) {
+            $user = new UserManager($loginRequest);
+            $user->checkIfExistInDB($user);
+            if ($user == false) {
                 $loginErrorMessage = "L'adresse email et/ou le mot de passe ne correspondent pas !";
                 require "view/login.php";
             }
 
-            $userManager = new UserManager();
-            $user = $userManager->getUser($userEmailAddress, $userPsw);
+
+            $user = $user->getUser($user);
             if ($user == true) {
                 $loginErrorMessage = null;
                 createSession($userEmailAddress);
