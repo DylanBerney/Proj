@@ -107,11 +107,11 @@ ob_start();
                     <div class="col-md-6">
                         <div class="row mb-5">
                             <div class="col-md-6 mb-3 mb-md-0">
-                                <button type="submit" name="updateCart" class="btn btn-primary btn-md btn-block">Update Cart</button>
+                                <button type="submit" name="button" value="updateCart" class="btn btn-primary btn-md btn-block">Update Cart</button>
                             </div>
                             <div class="col-md-6">
                                 <a>
-                                    <button class="btn btn-outline-primary btn-md btn-block" type=button" name="continueShopping" >Continue Shopping</button>
+                                    <button class="btn btn-outline-primary btn-md btn-block" type=button" name="button" value="continueShopping" >Continue Shopping</button>
                                 </a>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ ob_start();
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button class="btn btn-primary btn-lg btn-block" onclick="window.location = 'checkout.html'">Proceed To
+                                        <button class="btn btn-primary btn-lg btn-block" name="button" value="checkout">Proceed To
                                             Checkout</button>
                                     </div>
                                 </div>

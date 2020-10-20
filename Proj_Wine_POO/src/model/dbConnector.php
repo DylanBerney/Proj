@@ -31,6 +31,19 @@ class ExecuteQuerry {
         return $queryResult;
     }
 
+    public function executeQueryInsert($query) {
+        $queryResult = null;
+
+        $dbConnexion = openDBConnexion(); //open database connexion
+        if ($dbConnexion != null) {
+
+            $statement = $dbConnexion->prepare($query); //prepare query
+            $queryResult = $statement->execute(); //execute query
+        }
+        // $dbConnexion = null;//close database connexion
+        return $queryResult;
+    }
+
 }
 
 function executeQueryCheck($query) {
@@ -70,19 +83,6 @@ function executeQuerySelect($query) {
  * @return bool|null : $statement->execute() returns true is the insert was successful
  * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
  */
-function executeQueryInsert($query) {
-    $queryResult = null;
-
-    $dbConnexion = openDBConnexion(); //open database connexion
-    if ($dbConnexion != null) {
-
-        $statement = $dbConnexion->prepare($query); //prepare query
-        $queryResult = $statement->execute(); //execute query
-    }
-    // $dbConnexion = null;//close database connexion
-    return $queryResult;
-}
-
 function executeQueryUpdate($query, $param) {
 
     $queryResult = null;

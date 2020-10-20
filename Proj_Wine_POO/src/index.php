@@ -65,7 +65,7 @@ if (isset($_GET['action'])) {
             break;
 
         case 'command' :
-            command();
+            command($_SESSION);
             break;
 
         case 'contact' :

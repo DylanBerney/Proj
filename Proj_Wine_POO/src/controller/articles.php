@@ -51,13 +51,6 @@ function anArticle($details) {
 
 function addPanier() {
 
-    function chargerClasse($classe) {
-
-        require "model/" . $classe . '.php'; // On inclut la classe correspondante au paramètre passé.
-    }
-
-    spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelée dès qu'on instanciera une classe non déclarée.
-
 
     if (isset($_POST["qtySelect"])) {
         $qty = $_POST["qtySelect"];
@@ -159,26 +152,82 @@ function addPanier() {
     }
 }
 
+
+
+
+
 function cartAction($data) {
 
-    if (isset($data['continueShopping'])) {
-        getWines();
-    } else {
-        if (isset($data['delete'])) {
-            $id = $data['delete'];
-            unset($data['delete']);
-            delAwine($id);
-        }
-        if (isset($data['updateCart'])) {
-            unset($data['updateCart']);
-            updateCart($data);
-            setCartTotal();
-        }
+    if (isset($data['button'])) {
 
-        require "model/articlesManager.php";
-        jsonCartUpdater();
+        $action = $data['button'];
+
+        
+        switch ($action) {
+            
+            case 'continueShopping': 
+                getWines();
+                require "model/articlesManager.php";
+                jsonCartUpdater();
+                require 'view/panier.php';
+                break;
+
+            case 'delete': 
+                $id = $data['delete'];
+                unset($data['delete']);
+                delAwine($id);
+                require "model/articlesManager.php";
+                jsonCartUpdater();
+                require 'view/panier.php';
+                break;
+            
+            case 'updateCart': 
+                unset($data['updateCart']);
+                updateCart($data);
+                setCartTotal();
+                require "model/articlesManager.php";
+                jsonCartUpdater();
+                require 'view/panier.php';
+                break;
+            
+            case 'checkout': 
+                unset($data['checkout']);
+                $cart=$_SESSION;
+                require 'checkoutInfoBuilder.php';
+                require 'view/checkout.php';
+                break;
+        }
+    } else {
         require 'view/panier.php';
     }
+
+    /*  if (isset($data['continueShopping'])) {
+      getWines();
+      } else {
+      if (isset($data['delete'])) {
+      $id = $data['delete'];
+      unset($data['delete']);
+      delAwine($id);
+      }
+      if (isset($data['updateCart'])) {
+      unset($data['updateCart']);
+      updateCart($data);
+      setCartTotal();
+      }
+
+      if (isset($data['checkout'])) {
+      unset($data['checkout']);
+
+      require 'view/checkout.php';
+      //checkout();
+      }
+
+      require "model/articlesManager.php";
+      jsonCartUpdater();
+      require 'view/panier.php';
+      }
+     * 
+     */
 }
 
 function updateCart($data) {
@@ -267,14 +316,39 @@ function delPanier() {
     unset($_SESSION["success"]);
 }
 
-function command() {
+function command($session) {
+    
+    $order[''] = $session[''];
+    $order[''] = $session[''];
+    $order[''] = $session[''];
+    $order[''] = $session[''];
+    $order[''] = $session[''];
+    $order[''] = $session[''];
+    $order[''] = $session[''];
+    
+    $clientDetails['firstname'] = $_POST['fname'];
+    $clientDetails['lastname'] = $_POST['lname'];
+    $clientDetails['address'] = $_POST['address'];
+    $clientDetails['country'] = $_POST['state_country'];
 
     require_once "model/articlesManager.php";
+    
     try {
         $aSnow = updateWines();
-        require 'view/home.php';
+        $client = new clientManager($clientDetails);
+        $client->order($client);
+        //$client->
+        
+      //  require 'view/home.php';
     } catch (Exception $e) {
         $msgErreur = $e->getMessage();
         require 'vueErreur.php';
     }
 }
+
+    function chargerClasse($classe) {
+
+        require "model/" . $classe . '.php'; // On inclut la classe correspondante au paramètre passé.
+    }
+
+    spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelée dès qu'on instanciera une classe non déclarée.
