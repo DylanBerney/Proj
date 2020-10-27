@@ -152,3 +152,17 @@ Exception Message Content: Msg pour devs : Un problème est surrvenu la preparat
 Exception Message file : C:\Users\Valentin.ZINGG\Documents\PROJET WEB\Proj\src\model\dbConnector.php
 Exception Message line: 48
 -------------------------
+User: ::1 - 
+Exception Message date: October 27, 2020, 2:03 pm
+Exception Message Content displayed at user: Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+Exception Message file : C:\Users\luca.bassi\Documents\Dépot_GitKraken\Proj_Wine\src\model\dbConnector.php
+Exception Message line: 122
+-------------------------
+User: ::1 - 
+Exception Message date: October 27, 2020, 2:03 pm
+Exception Message Content displayed at user: Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !
+Exception Message Content: Msg pour devs : Un problème est surrvenu lors de la connexion a la base de donnée !
+Exception Message file : C:\Users\luca.bassi\Documents\Dépot_GitKraken\Proj_Wine\src\model\dbConnector.php
+Exception Message line: 122
+-------------------------

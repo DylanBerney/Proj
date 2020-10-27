@@ -192,9 +192,10 @@ function cartAction($data) {
             
             case 'checkout': 
                 unset($data['checkout']);
-                $cart=$_SESSION;
-                require 'checkoutInfoBuilder.php';
-                require 'view/checkout.php';
+                unset($_SESSION);
+//$cart=$_SESSION;
+                //require 'checkoutInfoBuilder.php';
+                require 'view/home.php';
                 break;
         }
     } else {

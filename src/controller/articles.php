@@ -160,26 +160,82 @@ function addPanier() {
 }
 
 function cartAction($data) {
-
-    if (isset($data['continueShopping'])) {
-        getWines();
+    
+    if (isset($data['button'])) {
+        
+        $action = $data['button'];
     } else {
-        if (isset($data['delete'])) {
-            $id = $data['delete'];
-            unset($data['delete']);
-            delAwine($id);
+        
+        foreach ($data as $key => $value){
+            if($key=='delete'){$action ='delete';}
+            if($key=='continueShopping'){$action ='continueShopping';}
+            if($key=='updateCart'){$action='updateCart';}
         }
-        if (isset($data['updateCart'])) {
-            unset($data['updateCart']);
-            updateCart($data);
-            setCartTotal();
+    }
+        
+        switch ($action) {
+
+            case 'continueShopping':
+                getWines();
+                require "model/articlesManager.php";
+                jsonCartUpdater();
+                require 'view/panier.php';
+                break;
+
+            case 'delete':
+                $id = $data['delete'];
+                unset($data['delete']);
+                delAwine($id);
+                require "model/articlesManager.php";
+                jsonCartUpdater();
+                require 'view/panier.php';
+                break;
+
+            case 'updateCart':
+                unset($data['updateCart']);
+                updateCart($data);
+                setCartTotal();
+                require "model/articlesManager.php";
+                jsonCartUpdater();
+                require 'view/panier.php';
+                break;
+
+            case 'checkout':
+                unset($data['checkout']);
+                $_SESSION['cart']="";
+                $_SESSION['total']="";
+                $_SESSION = null;
+                session_destroy();
+                //$cart = $_SESSION;
+                //require 'checkoutInfoBuilder.php';
+                require 'view/home.php';
+                break;
         }
 
-        require "model/articlesManager.php";
-        jsonCartUpdater();
-        require 'view/panier.php';
     }
-}
+
+    /*
+      if (isset($data['continueShopping'])) {
+      getWines();
+      } else {
+      if (isset($data['delete'])) {
+      $id = $data['delete'];
+      unset($data['delete']);
+      delAwine($id);
+      }
+      if (isset($data['updateCart'])) {
+      unset($data['updateCart']);
+      updateCart($data);
+      setCartTotal();
+      }
+
+      require "model/articlesManager.php";
+      jsonCartUpdater();
+      require 'view/panier.php';
+      }
+
+     */
+
 
 function updateCart($data) {
 
