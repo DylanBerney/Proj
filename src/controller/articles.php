@@ -160,82 +160,88 @@ function addPanier() {
 }
 
 function cartAction($data) {
-    
+
     if (isset($data['button'])) {
-        
+
         $action = $data['button'];
     } else {
-        
-        foreach ($data as $key => $value){
-            if($key=='delete'){$action ='delete';}
-            if($key=='continueShopping'){$action ='continueShopping';}
-            if($key=='updateCart'){$action='updateCart';}
+
+        foreach ($data as $key => $value) {
+            if ($key == 'delete') {
+                $action = 'delete';
+            }
+            if ($key == 'continueShopping') {
+                $action = 'continueShopping';
+            }
+            if ($key == 'updateCart') {
+                $action = 'updateCart';
+            }
         }
     }
-        
-        switch ($action) {
 
-            case 'continueShopping':
-                getWines();
-                require "model/articlesManager.php";
-                jsonCartUpdater();
-                require 'view/panier.php';
-                break;
+    switch ($action) {
 
-            case 'delete':
-                $id = $data['delete'];
-                unset($data['delete']);
-                delAwine($id);
-                require "model/articlesManager.php";
-                jsonCartUpdater();
-                require 'view/panier.php';
-                break;
+        case 'continueShopping':
+            getWines();
+            require "model/articlesManager.php";
+            jsonCartUpdater();
+            require 'view/panier.php';
+            break;
 
-            case 'updateCart':
-                unset($data['updateCart']);
-                updateCart($data);
-                setCartTotal();
-                require "model/articlesManager.php";
-                jsonCartUpdater();
-                require 'view/panier.php';
-                break;
+        case 'delete':
+            $id = $data['delete'];
+            unset($data['delete']);
+            delAwine($id);
+            require "model/articlesManager.php";
+            jsonCartUpdater();
+            require 'view/panier.php';
+            break;
 
-            case 'checkout':
-                unset($data['checkout']);
-                $_SESSION['cart']="";
-                $_SESSION['total']="";
-                $_SESSION = null;
-                session_destroy();
-                //$cart = $_SESSION;
-                //require 'checkoutInfoBuilder.php';
-                require 'view/home.php';
-                break;
-        }
+        case 'updateCart':
+            unset($data['updateCart']);
+            updateCart($data);
+            setCartTotal();
+            require "model/articlesManager.php";
+            jsonCartUpdater();
+            require 'view/panier.php';
+            break;
 
+        case 'checkout':
+            unset($data['checkout']);
+            //$_SESSION['cart']="";
+            //$_SESSION['total']="";
+            //$_SESSION = null;
+             command();
+            session_destroy();
+           
+//$cart = $_SESSION;
+            //require 'checkoutInfoBuilder.php';
+            require 'view/home.php';
+            break;
     }
+}
 
-    /*
-      if (isset($data['continueShopping'])) {
-      getWines();
-      } else {
-      if (isset($data['delete'])) {
-      $id = $data['delete'];
-      unset($data['delete']);
-      delAwine($id);
-      }
-      if (isset($data['updateCart'])) {
-      unset($data['updateCart']);
-      updateCart($data);
-      setCartTotal();
-      }
+/*
+  if (isset($data['continueShopping'])) {
+  getWines();
+  } else {
+  if (isset($data['delete'])) {
+  $id = $data['delete'];
+  unset($data['delete']);
+  delAwine($id);
+  }
+  if (isset($data['updateCart'])) {
+  unset($data['updateCart']);
+  updateCart($data);
+  setCartTotal();
+  }
 
-      require "model/articlesManager.php";
-      jsonCartUpdater();
-      require 'view/panier.php';
-      }
+  require "model/articlesManager.php";
+  jsonCartUpdater();
+  require 'view/panier.php';
+  }
 
-     */
-
+ */
 
 function updateCart($data) {
 
@@ -328,7 +334,7 @@ function command() {
     require_once "model/articlesManager.php";
     try {
         $aSnow = updateWines();
-        require 'view/home.php';
+        //require 'view/home.php';
     } catch (Exception $e) {
         $msgErreur = $e->getMessage();
         require 'vueErreur.php';
