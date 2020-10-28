@@ -9,18 +9,8 @@
  */
 
 /**
- * @brief This function is designed to display Articles
+ * @brief This function is designed to put all extracetd of the databes and put them into the variable "allWines"
  */
-function displayArticles() {
-    require_once "model/articlesManager.php";
-    try {
-        $snowsResults = getArticles();
-    } catch (ModelDataBaseException $ex) {
-        $articleErrorMessage = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
-    } finally {
-        require "view/articles.php";
-    }
-}
 
 function getWines() {
     require_once "model/winesManager.php";
@@ -221,27 +211,7 @@ function cartAction($data) {
     }
 }
 
-/*
-  if (isset($data['continueShopping'])) {
-  getWines();
-  } else {
-  if (isset($data['delete'])) {
-  $id = $data['delete'];
-  unset($data['delete']);
-  delAwine($id);
-  }
-  if (isset($data['updateCart'])) {
-  unset($data['updateCart']);
-  updateCart($data);
-  setCartTotal();
-  }
 
-  require "model/articlesManager.php";
-  jsonCartUpdater();
-  require 'view/panier.php';
-  }
-
- */
 
 function updateCart($data) {
 

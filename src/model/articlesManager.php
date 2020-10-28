@@ -22,6 +22,10 @@ function getArticles() {
     return executeQuerySelect($snowsQuery);
 }
 
+/**
+ * @brief This function is designed to update de database with the session's variable
+ * 
+ */
 function updateWines() {
     $products = null;
     $params = null;

@@ -9,11 +9,9 @@
  */
 
 /**
- * @brief This function is designed to verify user's login
- * @param $userEmailAddress : must be meet RFC 5321/5322
- * @param $userPsw : users's password
- * @return bool : "true" only if the user and psw match the database. In all other cases will be "false".
- * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
+ * 
+ * @param type $userEmailAddress
+ * @return boolean : "true" only if the user exist in the database. In all other cases will be "false".
  */
 function checkIfExistInDB($userEmailAddress) {
 
@@ -31,6 +29,13 @@ function checkIfExistInDB($userEmailAddress) {
     return $result;
 }
 
+/**
+ * @brief This function is designed to verify user's login
+ * @param $userEmailAddress : must be meet RFC 5321/5322
+ * @param $userPsw : users's password
+ * @return bool : "true" only if the user and psw match the database. In all other cases will be "false".
+ * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
+ */
 function isLoginCorrect($userEmailAddress, $userPsw) {
     $result = false;
 

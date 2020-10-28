@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @brief This function is designed to write the message catched by exeption throws by the code in a file 
+ * @param type $msgErreurForUsers
+ * @param type $ex
+ */
 function logError($msgErreurForUsers, $ex)
 {
 //Something to write to txt log

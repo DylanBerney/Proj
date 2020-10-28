@@ -15,7 +15,6 @@
  * @throws ModelDataBaseException : will be throw if something goes wrong with the database opening process
  */
 
-
 function executeQueryCheck($query)
 {
     $queryResult = null;

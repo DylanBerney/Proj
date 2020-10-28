@@ -21,7 +21,11 @@ function extractWines()
     return executeQuerySelect($snowsQuery);
 }
 
-
+/**
+ * @brief This function is designed to get an arictle by his ID
+ * @param type $id
+ *  @return array : containing all information about an article. Array can be empty. 
+ */
 function extractAWine($id)
 {
 
