@@ -89,6 +89,24 @@
                                             <li <?php if (@$_GET['action'] == 'panier') { ?>class="active" <?php } ?>>
                                                 <img src="images/cart.png" height="15"></li>
                                             <div class="listdropdown container">
+                                                <div class="row">
+                                                    <div class="col smallcartelement">
+                                                        <h5>Quantité<h5>
+                                                    </div>
+                                                    <div class="col smallcartelement">
+                                                        <h5>Prix unitaire<h5>
+                                                    </div>
+                                                    <div class="col smallcartelement">
+                                                        <h5>Vignette<h5>
+                                                    </div>
+                                                    <div class="col smallcartelement">
+                                                        <h5>Produit<h5>
+                                                    </div>
+                                                    <div class="col smallcartelement">
+                                                        <h5>Sous-total<h5>
+                                                    </div>
+                                                </div>
+                                                <hr>
                                                 <?php
                                                 $myIndex = 0;
                                                 if (isset($_SESSION['wine'])) {
@@ -111,21 +129,24 @@
                                                                     <h3><?= $qtySel ?> x<h3>
                                                                 </div>
                                                                 <div class="col smallcartelement">
+                                                                    <h3><?= $price ?> $<h3>
+                                                                </div>
+                                                                <div class="col smallcartelement">
                                                                     <a href="<?= $photo ?>" class="thumbnail d-block mb-4">
                                                                         <?php if ($photo != null) { ?>
-                                                                        <img src="<?= $photo ?>" href="images/<?= $photo ?>" alt="Image" height="100">
+                                                                        <img src="<?= $photo ?>" href="images/<?= $photo ?>" alt="Image" height="75">
                                                                     </a>
                                                                     <?php } else { ?>
                                                                         <a href="images/image-unavailable.jpg">
-                                                                            <img src="images/image-unavailable.jpg" href="images/image-unavailable.jpg" alt="Image" class="img-fluid" height="100">
+                                                                            <img src="images/image-unavailable.jpg" href="images/image-unavailable.jpg" alt="Image" class="img-fluid" height="75">
                                                                         </a>
                                                                     <?php } ?>
                                                                 </div>
                                                                 <div class="col smallcartelement">
-                                                                    <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
+                                                                    <h3 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h3>
                                                                 </div>
                                                                 <div class="col smallcartelement">
-                                                                    <h3><?= $aWineSubTotal ?> .-<h3>
+                                                                    <h4><?= $aWineSubTotal ?> $<h4>
                                                                 </div>
                                                             </div>
                                                             <hr>
@@ -133,6 +154,8 @@
                                                         }
                                                         $myIndex++;
                                                     }
+                                                    echo("<h2 class='text-center'>TOTAL :   " . $totalPrice . " $ </h2>");
+                                                    echo("<hr>");
                                                     echo("<div class='row align-items-center text-center' style='padding-bottom:1%;'>");
                                                     echo("<div class='col'>");
                                                     echo("<a href='index.php?action=goPanier'>");
@@ -146,6 +169,25 @@
                                                     echo("</div>");
                                                     echo("</div>");
                                                 }
+                                                else
+                                                {
+                                                    echo("<div class='site-section  pb-0'>");
+                                                    echo("<div class='container''>");
+                                                    echo("<div class='row mb-5 justify-content-center'>");
+                                                    echo("<div class='col-7 section-title text-center mb-5'>");
+                                                    echo("<h2 class='d-block'> Your Cart is empty  </h2>");
+                                                    echo("</div><br>");
+                                                    echo("</div>");
+                                                    echo("</div>");
+                                                    echo("</div>");
+                                                    echo("<div class='justify-content-center text-center'>");
+                                                    echo("<hr>");
+                                                    echo("<a href='index.php?action=shop'>");
+                                                    echo("<button class='btn btn-primary'>VOIR LES ARTICLES</button>");
+                                                    echo("</a>");
+                                                    echo("</div>");
+                                                }
+
                                                 ?>
                                             </div>
                                         </div>
