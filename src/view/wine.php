@@ -30,7 +30,7 @@ ob_start();
                                                     <img src="<?= $wines["photo"] ?>" href="images/<?= $wines["photo"] ?>" alt="Image" class="img-fluid">
                                                 </a>
                                             <?php } else { ?>
-                                            <a href="images/image-unavailable.jpg">
+                                                <a href="images/image-unavailable.jpg">
                                                     <img src="images/image-unavailable.jpg" href="images/image-unavailable.jpg" alt="Image" class="img-fluid">
                                                 </a>                                               
                                             <?php } ?>
@@ -57,7 +57,7 @@ ob_start();
                                     <h2 class="text-primary">Wine Details</h2>
 
                                     <div class="mb-5">
-                                        <div class="input-group mb-3" style="max-width: 200px;">
+                                        <div class="input-group mb-3" style="max-width: 250px;">
                                             <div class="input-group-prepend">
                                                 <form method="post" action="index.php?action=addPanier">
                                                     <input type="hidden" name="id" value="<?= $wines["code"] ?>">
@@ -80,62 +80,62 @@ ob_start();
                                                                 <?php
                                                                 $nbStar = $wines['rating'];
                                                                 if ($nbStar == 0) { {
-                                                                    ?>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <?php
-                                                                }
+                                                                        ?>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <?php
+                                                                    }
                                                                 } elseif ($nbStar == 1) { {
-                                                                    ?>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <?php
-                                                                }
+                                                                        ?>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <?php
+                                                                    }
                                                                 } elseif ($nbStar == 2) { {
-                                                                    ?>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <?php
-                                                                }
+                                                                        ?>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <?php
+                                                                    }
                                                                 } elseif ($nbStar == 3) { {
-                                                                    ?>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <?php
-                                                                }
+                                                                        ?>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <?php
+                                                                    }
                                                                 } elseif ($nbStar == 4) { {
-                                                                    ?>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star-o"></span>
-                                                                    <?php
-                                                                }
+                                                                        ?>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star-o"></span>
+                                                                        <?php
+                                                                    }
                                                                 } elseif ($nbStar == 5) { {
-                                                                    ?>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <span class="icon-star"></span>
-                                                                    <?php
-                                                                }
+                                                                        ?>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <span class="icon-star"></span>
+                                                                        <?php
+                                                                    }
                                                                 } else { {
-                                                                    $noValue = 'Notation Inconnue';
-                                                                }
+                                                                        $noValue = 'Notation Inconnue';
+                                                                    }
                                                                 }
                                                                 ?>
 
@@ -143,16 +143,23 @@ ob_start();
                                                         </div>
                                                     </div>
 
-                                                    <label class="input-medium">
+                                                    <div class="input-group mb-3" style="max-width: 150px;">
+                                                        <div class="input-group-prepend">
+                                                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                                        </div>
                                                         <input class="form-control text-center border mr-0"
                                                                type="number" min="1"
                                                                placeholder="Quantité" value="1" name="qtySelect"
                                                                max="<?= $wines["qtyAvailable"] ?>">
+                                                        <div class="input-group-append">
+                                                            <button  class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                                        </div>
                                                         <br>
-                                                        <button class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary"
-                                                                type="submit">Ajouter au panier
-                                                        </button>
-                                                    </label>
+                                                    </div>
+
+                                                    <button class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary"
+                                                            type="submit">Ajouter au panier
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
