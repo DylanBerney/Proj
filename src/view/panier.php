@@ -4,6 +4,7 @@
  */
 ob_start();
 ?>
+
 <?php if (isset($_SESSION['wine'])) { ?>
     <div class="site-section  pb-0">
 
@@ -11,9 +12,12 @@ ob_start();
             <div class="row mb-5 justify-content-center">
                 <div class="col-7 section-title text-center mb-5">
                     <h2 class="d-block">Cart</h2>
-                </div>
+                </div>              
             </div>
+
+  <div id="exampleForm">
             <div class="row mb-5">
+               
                 <form class="col-md-12" method="post" action="index.php?action=cartAction">
                     <div class="site-blocks-table">
 
@@ -68,17 +72,20 @@ ob_start();
                                                 <td>
                                                     <div class="input-group mb-3" style="max-width: 150px;">
                                                         <div class="input-group-prepend">
-                                                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                                            <button onClick="callAjaxAddition()" class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                                         </div>
                                                         <input  name="wineNewQtySel_<?= $id ?>" value="<?= $qtySel ?>"  type="number" min="1" max="<?= $totalQty ?>" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
                                                                 aria-label="Example text with button addon" aria-describedby="button-addon1">
                                                         <div class="input-group-append">
-                                                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                                            <button onClick="callAjaxAddition()" class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <?= $aWineSubTotal ?>
+                                                <?php $pos = $myIndex+1;?>
+                                                <td><input name="arg<?=$pos?>" disabled="true" value="<?= $aWineSubTotal ?>">
+                                                    
+                                                    </div>
+                                                    
                                                 </td>   
                                                 <td>
                                                     <button  class="btn btn-primary height-auto btn-sm" type='submit' name='delete' value='<?= $id ?>'>Delete</button>
@@ -96,10 +103,11 @@ ob_start();
                             </tbody>
                         </table>
                     </div>
-                    
+
             </div>
         </div>
     </div>
+   
     <div>
         <div class="site-section pt-5 bg-light">
             <div class="container">
@@ -115,6 +123,7 @@ ob_start();
                                 </a>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <label class="text-black h4" for="coupon">Coupon</label>
@@ -132,7 +141,9 @@ ob_start();
                         <div class="row justify-content-end">
                             <div class="col-md-7">
                                 <div class="row">
+                                 
                                     <div class="col-md-12 text-right border-bottom mb-5">
+                                                <div id="answer"></div>
                                         <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                                     </div>
                                 </div>
@@ -160,6 +171,35 @@ ob_start();
     </div>
 
     </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+                                                    function callAjaxAddition() {
+                                                        arguments0 = {
+                                                            <?php $count=0;   
+                                                                foreach ($_SESSION['wine'] as $wine){
+                                                                    $count++;
+                                                                    $arg='arg'.$count;
+                                                                    echo $arg.": $(`#exampleForm input[name='".$arg."']`).val(),";
+                                                                }                                                                                                                        
+                                                            ?>
+                                                        };
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: "view/processAjax.php",
+                                                            data: {arguments: arguments0},
+                                                            success: function (data) {
+                                                                $("#answer").html('<ul><li>' + data + '</li></ul>');
+                                                            }
+                                                        });
+                                                        return false;
+                                                    }
+    </script>
+  
+       + <input name="arg2"> = <div id="answer"></div>
+        <br />
+        <button onClick="callAjaxAddition()">Click Me to Add</button> <!-- maybe it should be input type=button ?!?  -->
+    </div>
     <?php if (isset($_SESSION["wine"])) { ?>
         <div class="bodyBackground">
             <div style="text-align: center">
@@ -185,6 +225,8 @@ ob_start();
             </div>
         </div>
     </div>
+
+
 <?php } ?>
 <?php
 $content = ob_get_clean();
