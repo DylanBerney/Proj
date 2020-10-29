@@ -143,7 +143,7 @@ ob_start();
                                 <div class="row">
                                  
                                     <div class="col-md-12 text-right border-bottom mb-5">
-                                                <div id="answer"></div>
+                                        <div style="color: red" id="answer"></div>
                                         <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                                     </div>
                                 </div>

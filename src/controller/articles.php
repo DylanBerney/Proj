@@ -11,11 +11,22 @@
 /**
  * @brief This function is designed to put all extracetd of the databes and put them into the variable "allWines"
  */
-
 function getWines() {
     require_once "model/winesManager.php";
     try {
         $allWines = extractWines();
+        $index = 0;
+
+        foreach ($allWines as $wines) {
+            foreach ($wines as $key => &$value) {
+                if ($key == 'qtyAvailable' ){
+                if ($value == (string)0) {
+                    unset($allWines[$index]);
+                }
+            }
+        }
+        $index++;
+        }
 //  require 'view/shop.php';
     } catch (ModelDataBaseException $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
@@ -201,17 +212,15 @@ function cartAction($data) {
             //$_SESSION['cart']="";
             //$_SESSION['total']="";
             //$_SESSION = null;
-             command();
+            command();
             session_destroy();
-           
+
 //$cart = $_SESSION;
             //require 'checkoutInfoBuilder.php';
             require 'view/home.php';
             break;
     }
 }
-
-
 
 function updateCart($data) {
 

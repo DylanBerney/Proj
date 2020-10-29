@@ -8,9 +8,9 @@ foreach ($_POST['arguments'] as $v) {
 
 
 if ($a == $_SESSION['cart']['total']) {
-    $msg = 'yes' ;
+    $msg = 'Verify your cart is updated !!' ;
 } else {
-    $msg=' ';
+    $msg='';
 }
 echo $msg;
 ?>
