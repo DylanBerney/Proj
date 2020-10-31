@@ -15,7 +15,7 @@ ob_start();
                 </div>              
             </div>
 
-            <div id="exampleForm">
+            <div id="ajaxDiv">
                 <div class="row mb-5">
 
                     <form class="col-md-12" method="post" action="index.php?action=cartAction">
@@ -51,7 +51,7 @@ ob_start();
 
                                             if (isset($_SESSION['wine'][$myIndex])) {
                                                 ?>
-
+                                                <?php $pos = $myIndex + 1; ?>
                                                 <tr>
                                                     <td class="product-thumbnail">
 
@@ -72,16 +72,21 @@ ob_start();
                                                     <td>
                                                         <div class="input-group mb-3" style="max-width: 150px;">
                                                             <div class="input-group-prepend">
-                                                                <button onClick="callAjaxAddition()" class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                                               <input type="button" name="buttonMinus" onClick="callAjaxAddition()" class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                                             </div>
+                                                            <input type="hidden" name="wineNewQtySel_<?=$pos?>" value="<?= $qtySel ?>"class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
+                                                                    aria-label="Example text with button addon" aria-describedby="button-addon1" >
+                                                            
                                                             <input  name="wineNewQtySel_<?= $id ?>" value="<?= $qtySel ?>"  type="number" min="1" max="<?= $totalQty ?>" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
                                                                     aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                            
+                                                            
                                                             <div class="input-group-append">
-                                                                <button onClick="callAjaxAddition()" class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                                                <input type="button" name="buttonPlus" value="" onClick="callAjaxAddition()" class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <?php $pos = $myIndex + 1; ?>
+
                                                     <td><input name="arg<?= $pos ?>" disabled="true" value="<?= $aWineSubTotal ?>">
 
                                                         </div>
@@ -172,7 +177,7 @@ ob_start();
                                                     <input type='hidden' name='business' value='l.bassi@hotmail.fr'> 
                                                     <input type='hidden'name='item_name' value='Camera'> 
                                                     <input type='hidden'name='item_number' value='CAM#N1'> 
-                                                       <input type='hidden'name='item_name2' value='Camera2'> 
+                                                    <input type='hidden'name='item_name2' value='Camera2'> 
                                                     <input type='hidden'name='item_number2' value='CAM#N2'> 
                                                     <input type='hidden'name='amount' value='<?= $totalPrice ?>'> 
                                                     <input type='hidden'name='no_shipping' value='1'> 
@@ -204,7 +209,12 @@ ob_start();
     foreach ($_SESSION['wine'] as $wine) {
         $count++;
         $arg = 'arg' . $count;
-        echo $arg . ": $(`#exampleForm input[name='" . $arg . "']`).val(),";
+        $qty = 'wineNewQtySel_' . $count;
+        
+        $buttonPlus='buttonPlus';
+        echo $arg . ": $(`#ajaxDiv input[name='" . $arg . "']`).val(),";
+        echo $qty . ": $(`#ajaxDiv input[name='" . $qty . "']`).val(),";
+        echo $buttonPlus . ": $(`#ajaxDiv input[name='" . $buttonPlus . "']`).val(),";
     }
     ?>
                                                             };
@@ -220,8 +230,7 @@ ob_start();
                                                         }
     </script>
 
-    + <input name="arg2"> = <div id="answer"></div>
-    <br />
+
     <button onClick="callAjaxAddition()">Click Me to Add</button> <!-- maybe it should be input type=button ?!?  -->
     </div>
     <?php if (isset($_SESSION["wine"])) { ?>
