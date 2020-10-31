@@ -51,7 +51,7 @@ ob_start();
 
                                             if (isset($_SESSION['wine'][$myIndex])) {
                                                 ?>
-                                                <?php $pos = $myIndex + 1; ?>
+                                                <?php $pos = $myIndex; ?>
                                                 <tr>
                                                     <td class="product-thumbnail">
 
@@ -71,23 +71,24 @@ ob_start();
                                                     <td><?= $price ?> .-</td>
                                                     <td>
                                                         <div class="input-group mb-3" style="max-width: 150px;">
+                                                              <input type="hidden" name="buttonMinus" value="<?= $pos ?>">
                                                             <div class="input-group-prepend">
-                                                               <input type="button" name="buttonMinus" onClick="callAjaxAddition()" class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                                                <input type="button" name="button" onClick="callAjaxSubstraction_<?= $pos ?>()" value="&minus;" class="btn btn-outline-primary js-btn-minus" type="button"></button>
                                                             </div>
-                                                            <input type="hidden" name="wineNewQtySel_<?=$pos?>" value="<?= $qtySel ?>"class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
-                                                                    aria-label="Example text with button addon" aria-describedby="button-addon1" >
                                                             
+                                                            <input type="hidden" name="wineNewQtySel" value="<?= $qtySel ?>" value="<?= $qtySel ?>">
+
                                                             <input  name="wineNewQtySel_<?= $id ?>" value="<?= $qtySel ?>"  type="number" min="1" max="<?= $totalQty ?>" class="form-control text-center border mr-0" value="<?= $qtySel ?>" placeholder=""
                                                                     aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                            
-                                                            
+
+                                                            <input type="hidden" name="buttonPlus" value="<?= $pos ?>">
                                                             <div class="input-group-append">
-                                                                <input type="button" name="buttonPlus" value="" onClick="callAjaxAddition()" class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                                                <input type="button" value="&plus;" onClick="callAjaxAddition_<?= $pos ?>()" class="btn btn-outline-primary js-btn-plus" type="button"></button>
                                                             </div>
                                                         </div>
                                                     </td>
 
-                                                    <td><input name="arg<?= $pos ?>" disabled="true" value="<?= $aWineSubTotal ?>">
+                                                    <td><input name="arg" disabled="true" value="<?= $aWineSubTotal ?>">
 
                                                         </div>
 
@@ -202,32 +203,72 @@ ob_start();
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
-                                                        function callAjaxAddition() {
-                                                            arguments0 = {
     <?php
     $count = 0;
     foreach ($_SESSION['wine'] as $wine) {
-        $count++;
-        $arg = 'arg' . $count;
-        $qty = 'wineNewQtySel_' . $count;
-        
-        $buttonPlus='buttonPlus';
+        ?>
+                                                                        function callAjaxAddition_<?= $count ?>() {
+                                                                            arguments0 = {
+
+        <?php
+        $arg = 'arg';
+        $qty = 'wineNewQtySel';
+
+        $buttonPlus = 'buttonPlus';
         echo $arg . ": $(`#ajaxDiv input[name='" . $arg . "']`).val(),";
         echo $qty . ": $(`#ajaxDiv input[name='" . $qty . "']`).val(),";
         echo $buttonPlus . ": $(`#ajaxDiv input[name='" . $buttonPlus . "']`).val(),";
+        ?>
+                                                                            };
+                                                                            $.ajax({
+                                                                                type: "POST",
+                                                                                url: "view/processAjax.php",
+                                                                                data: {arguments: arguments0},
+                                                                                success: function (data) {
+                                                                                    $("#answer").html('<ul><li>' + data + '</li></ul>');
+                                                                                }
+                                                                            });
+                                                                            return false;
+                                                                        }
+        <?php
+        $count++;
     }
     ?>
-                                                            };
-                                                            $.ajax({
-                                                                type: "POST",
-                                                                url: "view/processAjax.php",
-                                                                data: {arguments: arguments0},
-                                                                success: function (data) {
-                                                                    $("#answer").html('<ul><li>' + data + '</li></ul>');
-                                                                }
-                                                            });
-                                                            return false;
-                                                        }
+
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+    <?php
+    $count = 0;
+    foreach ($_SESSION['wine'] as $wine) {
+        ?>
+                                                                        function callAjaxSubstraction_<?= $count ?>() {
+                                                                            arguments0 = {
+
+        <?php
+        $arg = 'arg';
+        $qty = 'wineNewQtySel';
+
+        $buttonPlus = 'buttonMinus';
+        echo $arg . ": $(`#ajaxDiv input[name='" . $arg . "']`).val(),";
+        echo $qty . ": $(`#ajaxDiv input[name='" . $qty . "']`).val(),";
+        echo $buttonPlus . ": $(`#ajaxDiv input[name='" . $buttonPlus . "']`).val(),";
+        ?>
+                                                                            };
+                                                                            $.ajax({
+                                                                                type: "POST",
+                                                                                url: "view/processAjax.php",
+                                                                                data: {arguments: arguments0},
+                                                                                success: function (data) {
+                                                                                    $("#answer").html('<ul><li>' + data + '</li></ul>');
+                                                                                }
+                                                                            });
+                                                                            return false;
+                                                                        }
+        <?php
+        $count++;
+    }
+    ?>
     </script>
 
 

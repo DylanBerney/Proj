@@ -1,18 +1,48 @@
 <?php
 
 session_start();
-$a = 0;
-foreach ($_POST['arguments'] as $v) {
-    $a += (int) $v;
+
+$arguments = $_POST['arguments'];
+
+if (isset($arguments['buttonPlus'])) {
+    $posInSession = (int) $arguments['buttonPlus'];
+    //(int) $arguments['wineNewQtySel']++;
+    $_SESSION['wine'][$posInSession]['qty'] ++;
+
+    $thisNewQty = $_SESSION['wine'][$posInSession]['qty'];
+
+    $result = $thisNewQty * $_SESSION['wine'][$posInSession]['price'];
+
+    showResult($result,$posInSession);
 }
 
-    $msg = '<h6 style=color:red>Verify your total is updated !!</h1>' ;
-/*
-if ($a == $_SESSION['cart']['total']) {
-    $msg = '<h1 style=color:red>Verify your cart is updated !!</h1>' ;
-} else {
-    $msg='';
+
+if (isset($arguments['buttonMinus'])) {
+    $posInSession = (int) $arguments['buttonMinus'];
+    
+//(int) $arguments['wineNewQtySel']--;
+    
+    
+    $_SESSION['wine'][$posInSession]['qty']--;
+    
+    $thisNewQty = $_SESSION['wine'][$posInSession]['qty'];
+
+    $result = $thisNewQty * $_SESSION['wine'][$posInSession]['price'];
+
+    showResult($result,$posInSession);
+    
 }
-*/
-echo $msg;
+
+
+function showResult($result,$posInSession){
+
+    if ($result != $_SESSION['wine'][$posInSession]['aWineSubTotal']) {
+        $msg = '<h6 style=color:red>Your total is not updated !!</h6>';
+    } else {
+
+        $msg = '<h6 style=color:blue>Your total is updated !!</h6>';
+    }
+    echo $msg;
+}
+
 ?>
