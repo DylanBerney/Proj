@@ -6,10 +6,14 @@ $arguments = $_POST['arguments'];
 
 if (isset($arguments['buttonPlus'])) {
     $posInSession = (int) $arguments['buttonPlus'];
-    //(int) $arguments['wineNewQtySel']++;
-    $_SESSION['wine'][$posInSession]['qty'] ++;
+    
+    if(!isset($_SESSION['wine'][$posInSession]['tempQty'])){
+    $_SESSION['wine'][$posInSession]['tempQty']=$_SESSION['wine'][$posInSession]['qty'];
+    }
 
-    $thisNewQty = $_SESSION['wine'][$posInSession]['qty'];
+    $_SESSION['wine'][$posInSession]['tempQty']++;
+
+    $thisNewQty = $_SESSION['wine'][$posInSession]['tempQty'];
 
     $result = $thisNewQty * $_SESSION['wine'][$posInSession]['price'];
 
@@ -20,12 +24,12 @@ if (isset($arguments['buttonPlus'])) {
 if (isset($arguments['buttonMinus'])) {
     $posInSession = (int) $arguments['buttonMinus'];
     
-//(int) $arguments['wineNewQtySel']--;
-    
-    
-    $_SESSION['wine'][$posInSession]['qty']--;
-    
-    $thisNewQty = $_SESSION['wine'][$posInSession]['qty'];
+    if(!isset($_SESSION['wine'][$posInSession]['tempQty'])){
+    $_SESSION['wine'][$posInSession]['tempQty']=$_SESSION['wine'][$posInSession]['qty'];
+    }
+    $_SESSION['wine'][$posInSession]['tempQty']--;
+
+    $thisNewQty = $_SESSION['wine'][$posInSession]['tempQty'];
 
     $result = $thisNewQty * $_SESSION['wine'][$posInSession]['price'];
 
@@ -37,7 +41,7 @@ if (isset($arguments['buttonMinus'])) {
 function showResult($result,$posInSession){
 
     if ($result != $_SESSION['wine'][$posInSession]['aWineSubTotal']) {
-        $msg = '<h6 style=color:red>Your total is not updated !!</h6>';
+        $msg = '<h5 style=color:red>Your total is not updated !!</h6>';
     } else {
 
         $msg = '<h6 style=color:blue>Your total is updated !!</h6>';

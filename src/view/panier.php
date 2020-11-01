@@ -71,9 +71,9 @@ ob_start();
                                                     <td><?= $price ?> .-</td>
                                                     <td>
                                                         <div class="input-group mb-3" style="max-width: 150px;">
-                                                              <input type="hidden" name="buttonMinus" value="<?= $pos ?>">
+                                                              <input type="hidden" name="buttonPlus" value="<?= $pos ?>">
                                                             <div class="input-group-prepend">
-                                                                <input type="button" name="button" onClick="callAjaxSubstraction_<?= $pos ?>()" value="&minus;" class="btn btn-outline-primary js-btn-minus" type="button"></button>
+                                                                <input type="button" name="buttonMinus" onClick="callAjaxSubstraction_<?= $pos ?>()" class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                                                             </div>
                                                             
                                                             <input type="hidden" name="wineNewQtySel" value="<?= $qtySel ?>" value="<?= $qtySel ?>">
@@ -83,7 +83,7 @@ ob_start();
 
                                                             <input type="hidden" name="buttonPlus" value="<?= $pos ?>">
                                                             <div class="input-group-append">
-                                                                <input type="button" value="&plus;" onClick="callAjaxAddition_<?= $pos ?>()" class="btn btn-outline-primary js-btn-plus" type="button"></button>
+                                                                <input type="button" value="" onClick="callAjaxAddition_<?= $pos ?>()" class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                                                             </div>
                                                         </div>
                                                     </td>

@@ -19,13 +19,13 @@ function getWines() {
 
         foreach ($allWines as $wines) {
             foreach ($wines as $key => &$value) {
-                if ($key == 'qtyAvailable' ){
-                if ($value == (string)0) {
-                    unset($allWines[$index]);
+                if ($key == 'qtyAvailable') {
+                    if ($value == (string) 0) {
+                        unset($allWines[$index]);
+                    }
                 }
             }
-        }
-        $index++;
+            $index++;
         }
 //  require 'view/shop.php';
     } catch (ModelDataBaseException $ex) {
@@ -108,6 +108,7 @@ function addPanier() {
                 $_SESSION['wine'][$arrayPos]['modele'] = $aWine[0]["model"];
                 $_SESSION['wine'][$arrayPos]['photo'] = $aWine[0]["photo"];
                 $_SESSION['wine'][$arrayPos]['price'] = $aWine[0]["price"];
+                $_SESSION['wine'][$arrayPos]['tempQty'] = $_SESSION['wine'][$arrayPos]['qty'];
                 $_SESSION['wine'][$arrayPos]['totalWinePrice'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
                 $_SESSION['wine'][$arrayPos]['aWineSubTotal'] = $_SESSION['wine'][$arrayPos]['price'] * $_SESSION['wine'][$arrayPos]['qty'];
             }
@@ -121,6 +122,7 @@ function addPanier() {
                         $newSubTotalInCart = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
                         $_SESSION['wine'][$index]['aWineSubTotal'] = $newSubTotalInCart + $subTotalInCart;
                         $_SESSION['wine'][$index]['qty'] = $_SESSION['wine'][$index]['qty'] + $qty;
+                        $_SESSION['wine'][$index]['tempQty'] = $_SESSION['wine'][$index]['qty'];
                         $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
                     }
                     $index++;
@@ -137,6 +139,7 @@ function addPanier() {
             $_SESSION['wine'][0]['modele'] = $aWine[0]["model"];
             $_SESSION['wine'][0]['photo'] = $aWine[0]["photo"];
             $_SESSION['wine'][0]['price'] = $aWine[0]["price"];
+            $_SESSION['wine'][0]['tempQty'] = $_SESSION['wine'][0]['qty'];
             $_SESSION['wine'][0]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
             $_SESSION['wine'][0]['aWineSubTotal'] = $_SESSION['wine'][$index]['price'] * $_SESSION['wine'][$index]['qty'];
         }
@@ -277,6 +280,7 @@ function updateCartSession($id, $newQty) {
             $newSubTotalInCart = $_SESSION['wine'][$index]['price'] * $newQty;
             $_SESSION['wine'][$index]['aWineSubTotal'] = $newSubTotalInCart;
             $_SESSION['wine'][$index]['qty'] = $newQty;
+            $_SESSION['wine'][$index]['tempQty']=$_SESSION['wine'][$index]['qty'];
             $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $newQty;
         }
         $index++;
