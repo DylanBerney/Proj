@@ -112,7 +112,7 @@ function openDBConnexion()
     $charset = 'utf8';
     $dbName = 'wines';
     $userName = 'root';
-    $userPwd = '';
+    $userPwd = 'root';
     $dsn = $sqlDriver . ':host=' . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
 
     try {
@@ -128,10 +128,6 @@ function openDBConnexion()
  * @brief This class is designed to manage specific model exception
  */
 class ModelDataBaseException extends Exception
-
-
-
-
 {
 
 }

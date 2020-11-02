@@ -68,12 +68,12 @@ ob_start();
                                                     <td class="product-name">
                                                         <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
                                                     </td>
-                                                    <td><?= $price ?> .-</td>
+                                                    <td><?= $price ?> $</td>
                                                     <td>
                                                         <div class="input-group mb-3" style="max-width: 150px;">
                                                               <input type="hidden" name="buttonPlus" value="<?= $pos ?>">
                                                             <div class="input-group-prepend">
-                                                                <input type="button" name="buttonMinus" onClick="callAjaxSubstraction_<?= $pos ?>()" class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                                                <input type="button" name="buttonMinus" value="&minus;" onClick="callAjaxSubstraction_<?= $pos ?>()" class="btn btn-outline-primary js-btn-minus" type="button"></button>
                                                             </div>
                                                             
                                                             <input type="hidden" name="wineNewQtySel" value="<?= $qtySel ?>" value="<?= $qtySel ?>">
@@ -83,14 +83,14 @@ ob_start();
 
                                                             <input type="hidden" name="buttonPlus" value="<?= $pos ?>">
                                                             <div class="input-group-append">
-                                                                <input type="button" value="" onClick="callAjaxAddition_<?= $pos ?>()" class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                                                <input type="button" value="&plus;" onClick="callAjaxAddition_<?= $pos ?>()" class="btn btn-outline-primary js-btn-plus" type="button"></button>
                                                             </div>
                                                         </div>
                                                     </td>
 
-                                                    <td><input name="arg" disabled="true" value="<?= $aWineSubTotal ?>">
-
-                                                        </div>
+                                                    <td><input type="hidden" name="arg" disabled="true" value="<?= $aWineSubTotal ?>">
+<?= $aWineSubTotal ?> $
+                                                        
 
                                                     </td>   
                                                     <td>
@@ -158,7 +158,7 @@ ob_start();
                                             <span class="text-black">Total</span>
                                         </div>
                                         <div class="col-md-6 text-right">
-                                            <strong class="text-black">$<?= $totalPrice ?></strong>
+                                            <strong class="text-black"><?= $totalPrice ?> $</strong>
                                         </div>
                                     </div>
 
