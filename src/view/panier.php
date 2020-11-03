@@ -184,8 +184,8 @@ ob_start();
                                                     <input type='hidden'name='no_shipping' value='1'> 
                                                     <input type='hidden'name='currency_code' value='USD'> 
                                                     <input type='hidden'name='notify_url'value='https://localhost'>
-                                                    <input type='hidden' name='cancel_return'value='https://localhost'>
-                                                    <input type='hidden' name='return'value='https://localhost'>
+                                                    <input type='hidden' name='cancel_return'value='http://3.23.78.107//index.php?action=goPanier'>
+                                                    <input type='hidden' name='return'value='http://3.23.78.107//index.php?action=PaypalReturn'>
                                                     <input type="hidden" name="cmd" value="_xclick"> 
                                                     <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"> 
                                                 </form>
@@ -272,7 +272,7 @@ ob_start();
     </script>
 
 
-
+    <button onClick="callAjaxAddition()">Click Me to Add</button> <!-- maybe it should be input type=button ?!?  -->
     </div>
     <?php if (isset($_SESSION["wine"])) { ?>
         <div class="bodyBackground">

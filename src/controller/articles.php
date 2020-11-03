@@ -310,6 +310,7 @@ function delPanier() {
     unset($_SESSION['total']);
     unset($_SESSION["cart"]["total"]);
     unset($_SESSION["success"]);
+    require 'view/panier.php';
 }
 
 function command() {
@@ -322,4 +323,11 @@ function command() {
         $msgErreur = $e->getMessage();
         require 'vueErreur.php';
     }
+}
+
+function PaypalReturn(){
+
+    $homemsg["receivePayment"]='Thanks you for your Order !';
+    require 'view/home..php';    
+    
 }

@@ -1,8 +1,8 @@
 <?php
-
 ob_start();
 $title = "Rent A Snow - Home";
 ?>
+<?php if(isset($homemsg["receivePayment"])){    include 'view/homeMsg.php';} ?> 
 
     <div class="owl-carousel hero-slide owl-style">
         <div class="intro-section container" style="background-image: url('images/hero_1.jpg');">
@@ -52,6 +52,7 @@ $title = "Rent A Snow - Home";
             </div>
         </div>
     </div>
-<?php
-$content = ob_get_clean();
-require "gabarit.php";
+    <?php
+    $content = ob_get_clean();
+    require "gabarit.php";
+    
