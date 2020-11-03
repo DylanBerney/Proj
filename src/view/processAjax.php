@@ -44,7 +44,7 @@ function showResult($result,$posInSession){
         $msg = '<h5 style=color:red>Your total is not updated !!</h6>';
     } else {
 
-        $msg = '<h6 style=color:blue>Your total is updated !!</h6>';
+        $msg = '<h6 style=color:green>Your total is updated !!</h6>';
     }
     echo $msg;
 }

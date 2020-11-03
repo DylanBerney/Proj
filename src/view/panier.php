@@ -272,7 +272,7 @@ ob_start();
     </script>
 
 
-    <button onClick="callAjaxAddition()">Click Me to Add</button> <!-- maybe it should be input type=button ?!?  -->
+
     </div>
     <?php if (isset($_SESSION["wine"])) { ?>
         <div class="bodyBackground">
