@@ -3,16 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/controller/articles.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/.htaccess</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/view/panier.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/model/logError.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/view/processAjax.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/scss/_site-blocks.scss</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/log_exceptions.log</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/Ressources/BD_wines_and_table_wines_ok.sql</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/index.php</file>
-            <file>file:/C:/Users/Miss%20Louc/Documents/CPNV/Depot_GitKraken/Proj_Wine/src/js/jquery.fancybox.min.js</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/controller/articles.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/index.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/view/panier.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/model/dbConnector.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/view/wine.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/view/processAjax.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/view/home.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/view/gabarit.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/view/homeMsg.php</file>
+            <file>file:/C:/Users/luca.bassi/Documents/Dépot_GitKraken/Proj_Wine/src/view/shop.php</file>
         </group>
     </open-files>
 </project-private>
