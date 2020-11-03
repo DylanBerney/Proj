@@ -47,7 +47,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12 text-center">
-                            <a href="index.html" class="site-logo">
+                            <a href="index.php?action=home" class="site-logo">
                                 <img src="images/logo.png" alt="Image" class="img-fluid">
                             </a>
                         </div>

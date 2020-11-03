@@ -180,6 +180,9 @@ function cartAction($data) {
             if ($key == 'updateCart') {
                 $action = 'updateCart';
             }
+            if ($key == 'delPanier') {
+                $action = 'delPanier';
+            }
         }
     }
 
@@ -222,6 +225,10 @@ function cartAction($data) {
             //require 'checkoutInfoBuilder.php';
             require 'view/home.php';
             break;
+
+        case 'delPanier':
+            delPanier();
+            require 'view/panier.php';
     }
 }
 
@@ -280,7 +287,7 @@ function updateCartSession($id, $newQty) {
             $newSubTotalInCart = $_SESSION['wine'][$index]['price'] * $newQty;
             $_SESSION['wine'][$index]['aWineSubTotal'] = $newSubTotalInCart;
             $_SESSION['wine'][$index]['qty'] = $newQty;
-            $_SESSION['wine'][$index]['tempQty']=$_SESSION['wine'][$index]['qty'];
+            $_SESSION['wine'][$index]['tempQty'] = $_SESSION['wine'][$index]['qty'];
             $_SESSION['wine'][$index]['totalWinePrice'] = $_SESSION['wine'][$index]['price'] * $newQty;
         }
         $index++;
@@ -310,7 +317,7 @@ function delPanier() {
     unset($_SESSION['total']);
     unset($_SESSION["cart"]["total"]);
     unset($_SESSION["success"]);
-    require 'view/panier.php';
+    
 }
 
 function command() {
@@ -325,9 +332,9 @@ function command() {
     }
 }
 
-function PaypalReturn(){
+function orderReturn() {
 
-    $homemsg["receivePayment"]='Thanks you for your Order !';
-    require 'view/home..php';    
-    
+    delPanier();
+    $homemsg["receivePayment"] = 'Thanks you for your Order !';
+    require 'view/home.php';
 }

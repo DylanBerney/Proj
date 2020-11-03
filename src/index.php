@@ -88,8 +88,8 @@ if (isset($_GET['action'])) {
             register($_POST);
             break;
 
-               case 'PaypalReturn' :
-            PaypalReturn();
+               case 'orderReturn' :
+            orderReturn();
             break;
 
         default :

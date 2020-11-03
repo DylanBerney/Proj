@@ -69,9 +69,13 @@ ob_start();
                                                         <h2 class="h5 cart-product-title text-black"><?= $marque ?><br> <?= $modele ?></h2>
                                                     </td>
                                                     <td><?= $price ?> $</td>
-                                                    <td>
-                                                        <div class="input-group mb-3" style="max-width: 150px;">
-                                                              <input type="hidden" name="buttonPlus" value="<?= $pos ?>">
+                                                    
+                                                    
+                                                    
+                                                   <td class="product-thumbnail">
+                                                        <input type="hidden" name="buttonPlus" value="<?= $pos ?>">
+                                                        <div class="input-group mb-3" style="max-width: 140px;margin-left: 5%;margin-right: 10%">
+                                                              
                                                             <div class="input-group-prepend">
                                                                 <input type="button" name="buttonMinus" value="&minus;" onClick="callAjaxSubstraction_<?= $pos ?>()" class="btn btn-outline-primary js-btn-minus" type="button"></button>
                                                             </div>
@@ -184,8 +188,8 @@ ob_start();
                                                     <input type='hidden'name='no_shipping' value='1'> 
                                                     <input type='hidden'name='currency_code' value='USD'> 
                                                     <input type='hidden'name='notify_url'value='https://localhost'>
-                                                    <input type='hidden' name='cancel_return'value='http://3.23.78.107//index.php?action=goPanier'>
-                                                    <input type='hidden' name='return'value='http://3.23.78.107//index.php?action=PaypalReturn'>
+                                                    <input type='hidden' name='cancel_return'value='http://localhost:8000/index.php?action=orderReturn'>
+                                                    <input type='hidden' name='return'value='http://3.23.78.107//index.php?action=orderReturn'>
                                                     <input type="hidden" name="cmd" value="_xclick"> 
                                                     <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"> 
                                                 </form>
@@ -272,14 +276,14 @@ ob_start();
     </script>
 
 
-    <button onClick="callAjaxAddition()">Click Me to Add</button> <!-- maybe it should be input type=button ?!?  -->
+ <!--    <button onClick="callAjaxAddition()">Click Me to Add</button> maybe it should be input type=button ?!?  -->
     </div>
     <?php if (isset($_SESSION["wine"])) { ?>
         <div class="bodyBackground">
             <div style="text-align: center">
                 <div class="btn-group">
-                    <form method="post" action="index.php?action=delPanier">
-                        <button class="btn" type="submit" style="color: red">Vider le Panier</button>
+                    <form method="post" action="index.php?action=cartAction">
+                        <button class="btn" type="submit" name="delPanier" style="color: red">Vider le Panier</button>
                         <!--         <input type="hidden" name="id" value="<? /*= $id */ ?>">-->
                         <label class="input-medium">
                         </label>
