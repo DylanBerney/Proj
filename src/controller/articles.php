@@ -220,7 +220,8 @@ function cartAction($data) {
             //$_SESSION = null;
             command();
             session_destroy();
-
+            delPanier();
+            $homemsg["receivePayment"] = 'Thanks you for your Order !';
 //$cart = $_SESSION;
             //require 'checkoutInfoBuilder.php';
             require 'view/home.php';
@@ -317,7 +318,6 @@ function delPanier() {
     unset($_SESSION['total']);
     unset($_SESSION["cart"]["total"]);
     unset($_SESSION["success"]);
-    
 }
 
 function command() {
