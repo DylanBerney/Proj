@@ -179,7 +179,8 @@ ob_start();
                                         <div class="col-md-12">
                                             <div id="payment-box">
                                                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                                    <input type='hidden' name='business' value='l.bassi@hotmail.fr'> 
+                                                   <!-- at the place of "#" put your devlopper Paypal account's mail address  -->
+                                                    <input type='hidden' name='business' value='#'> 
                                                     <input type='hidden'name='item_name' value='Camera'> 
                                                     <input type='hidden'name='item_number' value='CAM#N1'> 
                                                     <input type='hidden'name='item_name2' value='Camera2'> 

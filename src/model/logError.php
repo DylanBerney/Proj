@@ -1,4 +1,10 @@
 <?php
+/**
+ * @file      logError.php
+ * @brief     This logger is designed to insert logs messages in a .log file in view folder (unprotected !) )
+ * @author    Updated by Luca.Bassi
+ * @version   11-NOV-2020
+ */
 
 /**
  * @brief This function is designed to write the message catched by exeption throws by the code in a file 

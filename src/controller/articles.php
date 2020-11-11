@@ -5,11 +5,12 @@
  * @brief     this controller is designed to manage articles actions
  * @author    Created by Pascal.BENZONANA
  * @author    Updated by Nicolas.GLASSEY
- * @version   13-APR-2020
+ * @author    Updated by Luca.Bassi
+ * @version   11-NOV-2020
  */
 
 /**
- * @brief This function is designed to put all extracetd of the databes and put them into the variable "allWines"
+ * @brief This function is designed to put all extracetd of the databes and put them into the variable "allWines" used in wines's wiew and unset wines quantitiy is 0
  */
 function getWines() {
     require_once "model/winesManager.php";
@@ -27,16 +28,21 @@ function getWines() {
             }
             $index++;
         }
-//  require 'view/shop.php';
+
     } catch (ModelDataBaseException $ex) {
         $msgErreurForUsers = "Nous rencontrons temporairement un problème technique pour afficher nos produits. Désolé du dérangement !";
         require 'model/logError.php';
         logError($msgErreurForUsers, $ex);
-//  require "vueErreur.php";
+
     } finally {
         require 'view/shop.php';
     }
 }
+
+/**
+ * @brief This function is designed to put an extracetd wine seleted with is code in "details" varaible
+ * @param  :$details , details from formulaire
+ */
 
 function anArticle($details) {
 
@@ -50,14 +56,10 @@ function anArticle($details) {
     }
 }
 
+/**
+ * @brief This function is designed to put a wine selected in shop, work with POST variable and cart is build in SESSION variable  
+ */
 function addPanier() {
-
-    function chargerClasse($classe) {
-
-        require "model/" . $classe . '.php'; // On inclut la classe correspondante au paramètre passé.
-    }
-
-    spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelée dès qu'on instanciera une classe non déclarée.
 
 
     if (isset($_POST["qtySelect"])) {
@@ -162,7 +164,10 @@ function addPanier() {
         $msgErreur = $e->getMessage();
     }
 }
-
+/**
+ * @brief This function is designed to know whitch action to to after an action in cart page when user click on a button 
+ * @param  : $data , the name of the button 
+ */
 function cartAction($data) {
 
     if (isset($data['button'])) {
@@ -215,14 +220,8 @@ function cartAction($data) {
 
         case 'checkout':
             unset($data['checkout']);
-            //$_SESSION['cart']="";
-            //$_SESSION['total']="";
-            //$_SESSION = null;
             command();
             session_destroy();
-
-//$cart = $_SESSION;
-            //require 'checkoutInfoBuilder.php';
             require 'view/home.php';
             break;
 
@@ -232,6 +231,10 @@ function cartAction($data) {
     }
 }
 
+/**
+ * @brief This function is designed to update quantity of a wine in cart in SESSION variable  
+ * @param  : $data , name and id of wines to update  
+ */
 function updateCart($data) {
 
     foreach ($data as $key => &$value) {
@@ -246,6 +249,10 @@ function updateCart($data) {
     }
 }
 
+/**
+ * @brief This function is designed to know whitch action to to after an action in cart page when user click on a button 
+ * @param  : $data , the name of the button 
+ */
 function setCartTotal() {
     $_SESSION['cart']['total'] = 0;
     $index = 0;
@@ -256,6 +263,10 @@ function setCartTotal() {
     }
 }
 
+/**
+ * @brief This function is designed to unset a wine in SESSION variable   
+ * @param  : $id , of wine to unset in SESSION
+ */
 function delAwine($id) {
     $index = 0;
     if (isset($_SESSION['wine'])) {
@@ -266,7 +277,6 @@ function delAwine($id) {
 
             $index++;
         }
-        //  updateCartSession($id, 0);
         $_SESSION['wine'] = array_values($_SESSION['wine']);
 
 
@@ -278,6 +288,11 @@ function delAwine($id) {
     }
 }
 
+/**
+ * @brief This function is designed to the cart section in SESSION variable 
+ * @param  : $id , od of wine to uddate 
+ * @param  : $newQty , the new quantity of a wine to put in SESSION 
+ */
 function updateCartSession($id, $newQty) {
 
     $index = 0;
@@ -294,6 +309,9 @@ function updateCartSession($id, $newQty) {
     }
 }
 
+/**
+ * @brief This function is designed to suppress the cart .json file in folder "data" in model's section and unset all cart in SESSION variable 
+ */
 function delPanier() {
 
     $dataDirectory = "model/data";
@@ -320,6 +338,9 @@ function delPanier() {
     
 }
 
+/**
+ * @brief This function is designed to udate quatities of wine in DB 
+ */
 function command() {
 
     require_once "model/articlesManager.php";
@@ -331,7 +352,9 @@ function command() {
         require 'vueErreur.php';
     }
 }
-
+/**
+ * @brief This function is designed unset all cart im SESSION variable, to put remericent message in SESSION variable and redirect user at the home page 
+ */
 function orderReturn() {
 
     delPanier();

@@ -1,0 +1,153 @@
+\hypertarget{articles_8php}{}\doxysection{C\+:/\+Users/\+Miss Louc/\+Documents/\+C\+P\+N\+V/\+Depot\+\_\+\+Git\+Kraken/\+Proj\+\_\+\+Wine/src/controller/articles.php File Reference}
+\label{articles_8php}\index{C:/Users/Miss Louc/Documents/CPNV/Depot\_GitKraken/Proj\_Wine/src/controller/articles.php@{C:/Users/Miss Louc/Documents/CPNV/Depot\_GitKraken/Proj\_Wine/src/controller/articles.php}}
+
+
+this controller is designed to manage articles actions  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{articles_8php_a58430dd4ef16178ab81162ce17f2447e}\label{articles_8php_a58430dd4ef16178ab81162ce17f2447e}} 
+\mbox{\hyperlink{articles_8php_a58430dd4ef16178ab81162ce17f2447e}{get\+Wines}} ()
+\begin{DoxyCompactList}\small\item\em This function is designed to put all extracetd of the databes and put them into the variable \char`\"{}all\+Wines\char`\"{} used in wines\textquotesingle{}s wiew and unset wines quantitiy is 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{articles_8php_ae3fae17fcc0e4c0f1e973131e53eee07}{an\+Article}} (\$details)
+\begin{DoxyCompactList}\small\item\em This function is designed to put an extracetd wine seleted with is code in \char`\"{}details\char`\"{} varaible. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{articles_8php_af93fcdf72cfb92826a5e7aa840cf5107}\label{articles_8php_af93fcdf72cfb92826a5e7aa840cf5107}} 
+\mbox{\hyperlink{articles_8php_af93fcdf72cfb92826a5e7aa840cf5107}{add\+Panier}} ()
+\begin{DoxyCompactList}\small\item\em This function is designed to put a wine selected in shop, work with P\+O\+ST variable and cart is build in S\+E\+S\+S\+I\+ON variable ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{articles_8php_a492135f332aa3d68e896c2220026d3b0}{cart\+Action}} (\$data)
+\begin{DoxyCompactList}\small\item\em This function is designed to know whitch action to to after an action in cart page when user click on a button. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{articles_8php_aaaf4a31a1e84d919dccf9629233255b2}{update\+Cart}} (\$data)
+\begin{DoxyCompactList}\small\item\em This function is designed to update quantity of a wine in cart in S\+E\+S\+S\+I\+ON variable ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{articles_8php_a094cc5cc0b9cb90e2b7a792a4cf4ea38}{set\+Cart\+Total}} ()
+\begin{DoxyCompactList}\small\item\em This function is designed to know whitch action to to after an action in cart page when user click on a button. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{articles_8php_a5852c67910f2286bda48dd90a6157fb5}{del\+Awine}} (\$id)
+\begin{DoxyCompactList}\small\item\em This function is designed to unset a wine in S\+E\+S\+S\+I\+ON variable ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{articles_8php_a6f6ae46f9754bed3f7c104d1022347f3}{update\+Cart\+Session}} (\$id, \$new\+Qty)
+\begin{DoxyCompactList}\small\item\em This function is designed to the cart section in S\+E\+S\+S\+I\+ON variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{articles_8php_a875cc9da3f8c7241c1f6865ec9c0fa7e}\label{articles_8php_a875cc9da3f8c7241c1f6865ec9c0fa7e}} 
+\mbox{\hyperlink{articles_8php_a875cc9da3f8c7241c1f6865ec9c0fa7e}{del\+Panier}} ()
+\begin{DoxyCompactList}\small\item\em This function is designed to suppress the cart .json file in folder \char`\"{}data\char`\"{} in model\textquotesingle{}s section and unset all cart in S\+E\+S\+S\+I\+ON variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{articles_8php_a303dd6f1110efea91c498969bfd9a7d5}\label{articles_8php_a303dd6f1110efea91c498969bfd9a7d5}} 
+\mbox{\hyperlink{articles_8php_a303dd6f1110efea91c498969bfd9a7d5}{command}} ()
+\begin{DoxyCompactList}\small\item\em This function is designed to udate quatities of wine in DB. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{articles_8php_a98e6ede6a3ad0fc9de5edc527f44d6f8}\label{articles_8php_a98e6ede6a3ad0fc9de5edc527f44d6f8}} 
+\mbox{\hyperlink{articles_8php_a98e6ede6a3ad0fc9de5edc527f44d6f8}{order\+Return}} ()
+\begin{DoxyCompactList}\small\item\em This function is designed unset all cart im S\+E\+S\+S\+I\+ON variable, to put remericent message in S\+E\+S\+S\+I\+ON variable and redirect user at the home page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this controller is designed to manage articles actions 
+
+\begin{DoxyAuthor}{Author}
+Created by Pascal.\+B\+E\+N\+Z\+O\+N\+A\+NA 
+
+Updated by Nicolas.\+G\+L\+A\+S\+S\+EY 
+
+Updated by Luca.\+Bassi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+11-\/N\+O\+V-\/2020 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{articles_8php_ae3fae17fcc0e4c0f1e973131e53eee07}\label{articles_8php_ae3fae17fcc0e4c0f1e973131e53eee07}} 
+\index{articles.php@{articles.php}!anArticle@{anArticle}}
+\index{anArticle@{anArticle}!articles.php@{articles.php}}
+\doxysubsubsection{\texorpdfstring{anArticle()}{anArticle()}}
+{\footnotesize\ttfamily an\+Article (\begin{DoxyParamCaption}\item[{}]{\$details }\end{DoxyParamCaption})}
+
+
+
+This function is designed to put an extracetd wine seleted with is code in \char`\"{}details\char`\"{} varaible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+:\$details,details} & from formulaire \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{articles_8php_a492135f332aa3d68e896c2220026d3b0}\label{articles_8php_a492135f332aa3d68e896c2220026d3b0}} 
+\index{articles.php@{articles.php}!cartAction@{cartAction}}
+\index{cartAction@{cartAction}!articles.php@{articles.php}}
+\doxysubsubsection{\texorpdfstring{cartAction()}{cartAction()}}
+{\footnotesize\ttfamily cart\+Action (\begin{DoxyParamCaption}\item[{}]{\$data }\end{DoxyParamCaption})}
+
+
+
+This function is designed to know whitch action to to after an action in cart page when user click on a button. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\+: & {\em \$data,the} & name of the button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{articles_8php_a5852c67910f2286bda48dd90a6157fb5}\label{articles_8php_a5852c67910f2286bda48dd90a6157fb5}} 
+\index{articles.php@{articles.php}!delAwine@{delAwine}}
+\index{delAwine@{delAwine}!articles.php@{articles.php}}
+\doxysubsubsection{\texorpdfstring{delAwine()}{delAwine()}}
+{\footnotesize\ttfamily del\+Awine (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+
+
+This function is designed to unset a wine in S\+E\+S\+S\+I\+ON variable ~\newline
+ 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\+: & {\em \$id,of} & wine to unset in S\+E\+S\+S\+I\+ON \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{articles_8php_a094cc5cc0b9cb90e2b7a792a4cf4ea38}\label{articles_8php_a094cc5cc0b9cb90e2b7a792a4cf4ea38}} 
+\index{articles.php@{articles.php}!setCartTotal@{setCartTotal}}
+\index{setCartTotal@{setCartTotal}!articles.php@{articles.php}}
+\doxysubsubsection{\texorpdfstring{setCartTotal()}{setCartTotal()}}
+{\footnotesize\ttfamily set\+Cart\+Total (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is designed to know whitch action to to after an action in cart page when user click on a button. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\+: & {\em \$data,the} & name of the button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{articles_8php_aaaf4a31a1e84d919dccf9629233255b2}\label{articles_8php_aaaf4a31a1e84d919dccf9629233255b2}} 
+\index{articles.php@{articles.php}!updateCart@{updateCart}}
+\index{updateCart@{updateCart}!articles.php@{articles.php}}
+\doxysubsubsection{\texorpdfstring{updateCart()}{updateCart()}}
+{\footnotesize\ttfamily update\+Cart (\begin{DoxyParamCaption}\item[{}]{\$data }\end{DoxyParamCaption})}
+
+
+
+This function is designed to update quantity of a wine in cart in S\+E\+S\+S\+I\+ON variable ~\newline
+ 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\+: & {\em \$data,name} & and id of wines to update ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{articles_8php_a6f6ae46f9754bed3f7c104d1022347f3}\label{articles_8php_a6f6ae46f9754bed3f7c104d1022347f3}} 
+\index{articles.php@{articles.php}!updateCartSession@{updateCartSession}}
+\index{updateCartSession@{updateCartSession}!articles.php@{articles.php}}
+\doxysubsubsection{\texorpdfstring{updateCartSession()}{updateCartSession()}}
+{\footnotesize\ttfamily update\+Cart\+Session (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$new\+Qty }\end{DoxyParamCaption})}
+
+
+
+This function is designed to the cart section in S\+E\+S\+S\+I\+ON variable. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\+: & {\em \$id,od} & of wine to uddate \\
+\hline
+\+: & {\em \$new\+Qty,the} & new quantity of a wine to put in S\+E\+S\+S\+I\+ON \\
+\hline
+\end{DoxyParams}

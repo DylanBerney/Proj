@@ -1,0 +1,94 @@
+\hypertarget{users_8php}{}\doxysection{C\+:/\+Users/\+Miss Louc/\+Documents/\+C\+P\+N\+V/\+Depot\+\_\+\+Git\+Kraken/\+Proj\+\_\+\+Wine/src/controller/users.php File Reference}
+\label{users_8php}\index{C:/Users/Miss Louc/Documents/CPNV/Depot\_GitKraken/Proj\_Wine/src/controller/users.php@{C:/Users/Miss Louc/Documents/CPNV/Depot\_GitKraken/Proj\_Wine/src/controller/users.php}}
+
+
+This controller is designed to manage all users actions.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{users_8php_ac4c99ca9ecaf70a2280f008a2eed1ac7}{create\+Session}} (\$user\+Email\+Address)
+\begin{DoxyCompactList}\small\item\em This function is designed to create a new user session. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{users_8php_a9b0d227d60d4f37532de2d359aa17733}{login}} (\$login\+Request)
+\begin{DoxyCompactList}\small\item\em This function is designed to manage login request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{users_8php_a082405d89acd6835c3a7c7a08a7adbab}{logout}} ()
+\begin{DoxyCompactList}\small\item\em This function is designed to manage logout request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{users_8php_a430e414bf4bd373b3d3e33eb79cb2b1a}{register}} (\$register\+Request)
+\begin{DoxyCompactList}\small\item\em This function is designed manage the register request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This controller is designed to manage all users actions. 
+
+\begin{DoxyAuthor}{Author}
+Created by Pascal.\+B\+E\+N\+Z\+O\+N\+A\+NA 
+
+Updated by Nicolas.\+G\+L\+A\+S\+S\+EY 
+
+Updated by Luca.\+Bassi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+11-\/N\+O\+V-\/2020 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{users_8php_ac4c99ca9ecaf70a2280f008a2eed1ac7}\label{users_8php_ac4c99ca9ecaf70a2280f008a2eed1ac7}} 
+\index{users.php@{users.php}!createSession@{createSession}}
+\index{createSession@{createSession}!users.php@{users.php}}
+\doxysubsubsection{\texorpdfstring{createSession()}{createSession()}}
+{\footnotesize\ttfamily create\+Session (\begin{DoxyParamCaption}\item[{}]{\$user\+Email\+Address }\end{DoxyParamCaption})}
+
+
+
+This function is designed to create a new user session. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$user\+Email\+Address} & \+: user unique id, must be meet R\+FC 5321/5322 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{users_8php_a9b0d227d60d4f37532de2d359aa17733}\label{users_8php_a9b0d227d60d4f37532de2d359aa17733}} 
+\index{users.php@{users.php}!login@{login}}
+\index{login@{login}!users.php@{users.php}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily login (\begin{DoxyParamCaption}\item[{}]{\$login\+Request }\end{DoxyParamCaption})}
+
+
+
+This function is designed to manage login request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$login\+Request} & containing login fields required to authenticate the user \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{users_8php_a082405d89acd6835c3a7c7a08a7adbab}\label{users_8php_a082405d89acd6835c3a7c7a08a7adbab}} 
+\index{users.php@{users.php}!logout@{logout}}
+\index{logout@{logout}!users.php@{users.php}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is designed to manage logout request. 
+
+\begin{DoxyRemark}{Remarks}
+In case of login, the user session will be destroyed. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{users_8php_a430e414bf4bd373b3d3e33eb79cb2b1a}\label{users_8php_a430e414bf4bd373b3d3e33eb79cb2b1a}} 
+\index{users.php@{users.php}!register@{register}}
+\index{register@{register}!users.php@{users.php}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily register (\begin{DoxyParamCaption}\item[{}]{\$register\+Request }\end{DoxyParamCaption})}
+
+
+
+This function is designed manage the register request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$register\+Request} & \+: contains all fields mandatory and optional to register a new user (coming from a form) \\
+\hline
+\end{DoxyParams}

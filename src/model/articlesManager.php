@@ -5,7 +5,8 @@
  * @brief     This model is designed to implement the articles business logic
  * @author    Created by Pascal.BENZONANA
  * @author    Updated by Nicolas.GLASSEY
- * @version   13-APR-2020
+ * @author    Updated by Luca.Bassi
+ * @version   11-NOV-2020
  */
 
 /**
@@ -51,7 +52,9 @@ function updateWines() {
     unset($_SESSION['wine']);
     return $products;
 }
-
+/**
+ * @brief : unused function !
+ */
 function insertOrder() {
 
     $products = null;
@@ -97,6 +100,9 @@ function insertOrder() {
     return $products;
 }
 
+/**
+ * @brief This function is designed to creat or update a json file in data folder in model section, the name of file is build this concatenation of User SESSION'id 
+ */
 function jsonCartUpdater() {
     $dataDirectory = "model/data";
     $dataFileName = 'userCart.json';
@@ -127,9 +133,10 @@ function jsonCartUpdater() {
         $tempsDirPath = $dataDirectory . '/data' . session_id();
         file_put_contents("$tempsDirPath/$dataFileName", json_encode($jsonCartBuilder),true);
     }
-    //  $test = $_SESSION;
 }
-
+/**
+ * @brief This function is designed to encode on JSON format the SESSION variable
+ */
 function getData() {
     $jsonCartBuilder['userCart'] = $_SESSION;
     return json_encode($jsonCartBuilder);

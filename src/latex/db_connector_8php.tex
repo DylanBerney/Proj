@@ -1,0 +1,115 @@
+\hypertarget{db_connector_8php}{}\doxysection{model/db\+Connector.php File Reference}
+\label{db_connector_8php}\index{model/dbConnector.php@{model/dbConnector.php}}
+
+
+This controller is designed to manage database accesses and transactions.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_model_data_base_exception}{Model\+Data\+Base\+Exception}}
+\begin{DoxyCompactList}\small\item\em This class is designed to manage specific model exception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{db_connector_8php_a6daffeeec6b31feefc7b470b7f9a72c4}{execute\+Query\+Check}} (\$query)
+\begin{DoxyCompactList}\small\item\em This function is designed to execute a query received as parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{db_connector_8php_a2fd8ab81c294717eb802d792dc7309a6}\label{db_connector_8php_a2fd8ab81c294717eb802d792dc7309a6}} 
+{\bfseries execute\+Query\+Select} (\$query)
+\item 
+\mbox{\hyperlink{db_connector_8php_a88a565e4d85e872684be371b0687fb9c}{execute\+Query\+Insert}} (\$query)
+\begin{DoxyCompactList}\small\item\em This function is designed to insert value in database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{db_connector_8php_a4bdfbbe491c44322b748abfe9f636a77}\label{db_connector_8php_a4bdfbbe491c44322b748abfe9f636a77}} 
+{\bfseries execute\+Query\+Update} (\$query, \$param)
+\item 
+\mbox{\hyperlink{db_connector_8php_ac86d33cb4865279fe9c2bde1d1e8d14d}{open\+D\+B\+Connexion}} ()
+\begin{DoxyCompactList}\small\item\em This function is designed to manage the database connexion. Closing will be not proceeded there. The client is responsible of this. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This controller is designed to manage database accesses and transactions. 
+
+\begin{DoxyAuthor}{Author}
+Created by Pascal.\+B\+E\+N\+Z\+O\+N\+A\+NA 
+
+Updated by Nicolas.\+G\+L\+A\+S\+S\+EY 
+
+Updated by Luca.\+Bassi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+11-\/N\+O\+V-\/2020 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{db_connector_8php_a6daffeeec6b31feefc7b470b7f9a72c4}\label{db_connector_8php_a6daffeeec6b31feefc7b470b7f9a72c4}} 
+\index{dbConnector.php@{dbConnector.php}!executeQueryCheck@{executeQueryCheck}}
+\index{executeQueryCheck@{executeQueryCheck}!dbConnector.php@{dbConnector.php}}
+\doxysubsubsection{\texorpdfstring{executeQueryCheck()}{executeQueryCheck()}}
+{\footnotesize\ttfamily execute\+Query\+Check (\begin{DoxyParamCaption}\item[{}]{\$query }\end{DoxyParamCaption})}
+
+
+
+This function is designed to execute a query received as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$query} & \+: must be correctly build for sql (syntaxis) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$\vert$null \+: get the query result (can be null) 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+\+: \href{http://php.net/manual/en/pdo.prepare.php}{\texttt{ http\+://php.\+net/manual/en/pdo.\+prepare.\+php}} 
+\end{DoxyRemark}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{class_model_data_base_exception}{Model\+Data\+Base\+Exception}}} & \+: will be throw if something goes wrong with the database opening process \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{db_connector_8php_a88a565e4d85e872684be371b0687fb9c}\label{db_connector_8php_a88a565e4d85e872684be371b0687fb9c}} 
+\index{dbConnector.php@{dbConnector.php}!executeQueryInsert@{executeQueryInsert}}
+\index{executeQueryInsert@{executeQueryInsert}!dbConnector.php@{dbConnector.php}}
+\doxysubsubsection{\texorpdfstring{executeQueryInsert()}{executeQueryInsert()}}
+{\footnotesize\ttfamily execute\+Query\+Insert (\begin{DoxyParamCaption}\item[{}]{\$query }\end{DoxyParamCaption})}
+
+
+
+This function is designed to insert value in database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$query} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool$\vert$null \+: \$statement-\/$>$execute() returns true is the insert was successful 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{class_model_data_base_exception}{Model\+Data\+Base\+Exception}}} & \+: will be throw if something goes wrong with the database opening process \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{db_connector_8php_ac86d33cb4865279fe9c2bde1d1e8d14d}\label{db_connector_8php_ac86d33cb4865279fe9c2bde1d1e8d14d}} 
+\index{dbConnector.php@{dbConnector.php}!openDBConnexion@{openDBConnexion}}
+\index{openDBConnexion@{openDBConnexion}!dbConnector.php@{dbConnector.php}}
+\doxysubsubsection{\texorpdfstring{openDBConnexion()}{openDBConnexion()}}
+{\footnotesize\ttfamily open\+D\+B\+Connexion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is designed to manage the database connexion. Closing will be not proceeded there. The client is responsible of this. 
+
+\begin{DoxyReturn}{Returns}
+P\+D\+O$\vert$null 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+\+: \href{http://php.net/manual/en/pdo.construct.php}{\texttt{ http\+://php.\+net/manual/en/pdo.\+construct.\+php}} 
+\end{DoxyRemark}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{class_model_data_base_exception}{Model\+Data\+Base\+Exception}}} & \+: will be throw if something goes wrong with the database opening process \\
+\hline
+\end{DoxyExceptions}
