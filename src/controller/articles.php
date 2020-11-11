@@ -335,7 +335,6 @@ function delPanier() {
     unset($_SESSION['total']);
     unset($_SESSION["cart"]["total"]);
     unset($_SESSION["success"]);
-    
 }
 
 /**

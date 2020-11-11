@@ -188,9 +188,9 @@ ob_start();
                                                     <input type='hidden'name='amount' value='<?= $totalPrice ?>'> 
                                                     <input type='hidden'name='no_shipping' value='1'> 
                                                     <input type='hidden'name='currency_code' value='USD'> 
-                                                    <input type='hidden'name='notify_url'value='https://localhost'>
-                                                    <input type='hidden' name='cancel_return'value='http://localhost:8000/index.php?action=orderReturn'>
-                                                    <input type='hidden' name='return'value='http://3.23.78.107//index.php?action=orderReturn'>
+                                                    <input type='hidden'name='notify_url'value='http://3.23.78.107'>
+                                                    <input type='hidden' name='cancel_return'value='http://3.23.78.107/index.php?action=goPanier'>
+                                                    <input type='hidden' name='return'value='http://3.23.78.107/index.php?action=orderReturn'>
                                                     <input type="hidden" name="cmd" value="_xclick"> 
                                                     <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"> 
                                                 </form>
