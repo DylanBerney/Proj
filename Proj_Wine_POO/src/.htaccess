@@ -1,4 +1,0 @@
-RewriteEngine on
-Rewritecond %{HTTP_HOST} ^localhost
-Rewritecond %{REQUEST_URI} !^/MonSite
-Rewriterule ^(?*)$ /index.pph/
